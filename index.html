@@ -288,6 +288,56 @@
             transform: translateY(-3px);
         }
         
+        /* Location Banner */
+        .location-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, #e68a00 100%);
+            color: white;
+            padding: 1.2rem 0;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+        }
+        
+        .location-banner .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .location-info i {
+            font-size: 1.4rem;
+        }
+        
+        .route-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .route-btn:hover {
+            background: white;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
         /* Main Content */
         .page-title {
             text-align: center;
@@ -619,6 +669,12 @@
                 font-size: 2rem;
             }
             
+            .location-banner .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -661,6 +717,10 @@
                 text-align: center;
                 flex-direction: column;
                 gap: 5px;
+            }
+            
+            .location-info {
+                font-size: 1rem;
             }
         }
     </style>
@@ -729,7 +789,7 @@
                         <li><a href="#home">Início</a></li>
                         <li><a href="#services">Serviços</a></li>
                         <li><a href="#pricing">Preços</a></li>
-                        <li><a href="#contact">Contato</a>13988089754</li>
+                        <li><a href="#contact">Contato</a></li>
                     </ul>
                 </nav>
                 
@@ -744,7 +804,8 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Tabela de Preços de Serviços 2026</h1>
-                     
+            <p>Confira nossa lista completa de serviços com preços atualizados. Oferecemos soluções em documentos, impressões, digitalização e muito mais com qualidade e agilidade.</p>
+            
             <div class="cta-buttons">
                 <a href="#services" class="btn btn-primary">
                     <i class="fas fa-list"></i> Ver Serviços
@@ -756,12 +817,28 @@
         </div>
     </section>
 
+    <!-- Location Banner with Route Link -->
+    <div class="location-banner">
+        <div class="container">
+            <div class="location-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <span><strong>Endereço:</strong> Av. Brasil, 284 - Jardim Casqueiro, Cubatão - SP</span>
+            </div>
+            <a href="https://www.google.com/maps/dir//Av.+Brasil,+284+-+Jardim+Casqueiro,+Cubatão+-+SP" 
+               target="_blank" 
+               class="route-btn">
+                <i class="fas fa-route"></i> Traçar Rota
+            </a>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="container">
         <section id="pricing">
             <div class="page-title">
-                <h2></h2>
-                </div>
+                <h2>Nossos Serviços e Preços</h2>
+                <p>Selecione uma categoria para visualizar os serviços disponíveis e seus respectivos valores.</p>
+            </div>
 
             <!-- Categories Navigation -->
             <div class="categories-nav" id="categoriesNav">
@@ -853,7 +930,15 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
-                            <span>Seg - Sex: 9:30h às 18h | Sáb: 9:30h às 14h</span>
+                            <span>Seg - Sex: 8h às 18h | Sáb: 9h às 13h</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-route"></i>
+                            <a href="https://www.google.com/maps/dir//Av.+Brasil,+284+-+Jardim+Casqueiro,+Cubatão+-+SP" 
+                               target="_blank" 
+                               style="color: var(--gray-light); text-decoration: none;">
+                                <span>Traçar rota no Google Maps</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -861,7 +946,7 @@
 
             <div class="copyright">
                 <p>&copy; 2026 Pibbaweb Informática. Todos os direitos reservados. | Preços sujeitos a alteração sem aviso prévio.</p>
-                <p style="margin-top: 0.5rem;"></p>
+                <p style="margin-top: 0.5rem;">CNPJ: XX.XXX.XXX/XXXX-XX</p>
             </div>
         </div>
     </footer>
@@ -1162,4 +1247,3 @@
     </script>
 </body>
 </html>
-
