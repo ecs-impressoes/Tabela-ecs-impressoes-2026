@@ -3,299 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pibbaweb Informática - Tabela de Preços 2026</title>
+    <title>Pibbaweb Informática | Tabela de Preços 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --radius: 10px;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
             --transition: all 0.3s ease;
-            --frame-bg: #f8f3e9;
-            --frame-border: #d4c9b8;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary);
+            background-color: var(--light);
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
         }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
-
+        
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* Header */
-        .main-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
+        
+        /* Contact Bar - Com redes sociais à esquerda */
+        .contact-bar {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
             color: white;
-            padding: 20px 0;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 100;
+            padding: 0.8rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .header-content {
+        
+        .contact-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            background-color: var(--secondary);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .logo-text p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Contact Bar */
-        .contact-bar {
-            background-color: var(--secondary);
-            color: white;
-            padding: 12px 0;
-            font-size: 0.95rem;
-        }
-
+        
         .contact-info {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 2rem;
             flex-wrap: wrap;
-            gap: 15px;
         }
-
+        
         .contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
+        
         .contact-item i {
-            font-size: 1.1rem;
+            color: var(--accent);
         }
-
+        
         .social-icons {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
+            margin-right: 2rem;
         }
-
+        
         .social-icons a {
             color: white;
-            font-size: 1.2rem;
+            text-decoration: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: var(--transition);
         }
-
+        
         .social-icons a:hover {
-            transform: translateY(-3px);
-            color: var(--light);
+            background: var(--primary);
+            transform: translateY(-2px);
         }
-
-        /* WhatsApp Fixed Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25D366;
-            color: white;
+        
+        /* Main Header */
+        .main-header {
+            background: white;
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
             width: 60px;
             height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 0.2rem;
+        }
+        
+        .logo-text p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .pix-banner {
+            background: linear-gradient(135deg, #32bcad 0%, #2a9c8f 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(42, 156, 143, 0.2);
+        }
+        
+        .pix-banner i {
+            font-size: 1.2rem;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
             z-index: 1000;
-            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
             text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
         }
-
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
+        
+        nav a:hover {
+            color: var(--accent);
         }
-
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
             color: white;
+            padding: 5rem 0;
             text-align: center;
-            padding: 80px 20px;
-            margin-bottom: 40px;
+            border-radius: 0 0 var(--radius) var(--radius);
+            margin-bottom: 4rem;
         }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
-
+        
         .hero p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray-light);
         }
-
-        .pix-banner {
-            background-color: rgba(52, 152, 219, 0.2);
-            border: 2px solid var(--secondary);
-            border-radius: var(--radius);
-            padding: 20px;
-            display: inline-block;
-            margin-top: 20px;
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
-
-        .pix-banner i {
-            color: #32CD32;
-            margin-right: 10px;
-            font-size: 1.5rem;
+        
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
-
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline:hover {
+            border-color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Main Content */
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         /* Categories Navigation */
         .categories-nav {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin: 40px 0;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-bottom: 3rem;
         }
-
-        .category-btn {
-            background-color: white;
-            border: 2px solid #e0e0e0;
-            padding: 15px 25px;
+        
+        .category-tab {
+            background: white;
+            border: 1px solid var(--gray-light);
             border-radius: 50px;
-            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            color: var(--dark);
+            gap: 8px;
         }
-
-        .category-btn:hover, .category-btn.active {
-            background-color: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .category-btn i {
-            font-size: 1.2rem;
-        }
-
-        /* Service Sections */
-        .service-section {
-            background-color: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .service-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Special Frame Section */
-        .frame-section {
-            background: linear-gradient(135deg, var(--frame-bg) 0%, #f0e9db 100%);
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--frame-border);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .frame-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #8b7355, #d4c9b8, #8b7355);
-        }
-
-        .frame-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.2);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
+        
+        .category-tab:hover {
+            border-color: var(--primary);
             color: var(--primary);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .category-tab.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* Categories Grid */
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
-
-        .frame-title {
-            color: #5d4c3c;
-            border-bottom: 3px solid #8b7355;
-        }
-
-        .frame-title i {
-            color: #8b7355;
-            background-color: #f0e9db;
+        
+        .category-header i {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -303,275 +381,318 @@
             align-items: center;
             justify-content: center;
         }
-
-        /* Tables */
-        .service-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .service-table th {
-            background-color: #f5f7fa;
-            color: var(--primary);
+        
+        .category-header h3 {
+            font-size: 1.4rem;
             font-weight: 600;
-            text-align: left;
-            padding: 18px 15px;
-            border-bottom: 2px solid var(--secondary);
         }
-
-        .frame-table th {
-            background-color: #e9e1d3;
-            color: #5d4c3c;
-            border-bottom: 2px solid #8b7355;
+        
+        .category-content {
+            padding: 1.5rem;
+            flex-grow: 1;
         }
-
-        .service-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+        
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-light);
         }
-
-        .frame-table td {
-            border-bottom: 1px solid #d4c9b8;
+        
+        .service-item:last-child {
+            border-bottom: none;
         }
-
-        .service-table tr:hover {
-            background-color: #f9fbfe;
+        
+        .service-name {
+            font-weight: 500;
         }
-
-        .frame-table tr:hover {
-            background-color: #f5f0e6;
-        }
-
-        .price {
-            color: var(--secondary);
+        
+        .service-price {
             font-weight: 700;
-            white-space: nowrap;
+            color: var(--success);
         }
-
-        .frame-price {
-            color: #8b7355;
-            font-weight: 700;
+        
+        .category-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--gray-light);
+            background-color: #f9fafb;
         }
-
+        
         .note {
+            color: var(--gray);
             font-size: 0.9rem;
-            color: #666;
             font-style: italic;
-            margin-top: 15px;
-            padding: 10px 15px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #ddd;
-            border-radius: 0 var(--radius) var(--radius) 0;
         }
-
-        .frame-note {
-            background-color: #f5f0e6;
-            border-left: 4px solid #8b7355;
-            color: #5d4c3c;
+        
+        /* Featured Services */
+        .featured-services {
+            margin-bottom: 5rem;
         }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-left: 5px solid var(--accent);
-            padding: 25px;
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .featured-card {
+            background: white;
             border-radius: var(--radius);
-            margin: 30px 0;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
         }
-
-        .highlight-box h3 {
-            color: var(--accent);
-            margin-bottom: 15px;
+        
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .featured-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        /* Size Badge */
-        .size-badge {
-            display: inline-block;
-            background-color: #8b7355;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: 20px 0 10px;
+            font-size: 1.8rem;
         }
-
+        
         /* Footer */
-        .main-footer {
-            background-color: var(--primary);
+        footer {
+            background-color: var(--secondary);
             color: white;
-            padding: 60px 0 30px;
-            margin-top: 60px;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
         }
-
+        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
-
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--light);
+        
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 0.8rem;
         }
-
-        .footer-column h3::after {
+        
+        .footer-column h4::after {
             content: '';
             position: absolute;
-            left: 0;
             bottom: 0;
-            width: 50px;
+            left: 0;
+            width: 40px;
             height: 3px;
-            background-color: var(--secondary);
+            background-color: var(--accent);
         }
-
+        
         .footer-column ul {
             list-style: none;
         }
-
+        
         .footer-column ul li {
-            margin-bottom: 12px;
+            margin-bottom: 0.8rem;
         }
-
+        
         .footer-column ul li a {
-            color: #bbb;
+            color: var(--gray-light);
             text-decoration: none;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-
+        
         .footer-column ul li a:hover {
             color: white;
             padding-left: 5px;
         }
-
-        .footer-bottom {
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gray-light);
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
+            color: var(--gray);
             font-size: 0.9rem;
         }
-
+        
         /* Responsive */
         @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .category-btn {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-            
-            .service-section, .frame-section {
-                padding: 25px;
+            .categories-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
-
+        
         @media (max-width: 768px) {
-            .header-content {
+            .contact-bar .container {
                 flex-direction: column;
+                gap: 1rem;
                 text-align: center;
-                gap: 20px;
             }
             
             .contact-info {
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .social-icons {
+                margin-right: 0;
+                order: -1;
+                margin-bottom: 1rem;
+            }
+            
+            .header-content {
                 flex-direction: column;
                 text-align: center;
             }
             
-            .categories-nav {
-                gap: 10px;
+            .logo {
+                justify-content: center;
             }
             
-            .category-btn {
-                padding: 10px 15px;
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                align-self: flex-end;
+                margin-top: -50px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .categories-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-tab {
+                padding: 0.6rem 1rem;
                 font-size: 0.9rem;
             }
             
-            .category-btn span {
-                display: none;
-            }
-            
-            .category-btn i {
-                font-size: 1.3rem;
-            }
-            
-            .service-table {
-                display: block;
-                overflow-x: auto;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 60px 15px;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .service-section, .frame-section {
-                padding: 20px 15px;
+            .featured-grid {
+                grid-template-columns: 1fr;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .pix-banner {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+                text-align: center;
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- WhatsApp Fixed Button -->
-    <a href="https://wa.me/5513988089754" class="whatsapp-float" target="_blank" aria-label="Contato WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Contact Bar -->
+    <!-- Contact Bar with Social Media on Left -->
     <div class="contact-bar">
         <div class="container">
             <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>(13) 98808-9754</span>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/pibbaweb1" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pibbaweb1/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
+                
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
-                    <span><a href="https://wa.me/5513988089754" style="color: white; text-decoration: none;">WhatsApp</a></span>
+                    <span><a href="https://wa.me/5513988089754" style="color: white; text-decoration: none;">WhatsApp: (13) 98808-9754</a></span>
                 </div>
+                
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <span>avenidabrasil284@gmail.com</span>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/pibbaweb1" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/pibbaweb1/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -590,6 +711,7 @@
                         <p>Impressões e Serviços Digitais</p>
                     </div>
                 </div>
+                
                 <div class="pix-banner">
                     <i class="fab fa-pix"></i>
                     <strong>PIX: 13 98808-9754</strong> (ELIVALDO C. DOS SANTOS)
@@ -598,795 +720,445 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Navigation -->
+    <nav class="main-nav">
         <div class="container">
-            <h2>Tabela de Preços 2026</h2>
-            <p>Oferecemos soluções completas em impressões, digitalização, documentação e serviços de informática. Confira nossa tabela de preços atualizada para 2026.</p>
-            <a href="https://wa.me/5513988089754" class="category-btn" style="background-color: #25D366; color: white; border: none;" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                <span>Fale Conosco no WhatsApp</span>
-            </a>
+            <div class="nav-content">
+                <nav>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#pricing">Preços</a></li>
+                        <li><a href="#contact">Contato</a>13988089754</li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Tabela de Preços de Serviços 2026</h1>
+                     
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">
+                    <i class="fas fa-list"></i> Ver Serviços
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-phone-alt"></i> Fale Conosco
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Categories Navigation -->
-        <div class="categories-nav">
-            <button class="category-btn active" data-category="all">
-                <i class="fas fa-list"></i>
-                <span>Todos</span>
-            </button>
-            <button class="category-btn" data-category="curriculos">
-                <i class="fas fa-file-alt"></i>
-                <span>Currículos</span>
-            </button>
-            <button class="category-btn" data-category="documentos">
-                <i class="fas fa-id-card"></i>
-                <span>Documentos</span>
-            </button>
-            <button class="category-btn" data-category="impressoes">
-                <i class="fas fa-print"></i>
-                <span>Impressões</span>
-            </button>
-            <button class="category-btn" data-category="fotos">
-                <i class="fas fa-camera"></i>
-                <span>Fotos</span>
-            </button>
-            <button class="category-btn" data-category="quadros">
-                <i class="fas fa-image"></i>
-                <span>Quadros</span>
-            </button>
-            <button class="category-btn" data-category="servicos">
-                <i class="fas fa-tools"></i>
-                <span>Serviços</span>
-            </button>
-        </div>
+        <section id="pricing">
+            <div class="page-title">
+                <h2></h2>
+                </div>
 
-        <!-- CURRÍCULOS -->
-        <section id="curriculos" class="service-section">
-            <h2 class="section-title"><i class="fas fa-file-alt"></i> CURRÍCULOS</h2>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>CURRÍCULO 1o EMPREGO</td>
-                        <td class="price">R$ 6,00</td>
-                    </tr>
-                    <tr>
-                        <td>CURRÍCULO S/ FOTO 1F</td>
-                        <td class="price">R$ 9,00</td>
-                    </tr>
-                    <tr>
-                        <td>CURRÍCULO S/ FOTO 2F</td>
-                        <td class="price">R$ 12,00</td>
-                    </tr>
-                    <tr>
-                        <td>CURRÍCULO S/ FOTO 3F</td>
-                        <td class="price">R$ 14,00</td>
-                    </tr>
-                    <tr>
-                        <td>CURRÍCULO C/ FOTO 1F</td>
-                        <td class="price">R$ 10,00</td>
-                    </tr>
-                    <tr>
-                        <td>CURRÍCULO C/ FOTO 2F</td>
-                        <td class="price">R$ 12,00</td>
-                    </tr>
-                    <tr>
-                        <td>CURRÍCULO C/ FOTO 3F</td>
-                        <td class="price">R$ 14,00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- CPF E OUTRAS CARTEIRAS -->
-        <section id="documentos" class="service-section">
-            <h2 class="section-title"><i class="fas fa-id-card"></i> DOCUMENTOS E CARTEIRAS</h2>
-            
-            <h3>CPF E OUTRAS CARTEIRAS</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>IMPRESSÃO S/ PLASTIFICAÇÃO</td>
-                        <td class="price">R$ 6,00</td>
-                    </tr>
-                    <tr>
-                        <td>IMPRESSÃO C/ PLASTIFICAÇÃO</td>
-                        <td class="price">R$ 9,00</td>
-                    </tr>
-                    <tr>
-                        <td>MAIS DE 1 (JÁ PLASTIFICADO)</td>
-                        <td class="price">R$ 7,50</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 style="margin-top: 30px;">ENCADERNAÇÃO</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ATÉ 250 FOLHAS</td>
-                        <td class="price">R$ 12,00</td>
-                    </tr>
-                    <tr>
-                        <td>MAIS DE 250 FOLHAS</td>
-                        <td class="price">R$ 14,00</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="note">OBS.: MÁXIMO 350 FOLHAS</p>
-
-            <h3 style="margin-top: 30px;">TÍTULO DE ELEITOR</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1a VIA (FAZER CDTRO)</td>
-                        <td class="price">R$ 16,00</td>
-                    </tr>
-                    <tr>
-                        <td>2a VIA (JÁ O TÍTULO)</td>
-                        <td class="price">R$ 9,50</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- IMPRESSÕES -->
-        <section id="impressoes" class="service-section">
-            <h2 class="section-title"><i class="fas fa-print"></i> IMPRESSÕES</h2>
-            
-            <h3>IMPRESSÃO OFFSET</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1 FOLHA</td>
-                        <td class="price">R$ 7,00</td>
-                    </tr>
-                    <tr>
-                        <td>2 FOLHAS (CADA)</td>
-                        <td class="price">R$ 6,50</td>
-                    </tr>
-                    <tr>
-                        <td>3 FOLHAS (CADA)</td>
-                        <td class="price">R$ 6,00</td>
-                    </tr>
-                    <tr>
-                        <td>4 À 10 FOLHAS</td>
-                        <td class="price">R$ 5,00</td>
-                    </tr>
-                    <tr>
-                        <td>10 EM DIANTE</td>
-                        <td class="price">R$ 4,00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="highlight-box">
-                <h3><i class="fas fa-bolt"></i> SERVIÇOS EM DESTAQUE</h3>
-                <p><strong>CRIAR CNPJ MEI:</strong> CONTA GOV R$70,00 | DECLARAÇÃO ANUAL R$35,00</p>
-                <p><strong>PASSE ESCOLAR / AUTISTA:</strong> PASSE ESCOLAR EST. R$16,00 | PASSE LIVRE AUTISTA R$22,00</p>
-                <p><strong>CARTÕES DE VISITA:</strong> Consulte nossa tabela completa</p>
+            <!-- Categories Navigation -->
+            <div class="categories-nav" id="categoriesNav">
+                <!-- Categories tabs will be generated by JavaScript -->
             </div>
 
-            <h3 style="margin-top: 30px;">IMPRESSÃO VIA WHATSAPP, EMAIL, BLUETOOTH OU PENDRIVE</h3>
-            <h4>IMPRESSÃO PRETA</h4>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1 FOLHA PB</td>
-                        <td class="price">R$ 2,00</td>
-                    </tr>
-                    <tr>
-                        <td>2 FOLHAS</td>
-                        <td class="price">R$ 4,00</td>
-                    </tr>
-                    <tr>
-                        <td>3 FOLHAS</td>
-                        <td class="price">R$ 5,25</td>
-                    </tr>
-                    <tr>
-                        <td>4 FOLHAS</td>
-                        <td class="price">R$ 7,00</td>
-                    </tr>
-                    <tr>
-                        <td>5a À 15a FOLHA CADA</td>
-                        <td class="price">R$ 1,30</td>
-                    </tr>
-                    <tr>
-                        <td>15a FOLHA EM DIANTE</td>
-                        <td class="price">R$ 1,00</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="note">FRENTE E VERSO COBRAR R$ 0,70 A MAIS DE CADA</p>
+            <!-- Categories Grid -->
+            <div class="categories-container" id="categoriesContainer">
+                <!-- Categories cards will be generated by JavaScript -->
+            </div>
         </section>
 
-        <!-- FOTOS -->
-        <section id="fotos" class="service-section">
-            <h2 class="section-title"><i class="fas fa-camera"></i> FOTOS</h2>
-            
-            <h3>FOTOS POLAROID</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1 FOTO</td>
-                        <td class="price">R$ 3,50</td>
-                    </tr>
-                    <tr>
-                        <td>2 FOTOS</td>
-                        <td class="price">R$ 6,00</td>
-                    </tr>
-                    <tr>
-                        <td>3 FOTOS</td>
-                        <td class="price">R$ 8,50</td>
-                    </tr>
-                    <tr>
-                        <td>6 FOTOS</td>
-                        <td class="price">R$ 12,50</td>
-                    </tr>
-                    <tr>
-                        <td>9 FOTOS</td>
-                        <td class="price">R$ 17,00</td>
-                    </tr>
-                    <tr>
-                        <td>ACIMA DE 9 FOTOS, CADA</td>
-                        <td class="price">R$ 1,70</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Featured Services -->
+        <section class="featured-services" id="services">
+            <div class="page-title">
+                <h2>Serviços em Destaque</h2>
+                <p>Alguns dos nossos serviços mais solicitados pelos clientes.</p>
+            </div>
 
-            <h3 style="margin-top: 30px;">FOTO 3X4</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>3 FOTOS 3X4</td>
-                        <td class="price">R$ 8,00</td>
-                    </tr>
-                    <tr>
-                        <td>6 FOTOS 3X4</td>
-                        <td class="price">R$ 14,00</td>
-                    </tr>
-                    <tr>
-                        <td>9 FOTOS 3X4</td>
-                        <td class="price">R$ 16,00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Currículos Profissionais</h3>
+                    <p>Montamos seu currículo com layout profissional, com ou sem foto, para você conquistar a vaga desejada.</p>
+                    <p class="service-price" style="margin-top: 1rem;">A partir de R$ 6,00</p>
+                </div>
 
-        <!-- QUADROS E PORTA-RETRATOS -->
-        <section id="quadros" class="frame-section">
-            <h2 class="section-title frame-title"><i class="fas fa-image"></i> QUADROS E PORTA-RETRATOS</h2>
-            
-            <!-- Materiais e Acessórios -->
-            <h3>Materiais e Acessórios</h3>
-            <table class="service-table frame-table">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Cor / Acabamento</th>
-                        <th>Preço Unitário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Cordinha 10x15</td>
-                        <td>Preta Lisa</td>
-                        <td class="frame-price">R$ 24,00</td>
-                    </tr>
-                    <tr>
-                        <td>Aro Basic para Azulejo 15x15</td>
-                        <td>Branca Lisa</td>
-                        <td class="frame-price">R$ 17,00</td>
-                    </tr>
-                    <tr>
-                        <td>Álbum Rebite 10x15 para 60 fotos</td>
-                        <td>60 fotos</td>
-                        <td class="frame-price">R$ 36,00</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>Documentos Plastificados</h3>
+                    <p>Proteja seus documentos importantes com nossa plastificação de alta qualidade e durabilidade.</p>
+                    <p class="service-price" style="margin-top: 1rem;">A partir de R$ 4,50</p>
+                </div>
 
-            <!-- Kits Express - 10x15 -->
-            <div class="size-badge">KITS EXPRESS - TAMANHO 10x15</div>
-            <table class="service-table frame-table">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Cor / Acabamento</th>
-                        <th>Preço Unitário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>5 Duplos VIH 10x15</td>
-                        <td>Branca Lisa</td>
-                        <td class="frame-price">R$ 42,00</td>
-                    </tr>
-                    <tr>
-                        <td>5 Duplos VIV 10x15</td>
-                        <td>Branca Lisa</td>
-                        <td class="frame-price">R$ 41,00</td>
-                    </tr>
-                    <tr>
-                        <td>5 Duplos V/V 10x15</td>
-                        <td>Preta Lisa</td>
-                        <td class="frame-price">R$ 43,00</td>
-                    </tr>
-                    <tr>
-                        <td>5 Duplos V/H 10x15</td>
-                        <td>Marrom Rústica</td>
-                        <td class="frame-price">R$ 44,00</td>
-                    </tr>
-                    <tr>
-                        <td>5 Duplos V/V 10x15</td>
-                        <td>Pinus Natural</td>
-                        <td class="frame-price">R$ 44,00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Porta-Retratos 10x15 -->
-            <div class="size-badge">PORTA-RETRATOS - TAMANHO 10x15</div>
-            <table class="service-table frame-table">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Cor / Acabamento</th>
-                        <th>Preço Unitário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Marrom Café</td>
-                        <td class="frame-price">R$ 19,00</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Branco</td>
-                        <td class="frame-price">R$ 18,50</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Preto</td>
-                        <td class="frame-price">R$ 18,50</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Vermelho</td>
-                        <td class="frame-price">R$ 19,00</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Azul Bic</td>
-                        <td class="frame-price">R$ 19,00</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Rosa Bebé</td>
-                        <td class="frame-price">R$ 19,50</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Azul Bebé</td>
-                        <td class="frame-price">R$ 19,00</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 10x15</td>
-                        <td>Marrom Rústica</td>
-                        <td class="frame-price">R$ 19,50</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Porta-Retratos 15x21 -->
-            <div class="size-badge">PORTA-RETRATOS - TAMANHO 15x21</div>
-            <table class="service-table frame-table">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Cor / Acabamento</th>
-                        <th>Preço Unitário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Porta-Retratos 15x21</td>
-                        <td>Branco</td>
-                        <td class="frame-price">R$ 24,00</td>
-                    </tr>
-                    <tr>
-                        <td>Porta-Retratos 15x21</td>
-                        <td>Preto</td>
-                        <td class="frame-price">R$ 32,00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Quadros 21x29.7 -->
-            <div class="size-badge">QUADROS - TAMANHO 21x29.7</div>
-            <table class="service-table frame-table">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Cor / Acabamento</th>
-                        <th>Preço Unitário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Quadros 21x29.7 Box</td>
-                        <td>Branca Chanfrada</td>
-                        <td class="frame-price">R$ 37,00</td>
-                    </tr>
-                    <tr>
-                        <td>Quadros 21x29.7 Box</td>
-                        <td>Preta Chanfrada</td>
-                        <td class="frame-price">R$ 39,00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Álbuns -->
-            <div class="size-badge">ÁLBUNS FOTOGRÁFICOS</div>
-            <table class="service-table frame-table">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Cor / Acabamento</th>
-                        <th>Preço Unitário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Album Rebite 15x21</td>
-                        <td>80 fotos</td>
-                        <td class="frame-price">R$ 39,00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p class="note frame-note">
-                <i class="fas fa-info-circle"></i> Todos os produtos estão disponíveis em estoque. Preços válidos para 2026.
-            </p>
-        </section>
-
-        <!-- OUTROS SERVIÇOS -->
-        <section id="servicos" class="service-section">
-            <h2 class="section-title"><i class="fas fa-tools"></i> OUTROS SERVIÇOS</h2>
-            
-            <h3>PLASTIFICAÇÃO</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>RG, CPF, TÍTULOS/ ETC... SÓ PLAST.</td>
-                        <td class="price">R$ 4,50</td>
-                    </tr>
-                    <tr>
-                        <td>COVID, ESTAC. IDOSO</td>
-                        <td class="price">R$ 6,00</td>
-                    </tr>
-                    <tr>
-                        <td>A4 SEM IMPRESSÃO</td>
-                        <td class="price">R$ 9,00</td>
-                    </tr>
-                    <tr>
-                        <td>A4 COM IMPRESSÃO</td>
-                        <td class="price">R$ 11,00</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3 style="margin-top: 30px;">CRIAR CONTA OU E-MAILS</h3>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>GOV</td>
-                        <td class="price">R$ 8,00</td>
-                    </tr>
-                    <tr>
-                        <td>EMAILS</td>
-                        <td class="price">R$ 9,50</td>
-                    </tr>
-                    <tr>
-                        <td>RECUPERAÇÃO</td>
-                        <td class="price">R$ 7,50</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- CARTÕES DE VISITA -->
-        <section class="service-section">
-            <h2 class="section-title"><i class="fas fa-address-card"></i> CARTÕES DE VISITA</h2>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>500 UN.</th>
-                        <th>1000 UN.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>COM ARTE</td>
-                        <td class="price">R$ 174,00</td>
-                        <td class="price">R$ 234,00</td>
-                    </tr>
-                    <tr>
-                        <td>SEM ARTE</td>
-                        <td class="price">R$ 234,00</td>
-                        <td class="price">R$ 264,00</td>
-                    </tr>
-                    <tr>
-                        <td>FRE/VERSO C</td>
-                        <td class="price">R$ 216,00</td>
-                        <td class="price">R$ 280,00</td>
-                    </tr>
-                    <tr>
-                        <td>FRE/VERSO S</td>
-                        <td class="price">R$ 260,00</td>
-                        <td class="price">R$ 340,00</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Fotos para Documentos</h3>
+                    <p>Fotos 3x4, 5x7 e 10x15 com qualidade profissional para todos os tipos de documentos.</p>
+                    <p class="service-price" style="margin-top: 1rem;">A partir de R$ 3,50</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="main-footer">
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Pibbaweb Informática</h3>
-                    <p>Soluções completas em impressões, digitalização, documentação e serviços de informática. Atendimento personalizado e de qualidade.</p>
-                    <div style="margin-top: 20px; display: flex; gap: 15px;">
-                        <a href="https://wa.me/5513988089754" class="whatsapp-float" style="position: relative; width: 45px; height: 45px; font-size: 22px;" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.facebook.com/pibbaweb1" class="whatsapp-float" style="position: relative; width: 45px; height: 45px; font-size: 22px; background-color: #3b5998;" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/pibbaweb1/" class="whatsapp-float" style="position: relative; width: 45px; height: 45px; font-size: 22px; background-color: #E1306C;" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                    <h4>Sobre Nós</h4>
+                    <p>Oferecemos serviços de qualidade há mais de 10 anos, com atendimento personalizado e soluções rápidas para suas necessidades documentais e digitais.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/pibbaweb1" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pibbaweb1/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5513988089754" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
-                    <h3>Contato</h3>
+                    <h4>Links Rápidos</h4>
                     <ul>
-                        <li>
-                            <a href="https://wa.me/5513988089754" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                (13) 98808-9754
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:avenidabrasil284@gmail.com">
-                                <i class="fas fa-envelope"></i>
-                                avenidabrasil284@gmail.com
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Endereço Comercial
-                            </a>
-                        </li>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#pricing">Tabela de Preços</a></li>
+                        <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
-                    <h3>Serviços Populares</h3>
-                    <ul>
-                        <li><a href="#curriculos">Currículos Profissionais</a></li>
-                        <li><a href="#documentos">Documentos Oficiais</a></li>
-                        <li><a href="#impressoes">Impressões Coloridas</a></li>
-                        <li><a href="#fotos">Fotos 3x4 e 10x15</a></li>
-                        <li><a href="#quadros">Quadros e Porta-Retratos</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Formas de Pagamento</h3>
-                    <ul>
-                        <li><i class="fab fa-pix"></i> PIX: 13 98808-9754</li>
-                        <li><i class="fas fa-money-bill-wave"></i> Dinheiro</li>
-                        <li><i class="fas fa-credit-card"></i> Cartão de Crédito/Débito</li>
-                        <li><i class="fas fa-barcode"></i> Boleto Bancário</li>
-                    </ul>
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. Brasil, 284 - Jardim Casqueiro, Cubatão - SP</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(13) 98808-9754</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>avenidabrasil284@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Seg - Sex: 8h às 18h | Sáb: 9h às 14h</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Pibbaweb Informática - Impressões e Serviços Digitais. Todos os direitos reservados.</p>
-                <p>PIX: 13 98808-9754 (ELIVALDO C. DOS SANTOS) | Tabela de Preços válida para 2026</p>
+
+            <div class="copyright">
+                <p>&copy; 2026 Pibbaweb Informática. Todos os direitos reservados. | Preços sujeitos a alteração sem aviso prévio.</p>
+                <p style="margin-top: 0.5rem;"></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Navegação por categorias
-        document.addEventListener('DOMContentLoaded', function() {
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const serviceSections = document.querySelectorAll('.service-section, .frame-section');
+        // Dados dos serviços extraídos dos PDFs
+        const servicesData = [
+            {
+                id: 'curriculos',
+                name: 'Currículos',
+                icon: 'fas fa-file-alt',
+                services: [
+                    { name: 'Currículo 1º Emprego', price: 'R$ 6,00' },
+                    { name: 'Currículo sem Foto 1 Frente', price: 'R$ 9,00' },
+                    { name: 'Currículo sem Foto 2 Frentes', price: 'R$ 12,00' },
+                    { name: 'Currículo sem Foto 3 Frentes', price: 'R$ 14,00' },
+                    { name: 'Currículo com Foto 1 Frente', price: 'R$ 10,00' },
+                    { name: 'Currículo com Foto 2 Frentes', price: 'R$ 12,00' },
+                    { name: 'Currículo com Foto 3 Frentes', price: 'R$ 14,00' }
+                ]
+            },
+            {
+                id: 'documentos',
+                name: 'CPF e Carteiras',
+                icon: 'fas fa-id-card',
+                services: [
+                    { name: 'Impressão sem Plastificação', price: 'R$ 6,00' },
+                    { name: 'Impressão com Plastificação', price: 'R$ 9,00' },
+                    { name: 'Mais de 1 (Já Plastificado)', price: 'R$ 7,50' }
+                ]
+            },
+            {
+                id: 'plastificacao',
+                name: 'Plastificação',
+                icon: 'fas fa-id-badge',
+                services: [
+                    { name: 'RG, CPF, Títulos (só plastificação)', price: 'R$ 4,50' },
+                    { name: 'Comprovantes COVID, Estacionamento Idoso', price: 'R$ 6,00' },
+                    { name: 'A4 sem Impressão', price: 'R$ 9,00' },
+                    { name: 'A4 com Impressão', price: 'R$ 11,00' }
+                ]
+            },
+            {
+                id: 'encadernacao',
+                name: 'Encadernação',
+                icon: 'fas fa-book',
+                services: [
+                    { name: 'Até 250 folhas', price: 'R$ 12,00' },
+                    { name: 'Mais de 250 folhas', price: 'R$ 14,00' }
+                ],
+                note: 'Máximo 350 folhas por encadernação'
+            },
+            {
+                id: 'impressao',
+                name: 'Impressão Offset',
+                icon: 'fas fa-print',
+                services: [
+                    { name: '1 Folha', price: 'R$ 7,00' },
+                    { name: '2 Folhas (cada)', price: 'R$ 6,50' },
+                    { name: '3 Folhas (cada)', price: 'R$ 6,00' },
+                    { name: '4 à 10 Folhas', price: 'R$ 5,00' },
+                    { name: '10 em diante (cada)', price: 'R$ 4,00' }
+                ]
+            },
+            {
+                id: 'titulo',
+                name: 'Título de Eleitor',
+                icon: 'fas fa-vote-yea',
+                services: [
+                    { name: '1ª Via (com cadastro)', price: 'R$ 16,00' },
+                    { name: '2ª Via (já tem título)', price: 'R$ 9,50' }
+                ]
+            },
+            {
+                id: 'certidoes',
+                name: 'Certidões e Atestados',
+                icon: 'fas fa-file-contract',
+                services: [
+                    { name: 'Atestado de Antecedentes - SP', price: 'R$ 9,00' },
+                    { name: 'Atestado de Antecedentes - Outros Estados', price: 'R$ 10,00' },
+                    { name: 'Acima de 1 Certidão (cada adicional)', price: 'R$ 7,00' }
+                ]
+            },
+            {
+                id: 'fotos',
+                name: 'Fotos',
+                icon: 'fas fa-camera',
+                services: [
+                    { name: 'Foto Polaroid (1 unidade)', price: 'R$ 3,50' },
+                    { name: '3 Fotos 3x4', price: 'R$ 8,00' },
+                    { name: '6 Fotos 3x4', price: 'R$ 14,00' },
+                    { name: '1 Foto 10x15', price: 'R$ 4,80' },
+                    { name: '1 Foto 5x7', price: 'R$ 5,80' }
+                ],
+                note: 'Acima de 9 fotos Polaroid: R$ 1,70 cada'
+            },
+            {
+                id: 'impressao-digital',
+                name: 'Impressão Digital',
+                icon: 'fas fa-file-upload',
+                services: [
+                    { name: 'Impressão PB - 1 folha', price: 'R$ 2,00' },
+                    { name: 'Impressão Colorida - 1 folha', price: 'R$ 3,00' },
+                    { name: 'Impressão PB - 5ª à 15ª (cada)', price: 'R$ 1,30' },
+                    { name: 'Impressão Colorida - 5ª à 15ª (cada)', price: 'R$ 2,00' }
+                ],
+                note: 'Frente e verso: + R$ 0,70 em cada folha'
+            },
+            {
+                id: 'impressao-fotografico',
+                name: 'Impressão Fotográfico A4',
+                icon: 'fas fa-image',
+                services: [
+                    { name: '1 folha impressa (cada)', price: 'R$ 10,00' },
+                    { name: '2 folhas impressas (cada)', price: 'R$ 9,00' },
+                    { name: '3 folhas impressas (cada)', price: 'R$ 7,50' },
+                    { name: '4 folhas impressa (cada)', price: 'R$ 7,00' },
+                    { name: '5 ou mais folhas impressas (cada)', price: 'R$ 6,50' } 
+                ]
+            },
+            {
+                id: 'digital',
+                name: 'Serviços Digitais',
+                icon: 'fas fa-laptop',
+                services: [
+                    { name: 'Criar conta Gov.br', price: 'R$ 8,00' },
+                    { name: 'Criar e-mail', price: 'R$ 9,50' },
+                    { name: 'Recuperação de conta', price: 'R$ 7,50' },
+                    { name: 'Pesquisa + Impressão (1 folha)', price: 'R$ 6,00' },
+                    { name: 'Digitalização (1 folha)', price: 'R$ 3,00' }
+                ]
+            },
+            {
+                id: 'copias',
+                name: 'Cópias',
+                icon: 'fas fa-copy',
+                services: [
+                    { name: 'Cópia PB - até 10 (cada)', price: 'R$ 0,50' },
+                    { name: 'Cópia PB - 10 a 30 (cada)', price: 'R$ 0,55' },
+                    { name: 'Cópia Colorida - até 10 (cada)', price: 'R$ 0,70' },
+                    { name: 'Cópia Colorida - 10 a 30 (cada)', price: 'R$ 0,60' }
+                ],
+                note: 'Preços variam conforme quantidade. Consulte tabela completa.'
+            },
+            {
+                id: 'outros',
+                name: 'Outros Serviços',
+                icon: 'fas fa-concierge-bell',
+                services: [
+                    { name: 'Gravação de CD/DVD (com nosso CD)', price: 'R$ 13,00' },
+                    { name: 'Emissão de Nota Fiscal', price: 'R$ 10,00' },
+                    { name: 'Criar CNPJ MEI', price: 'R$ 70,00' },
+                    { name: 'Passe Escolar Estadual', price: 'R$ 16,00' },
+                    { name: 'Boletim de Ocorrência', price: 'R$ 15,00' },
+                    { name: 'Criar CNPJ MEI (conta Gov)', price: 'R$ 70,00' },
+                    { name: 'Declaração Anual MEI', price: 'R$ 35,00' }
+                ]
+            }
+        ];
+
+        // Função para gerar as abas de navegação
+        function generateCategoryTabs() {
+            const categoriesNav = document.getElementById('categoriesNav');
             
-            // Mostrar todas as seções inicialmente
-            serviceSections.forEach(section => {
-                section.style.display = 'block';
+            // Adiciona uma aba para mostrar todos
+            const allTab = document.createElement('div');
+            allTab.className = 'category-tab active';
+            allTab.dataset.category = 'all';
+            allTab.innerHTML = `<i class="fas fa-th-large"></i> Todos`;
+            
+            allTab.addEventListener('click', () => {
+                document.querySelectorAll('.category-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                allTab.classList.add('active');
+                showAllCategories();
             });
             
-            // Adicionar evento de clique aos botões de categoria
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
+            categoriesNav.appendChild(allTab);
+            
+            servicesData.forEach((category) => {
+                const tab = document.createElement('div');
+                tab.className = 'category-tab';
+                tab.dataset.category = category.id;
+                tab.innerHTML = `<i class="${category.icon}"></i> ${category.name}`;
+                
+                tab.addEventListener('click', () => {
+                    // Remove a classe active de todas as abas
+                    document.querySelectorAll('.category-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
                     
-                    // Atualizar botão ativo
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
+                    // Adiciona a classe active na aba clicada
+                    tab.classList.add('active');
                     
-                    // Filtrar seções
-                    if (category === 'all') {
-                        serviceSections.forEach(section => {
-                            section.style.display = 'block';
-                        });
-                    } else {
-                        serviceSections.forEach(section => {
-                            if (section.id === category) {
-                                section.style.display = 'block';
-                                // Rolar suavemente para a seção
-                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            } else {
-                                section.style.display = 'none';
-                            }
+                    // Filtra as categorias
+                    filterCategories(category.id);
+                });
+                
+                categoriesNav.appendChild(tab);
+            });
+        }
+
+        // Função para gerar os cards de categoria
+        function generateCategoryCards() {
+            const container = document.getElementById('categoriesContainer');
+            
+            servicesData.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+                card.id = `card-${category.id}`;
+                
+                let servicesHTML = '';
+                category.services.forEach(service => {
+                    servicesHTML += `
+                        <div class="service-item">
+                            <div class="service-name">${service.name}</div>
+                            <div class="service-price">${service.price}</div>
+                        </div>
+                    `;
+                });
+                
+                card.innerHTML = `
+                    <div class="category-header">
+                        <i class="${category.icon}"></i>
+                        <h3>${category.name}</h3>
+                    </div>
+                    <div class="category-content">
+                        ${servicesHTML}
+                    </div>
+                    ${category.note ? `
+                    <div class="category-footer">
+                        <p class="note">${category.note}</p>
+                    </div>
+                    ` : ''}
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Função para filtrar categorias
+        function filterCategories(categoryId) {
+            document.querySelectorAll('.category-card').forEach(card => {
+                if (card.id === `card-${categoryId}`) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Função para mostrar todas as categorias
+        function showAllCategories() {
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.style.display = 'flex';
+            });
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCategoryTabs();
+            generateCategoryCards();
+            
+            // Smooth scrolling para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
                         });
                     }
                 });
             });
             
-            // Adicionar efeito de hover nas linhas da tabela
-            const tableRows = document.querySelectorAll('.service-table tr');
-            tableRows.forEach(row => {
-                row.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = '#f0f7ff';
-                });
-                
-                row.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = '';
-                });
+            // Menu móvel
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.main-nav nav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
             });
             
-            // Adicionar efeito de hover nas linhas da tabela de quadros
-            const frameTableRows = document.querySelectorAll('.frame-table tr');
-            frameTableRows.forEach(row => {
-                row.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = '#f5f0e6';
-                });
-                
-                row.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = '';
-                });
-            });
-            
-            // Adicionar data de atualização
-            const currentYear = new Date().getFullYear();
-            const yearElements = document.querySelectorAll('.current-year');
-            yearElements.forEach(element => {
-                element.textContent = currentYear;
+            // Ajustar navegação para mobile
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    nav.style.display = '';
+                }
             });
         });
     </script>
 </body>
-<div class="footer-links">
-    <a href="#apostilas">
-        <i class="fas fa-chevron-right"></i>
-        Apostilas
-    </a>
-    <a href="#calculadora">
-        <i class="fas fa-chevron-right"></i>
-        Calculadora de Preços
-    </a>
-    <a href="#">
-        <i class="fas fa-chevron-right"></i>
-        Sobre Nós
-    </a>
-    <a href="#">
-        <i class="fas fa-chevron-right"></i>
-        Termos de Serviço
-    </a>
-   <!-- NO RODAPÉ DA SUA PÁGINA PRINCIPAL (index.html) -->
-<!-- Encontre esta seção e faça a alteração: -->
-
-<div class="footer-links">
-    <a href="#apostilas">
-        <i class="fas fa-chevron-right"></i>
-        Apostilas
-    </a>
-    <a href="#calculadora">
-        <i class="fas fa-chevron-right"></i>
-        Calculadora de Preços
-    </a>
-    <a href="#">
-        <i class="fas fa-chevron-right"></i>
-        Sobre Nós
-    </a>
-    <a href="#">
-        <i class="fas fa-chevron-right"></i>
-        Termos de Serviço
-    </a>
-    <a href="#Política de Privacidade">
-        <i class="fas fa-chevron-right"></i>
-        Política de Privacidade
-    </a>
-</div>
-</a>
-</div>
 </html>
-
-
-
-
