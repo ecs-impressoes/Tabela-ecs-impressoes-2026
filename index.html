@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* (mesmo estilo do original - mantido para consistência) */
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -42,7 +44,7 @@
             padding: 0 20px;
         }
         
-        /* Contact Bar - Com redes sociais à esquerda */
+        /* Contact Bar */
         .contact-bar {
             background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
             color: white;
@@ -945,7 +947,7 @@
     </footer>
 
     <script>
-        // Dados dos serviços extraídos dos PDFs
+        // Dados completos dos serviços (ATUALIZADO com todas as categorias da tabela fornecida)
         const servicesData = [
             {
                 id: 'curriculos',
@@ -962,13 +964,13 @@
                 ]
             },
             {
-                id: 'documentos',
-                name: 'CPF e Carteiras',
+                id: 'cpf-carteiras',
+                name: 'CPF e Outras Carteiras',
                 icon: 'fas fa-id-card',
                 services: [
                     { name: 'Impressão sem Plastificação', price: 'R$ 6,00' },
                     { name: 'Impressão com Plastificação', price: 'R$ 9,00' },
-                    { name: 'Mais de 1 (Já Plastificado)', price: 'R$ 7,50' }
+                    { name: 'Mais de 1 (já plastificado)', price: 'R$ 7,50' }
                 ]
             },
             {
@@ -993,19 +995,19 @@
                 note: 'Máximo 350 folhas por encadernação'
             },
             {
-                id: 'impressao',
+                id: 'offset',
                 name: 'Impressão Offset',
                 icon: 'fas fa-print',
                 services: [
                     { name: '1 Folha', price: 'R$ 7,00' },
                     { name: '2 Folhas (cada)', price: 'R$ 6,50' },
                     { name: '3 Folhas (cada)', price: 'R$ 6,00' },
-                    { name: '4 à 10 Folhas', price: 'R$ 5,00' },
+                    { name: '4 a 10 Folhas (cada)', price: 'R$ 5,00' },
                     { name: '10 em diante (cada)', price: 'R$ 4,00' }
                 ]
             },
             {
-                id: 'titulo',
+                id: 'titulo-eleitor',
                 name: 'Título de Eleitor',
                 icon: 'fas fa-vote-yea',
                 services: [
@@ -1015,88 +1017,355 @@
             },
             {
                 id: 'certidoes',
-                name: 'Certidões e Atestados',
+                name: 'Atestado de Antecedentes e Certidões',
                 icon: 'fas fa-file-contract',
                 services: [
-                    { name: 'Atestado de Antecedentes - SP', price: 'R$ 9,00' },
-                    { name: 'Atestado de Antecedentes - Outros Estados', price: 'R$ 10,00' },
-                    { name: 'Acima de 1 Certidão (cada adicional)', price: 'R$ 7,00' }
+                    { name: 'Estado de SP', price: 'R$ 9,00' },
+                    { name: 'Outros Estados', price: 'R$ 10,00' },
+                    { name: 'Acima de 1 certidão (cada adicional)', price: 'R$ 7,00' }
                 ]
             },
             {
-                id: 'fotos',
-                name: 'Fotos',
-                icon: 'fas fa-camera',
+                id: 'fotos-polaroid',
+                name: 'Fotos Polaroid',
+                icon: 'fas fa-camera-retro',
                 services: [
-                    { name: 'Foto Polaroid (1 unidade)', price: 'R$ 3,50' },
-                    { name: '3 Fotos 3x4', price: 'R$ 8,00' },
-                    { name: '6 Fotos 3x4', price: 'R$ 14,00' },
-                    { name: '1 Foto 10x15', price: 'R$ 4,80' },
-                    { name: '1 Foto 5x7', price: 'R$ 5,80' }
+                    { name: '1 Foto', price: 'R$ 3,50' },
+                    { name: '2 Fotos', price: 'R$ 6,00' },
+                    { name: '3 Fotos', price: 'R$ 8,50' },
+                    { name: '6 Fotos', price: 'R$ 12,50' },
+                    { name: '9 Fotos', price: 'R$ 17,00' },
+                    { name: 'Acima de 9 fotos (cada)', price: 'R$ 1,70' }
+                ]
+            },
+            {
+                id: 'impressao-pb',
+                name: 'Impressão PB (WhatsApp/Email/etc)',
+                icon: 'fas fa-file-word',
+                services: [
+                    { name: '1 Folha PB', price: 'R$ 2,00' },
+                    { name: '2 Folhas', price: 'R$ 4,00' },
+                    { name: '3 Folhas', price: 'R$ 5,25' },
+                    { name: '4 Folhas', price: 'R$ 7,00' },
+                    { name: '5ª à 15ª folha (cada)', price: 'R$ 1,30' },
+                    { name: '15ª folha em diante (cada)', price: 'R$ 1,00' }
                 ],
-                note: 'Acima de 9 fotos Polaroid: R$ 1,70 cada'
+                note: 'Frente e verso: + R$ 0,70 por folha'
             },
             {
-                id: 'impressao-digital',
-                name: 'Impressão Digital',
-                icon: 'fas fa-file-upload',
+                id: 'impressao-color',
+                name: 'Impressão Colorida (WhatsApp/Email/etc)',
+                icon: 'fas fa-file-image',
                 services: [
-                    { name: 'Impressão PB - 1 folha', price: 'R$ 2,00' },
-                    { name: 'Impressão Colorida - 1 folha', price: 'R$ 3,00' },
-                    { name: 'Impressão PB - 5ª à 15ª (cada)', price: 'R$ 1,30' },
-                    { name: 'Impressão Colorida - 5ª à 15ª (cada)', price: 'R$ 2,00' }
+                    { name: '1 Folha Color', price: 'R$ 3,00' },
+                    { name: '2 Folhas', price: 'R$ 5,25' },
+                    { name: '3 Folhas', price: 'R$ 7,50' },
+                    { name: '4 Folhas', price: 'R$ 9,00' },
+                    { name: '5ª à 15ª folha (cada)', price: 'R$ 2,00' },
+                    { name: '15ª folha em diante (cada)', price: 'R$ 1,50' }
                 ],
-                note: 'Frente e verso: + R$ 0,70 em cada folha'
+                note: 'Frente e verso: + R$ 0,70 por folha'
             },
             {
-                id: 'impressao-fotografico',
-                name: 'Impressão Fotográfico A4',
-                icon: 'fas fa-image',
+                id: 'criar-contas',
+                name: 'Criar Conta ou E-mails',
+                icon: 'fas fa-user-plus',
                 services: [
-                    { name: '1 folha impressa (cada)', price: 'R$ 10,00' },
-                    { name: '2 folhas impressas (cada)', price: 'R$ 9,00' },
-                    { name: '3 folhas impressas (cada)', price: 'R$ 7,50' },
-                    { name: '4 folhas impressa (cada)', price: 'R$ 7,00' },
-                    { name: '5 ou mais folhas impressas (cada)', price: 'R$ 6,50' } 
+                    { name: 'Gov.br', price: 'R$ 8,00' },
+                    { name: 'E-mails', price: 'R$ 9,50' },
+                    { name: 'Recuperação de conta', price: 'R$ 7,50' }
                 ]
             },
             {
-                id: 'digital',
-                name: 'Serviços Digitais',
-                icon: 'fas fa-laptop',
+                id: 'pesquisa-impressao',
+                name: 'Pesquisa + Impressões',
+                icon: 'fas fa-search',
                 services: [
-                    { name: 'Criar conta Gov.br', price: 'R$ 8,00' },
-                    { name: 'Criar e-mail', price: 'R$ 9,50' },
-                    { name: 'Recuperação de conta', price: 'R$ 7,50' },
-                    { name: 'Pesquisa + Impressão (1 folha)', price: 'R$ 6,00' },
-                    { name: 'Digitalização (1 folha)', price: 'R$ 3,00' }
+                    { name: '1 Folha', price: 'R$ 6,00' },
+                    { name: '2 Folhas', price: 'R$ 9,00' },
+                    { name: '3 Folhas', price: 'R$ 11,00' }
                 ]
             },
             {
-                id: 'copias',
-                name: 'Cópias',
+                id: 'copias-pb',
+                name: 'Cópias PB',
                 icon: 'fas fa-copy',
                 services: [
-                    { name: 'Cópia PB - até 10 (cada)', price: 'R$ 0,50' },
-                    { name: 'Cópia PB - 10 a 30 (cada)', price: 'R$ 0,55' },
-                    { name: 'Cópia Colorida - até 10 (cada)', price: 'R$ 0,70' },
-                    { name: 'Cópia Colorida - 10 a 30 (cada)', price: 'R$ 0,60' }
-                ],
-                note: 'Preços variam conforme quantidade. Consulte tabela completa.'
+                    { name: '1 a 10 (cada)', price: 'R$ 0,50' },
+                    { name: '10 a 30 (cada)', price: 'R$ 0,55' },
+                    { name: '30 a 60 (cada)', price: 'R$ 0,40' },
+                    { name: '60 em diante (cada)', price: 'R$ 0,30' }
+                ]
             },
             {
-                id: 'outros',
-                name: 'Outros Serviços',
-                icon: 'fas fa-concierge-bell',
+                id: 'copias-pb-fv',
+                name: 'Cópias PB Frente/Verso',
+                icon: 'fas fa-copy',
                 services: [
-                    { name: 'Gravação de CD/DVD (com nosso CD)', price: 'R$ 13,00' },
-                    { name: 'Emissão de Nota Fiscal', price: 'R$ 10,00' },
-                    { name: 'Criar CNPJ MEI', price: 'R$ 70,00' },
-                    { name: 'Passe Escolar Estadual', price: 'R$ 16,00' },
-                    { name: 'Boletim de Ocorrência', price: 'R$ 15,00' },
-                    { name: 'Criar CNPJ MEI (conta Gov)', price: 'R$ 70,00' },
+                    { name: '1 a 10 (cada)', price: 'R$ 0,60' },
+                    { name: '10 a 30 (cada)', price: 'R$ 0,55' },
+                    { name: '30 a 60 (cada)', price: 'R$ 0,50' },
+                    { name: '60 em diante (cada)', price: 'R$ 0,45' }
+                ]
+            },
+            {
+                id: 'copias-color',
+                name: 'Cópias Coloridas',
+                icon: 'fas fa-copy',
+                services: [
+                    { name: '1 a 10 (cada)', price: 'R$ 0,70' },
+                    { name: '10 a 30 (cada)', price: 'R$ 0,60' },
+                    { name: '30 a 60 (cada)', price: 'R$ 0,55' },
+                    { name: '60 em diante (cada)', price: 'R$ 0,45' }
+                ]
+            },
+            {
+                id: 'copias-color-fv',
+                name: 'Cópias Coloridas Frente/Verso',
+                icon: 'fas fa-copy',
+                services: [
+                    { name: '1 a 10 (cada)', price: 'R$ 0,80' },
+                    { name: '10 a 30 (cada)', price: 'R$ 0,70' },
+                    { name: '30 a 60 (cada)', price: 'R$ 0,60' },
+                    { name: '60 em diante (cada)', price: 'R$ 0,50' }
+                ]
+            },
+            {
+                id: 'gravacao-cd-dvd',
+                name: 'Gravação de DVD ou CD',
+                icon: 'fas fa-compact-disc',
+                services: [
+                    { name: '1 com nosso CD/DVD', price: 'R$ 13,00' },
+                    { name: '1 com CD do cliente', price: 'R$ 8,50' },
+                    { name: '2 ou mais com nosso CD (cada)', price: 'R$ 10,00' },
+                    { name: '2 ou mais com CD do cliente (cada)', price: 'R$ 6,50' }
+                ],
+                note: 'Mais de 2 CDs não são feitos na hora'
+            },
+            {
+                id: 'nota-fiscal',
+                name: 'Emissão Nota Fiscal',
+                icon: 'fas fa-file-invoice',
+                services: [
+                    { name: 'Pela Prefeitura ou Gov', price: 'R$ 10,00' }
+                ]
+            },
+            {
+                id: 'cnpj-mei',
+                name: 'Criar CNPJ MEI',
+                icon: 'fas fa-briefcase',
+                services: [
+                    { name: 'Com conta Gov', price: 'R$ 70,00' },
                     { name: 'Declaração Anual MEI', price: 'R$ 35,00' }
                 ]
+            },
+            {
+                id: 'passe-escolar',
+                name: 'Passe Escolar / Autista',
+                icon: 'fas fa-bus',
+                services: [
+                    { name: 'Passe Escolar Estadual', price: 'R$ 16,00' },
+                    { name: 'Passe Livre Autista', price: 'R$ 22,00' }
+                ]
+            },
+            {
+                id: 'inscricoes',
+                name: 'Inscrições para Concursos/Emprego',
+                icon: 'fas fa-pen',
+                services: [
+                    { name: 'Concursos', price: 'R$ 15,00' },
+                    { name: 'Inscrições Emprego', price: 'R$ 12,00' }
+                ]
+            },
+            {
+                id: 'boletim-ocorrencia',
+                name: 'Boletim de Ocorrência',
+                icon: 'fas fa-shield-alt',
+                services: [
+                    { name: 'Cada Boletim', price: 'R$ 15,00' }
+                ]
+            },
+            {
+                id: 'digitalizacao',
+                name: 'Digitalização de Documentos',
+                icon: 'fas fa-scanner',
+                services: [
+                    { name: '1 Folha', price: 'R$ 3,00' },
+                    { name: '2ª folha em diante (cada)', price: 'R$ 0,70' }
+                ],
+                note: 'Cada lado escaneado: R$ 0,70'
+            },
+            {
+                id: 'contratos',
+                name: 'Contratos Aluguel/Venda',
+                icon: 'fas fa-file-signature',
+                services: [
+                    { name: '1 Folha', price: 'R$ 40,00' },
+                    { name: '2ª a 4ª folha em diante (cada)', price: 'R$ 55,00' }
+                ],
+                note: 'Não fazemos na hora'
+            },
+            {
+                id: 'declaracoes',
+                name: 'Declarações de Trabalho/Residência',
+                icon: 'fas fa-file-alt',
+                services: [
+                    { name: '1 Folha', price: 'R$ 12,00' }
+                ],
+                note: 'Trazer dados do titular e declarante'
+            },
+            {
+                id: 'serasa',
+                name: 'Consulta Serasa Limpa Nome',
+                icon: 'fas fa-chart-line',
+                services: [
+                    { name: 'Já tem cadastro', price: 'R$ 7,00' },
+                    { name: 'Fazer acordo', price: 'R$ 12,00' }
+                ]
+            },
+            {
+                id: 'emissao-crv',
+                name: 'Emissão CRV',
+                icon: 'fas fa-car',
+                services: [
+                    { name: 'Com conta Gov', price: 'R$ 7,00' },
+                    { name: 'Para criar conta', price: 'R$ 10,00' }
+                ]
+            },
+            {
+                id: 'transf-veiculo',
+                name: 'Transferência de Veículo',
+                icon: 'fas fa-truck',
+                services: [
+                    { name: 'Com conta Gov', price: 'R$ 45,00' }
+                ]
+            },
+            {
+                id: '2via-boletos',
+                name: '2ª Via de Boletos',
+                icon: 'fas fa-barcode',
+                services: [
+                    { name: 'Precisa acessar', price: 'R$ 2,50' }
+                ]
+            },
+            {
+                id: 'consultas-internet',
+                name: 'Consultas na Internet',
+                icon: 'fas fa-globe',
+                services: [
+                    { name: 'Sem impressão', price: 'R$ 2,50' },
+                    { name: 'Com impressão', price: 'R$ 2,50 + impressões' }
+                ]
+            },
+            {
+                id: 'virus-celular',
+                name: 'Remoção de Vírus Celular',
+                icon: 'fas fa-shield-virus',
+                services: [
+                    { name: 'Remoção apenas', price: 'R$ 27,00' },
+                    { name: 'Backup e restauração', price: 'R$ 60,00' },
+                    { name: 'Transferência de arquivos', price: 'R$ 27,00' }
+                ]
+            },
+            {
+                id: 'cartoes-visita',
+                name: 'Cartões de Visita',
+                icon: 'fas fa-address-card',
+                services: [
+                    { name: '500 un. (com arte)', price: 'R$ 174,00' },
+                    { name: '1000 un. (com arte)', price: 'R$ 234,00' },
+                    { name: '500 un. (sem arte)', price: 'R$ 234,00' },
+                    { name: '1000 un. (sem arte)', price: 'R$ 264,00' },
+                    { name: '500 un. fre/verso c/ arte', price: 'R$ 216,00' },
+                    { name: '1000 un. fre/verso c/ arte', price: 'R$ 280,00' },
+                    { name: '500 un. fre/verso s/ arte', price: 'R$ 260,00' },
+                    { name: '1000 un. fre/verso s/ arte', price: 'R$ 340,00' }
+                ]
+            },
+            {
+                id: 'topper-bolo',
+                name: 'Topper de Bolo',
+                icon: 'fas fa-cake-candles',
+                services: [
+                    { name: 'Arte/ pegar internet', price: 'R$ 9,00' },
+                    { name: 'Arte nome/data', price: 'R$ 12,00' },
+                    { name: 'Criar arte', price: 'R$ 20,00' }
+                ]
+            },
+            {
+                id: 'foto-3x4',
+                name: 'Foto 3x4',
+                icon: 'fas fa-camera',
+                services: [
+                    { name: '3 fotos 3x4', price: 'R$ 8,00' },
+                    { name: '6 fotos 3x4', price: 'R$ 14,00' },
+                    { name: '9 fotos 3x4', price: 'R$ 16,00' }
+                ]
+            },
+            {
+                id: 'foto-10x15',
+                name: 'Foto 10x15',
+                icon: 'fas fa-camera',
+                services: [
+                    { name: '1 foto 10x15', price: 'R$ 4,80' },
+                    { name: '2 fotos 10x15', price: 'R$ 7,00' },
+                    { name: '3 fotos 10x15', price: 'R$ 10,00' },
+                    { name: '6 fotos 10x15', price: 'R$ 18,00' },
+                    { name: '9 fotos 10x15', price: 'R$ 22,00' },
+                    { name: '12 fotos 10x15', price: 'R$ 28,00' },
+                    { name: '15 fotos 10x15', price: 'R$ 35,00' }
+                ]
+            },
+            {
+                id: 'foto-5x7',
+                name: 'Foto 5x7',
+                icon: 'fas fa-camera',
+                services: [
+                    { name: '1 foto 5x7', price: 'R$ 5,80' },
+                    { name: '2 fotos 5x7', price: 'R$ 10,00' }
+                ]
+            },
+            {
+                id: 'panfletos-14x20',
+                name: 'Panfletos 14x20',
+                icon: 'fas fa-newspaper',
+                services: [
+                    { name: 'Só frente 1000', price: 'R$ 580,00' },
+                    { name: 'Só frente 2500', price: 'R$ 850,00' },
+                    { name: 'Só frente 5000', price: 'R$ 1.350,00' },
+                    { name: 'Frente/verso 1000', price: 'R$ 680,00' },
+                    { name: 'Frente/verso 2500', price: 'R$ 1.000,00' },
+                    { name: 'Frente/verso 5000', price: 'R$ 1.600,00' }
+                ]
+            },
+            {
+                id: 'panfletos-10x14',
+                name: 'Panfletos 10x14',
+                icon: 'fas fa-newspaper',
+                services: [
+                    { name: 'Só frente 1000', price: 'R$ 316,00' },
+                    { name: 'Só frente 2500', price: 'R$ 450,00' },
+                    { name: 'Só frente 5000', price: 'R$ 720,00' },
+                    { name: 'Frente/verso 1000', price: 'R$ 345,00' },
+                    { name: 'Frente/verso 2500', price: 'R$ 580,00' },
+                    { name: 'Frente/verso 5000', price: 'R$ 810,00' }
+                ]
+            },
+            {
+                id: 'apostilas',
+                name: 'Impressão de Apostilas',
+                icon: 'fas fa-book-open',
+                services: [
+                    { name: 'PB só frente (20-50 pág)', price: 'R$ 0,60' },
+                    { name: 'PB só frente (51+ pág)', price: 'R$ 0,50' },
+                    { name: 'Color só frente (20-50 pág)', price: 'R$ 0,90' },
+                    { name: 'Color só frente (51+ pág)', price: 'R$ 0,72' },
+                    { name: 'PB frente/verso (20-50 pág)', price: 'R$ 0,55' },
+                    { name: 'PB frente/verso (51+ pág)', price: 'R$ 0,45' },
+                    { name: 'Color frente/verso (20-50 pág)', price: 'R$ 0,80' },
+                    { name: 'Color frente/verso (51+ pág)', price: 'R$ 0,60' }
+                ],
+                note: 'Acrescentar R$ 9,00 de encadernação cada apostila'
             }
         ];
 
@@ -1240,5 +1509,3 @@
     </script>
 </body>
 </html>
-
-
