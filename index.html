@@ -3,1508 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pibbaweb Informática | Tabela de Preços 2026</title>
+    <title>Gráfica Rápida · Tabela de Preços 2025</title>
+    <!-- Font Awesome 6 (gratuito) para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!DOCTYPE html>
+<html lang="pt-BR">
+    
     <style>
-        /* (mesmo estilo do original - mantido para consistência) */
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #0f172a;
-            --accent: #f59e0b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --gray-light: #e2e8f0;
-            --success: #10b981;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-            --transition: all 0.3s ease;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
         }
-        
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--secondary);
-            background-color: var(--light);
-            line-height: 1.6;
+            background: #f2f4f8;
+            padding: 2rem 1.2rem;
         }
-        
         .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Contact Bar */
-        .contact-bar {
-            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
-            color: white;
-            padding: 0.8rem 0;
-            font-size: 0.9rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .contact-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .contact-item i {
-            color: var(--accent);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-right: 2rem;
-        }
-        
-        .social-icons a {
-            color: white;
-            text-decoration: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        
-        .social-icons a:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
-        
-        /* Main Header */
-        .main-header {
-            background: white;
-            padding: 1.5rem 0;
-            box-shadow: var(--shadow);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-        }
-        
-        .logo-text h1 {
-            font-size: 1.8rem;
-            color: var(--secondary);
-            margin-bottom: 0.2rem;
-        }
-        
-        .logo-text p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .pix-banner {
-            background: linear-gradient(135deg, #32bcad 0%, #2a9c8f 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(42, 156, 143, 0.2);
-        }
-        
-        .pix-banner i {
-            font-size: 1.2rem;
-        }
-        
-        /* Navigation */
-        .main-nav {
-            background: var(--secondary);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition);
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--accent);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-            border-radius: 0 0 var(--radius) var(--radius);
-            margin-bottom: 4rem;
-        }
-        
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: var(--gray-light);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .btn {
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-outline:hover {
-            border-color: white;
-            transform: translateY(-3px);
-        }
-        
-        /* Location Banner */
-        .location-banner {
-            background: linear-gradient(135deg, var(--accent) 0%, #e68a00 100%);
-            color: white;
-            padding: 1.2rem 0;
-            text-align: center;
-            margin: 2rem 0;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
-        }
-        
-        .location-banner .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .location-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-        }
-        
-        .location-info i {
-            font-size: 1.4rem;
-        }
-        
-        .route-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .route-btn:hover {
-            background: white;
-            color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        /* Main Content */
-        .page-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .page-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .page-title p {
-            color: var(--gray);
-            max-width: 600px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
-        /* Categories Navigation */
-        .categories-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
-            margin-bottom: 3rem;
+        header {
+            margin-bottom: 2.5rem;
+            text-align: center;
         }
-        
-        .category-tab {
-            background: white;
-            border: 1px solid var(--gray-light);
-            border-radius: 50px;
-            padding: 0.8rem 1.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #1e2b4f, #2c3e6e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
         }
-        
-        .category-tab:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+        header p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            background: #ffffffc0;
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-top: 0.5rem;
+            border: 1px solid #ffffff;
         }
-        
-        .category-tab.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        /* Categories Grid */
-        .categories-container {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
         }
-        
-        .category-card {
+        .card {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
             background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            height: 100%;
+            border-radius: 32px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 20px 35px -8px rgba(0,20,40,0.15), 0 5px 12px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.7);
             display: flex;
             flex-direction: column;
+            height: fit-content;
         }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 28px 40px -12px rgba(0,35,70,0.25);
         }
-        
-        .category-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 1.5rem;
+        .card-header {
             display: flex;
             align-items: center;
             gap: 12px;
+            border-bottom: 2px dashed #cfddee;
+            padding-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
-        
-        .category-header i {
-            font-size: 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
+        .card-header i {
+            font-size: 2rem;
+            color: #1e3a5f;
+            background: #e9eef4;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 20px;
         }
-        
-        .category-header h3 {
-            font-size: 1.4rem;
+        .card-header h2 {
+            font-size: 1.6rem;
             font-weight: 600;
+            color: #0b1e33;
+            line-height: 1.2;
         }
-        
-        .category-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
-        
-        .service-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--gray-light);
-        }
-        
-        .service-item:last-child {
-            border-bottom: none;
-        }
-        
-        .service-name {
-            font-weight: 500;
-        }
-        
-        .service-price {
-            font-weight: 700;
-            color: var(--success);
-        }
-        
-        .category-footer {
-            padding: 1.5rem;
-            border-top: 1px solid var(--gray-light);
-            background-color: #f9fafb;
-        }
-        
-        .note {
-            color: var(--gray);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-        
-        /* Featured Services */
-        .featured-services {
-            margin-bottom: 5rem;
-        }
-        
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .featured-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .featured-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .featured-icon {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 1.8rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 4rem 0 2rem;
-            margin-top: 5rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-column h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-        
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-        
-        .footer-column ul {
+        .price-list {
             list-style: none;
         }
-        
-        .footer-column ul li {
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.6rem 0;
+            border-bottom: 1px dotted #d9e2ec;
+            font-size: 1.0rem;
+            gap: 10px;
+        }
+        .price-list li:last-child {
+            border-bottom: none;
+        }
+        .service-name {
+            color: #1f3a5f;
+            font-weight: 500;
+        }
+        .service-price {
+            font-weight: 700;
+            color: #0a1e2f;
+            background: #e3ecf7;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+            border: 1px solid #b7cee8;
+        }
+        .sub-item {
+            padding-left: 1.2rem !important;
+            font-size: 0.95rem;
+            color: #2d4059;
+        }
+        .sub-item .service-name {
+            font-weight: 400;
+            color: #2c3e6e;
+        }
+        .obs-note {
+            background: #fef6e6;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #7b5e3b;
+            margin-top: 0.8rem;
+            border-left: 5px solid #f1c40f;
+        }
+        .badge {
+            background: #102a44;
+            color: white;
+            border-radius: 60px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
             margin-bottom: 0.8rem;
         }
-        
-        .footer-column ul li a {
-            color: var(--gray-light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-column ul li a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 1rem;
         }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--gray-light);
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            header h1 { font-size: 2rem; }
+            .grid { gap: 1rem; }
+            .card-header h2 { font-size: 1.4rem; }
         }
-        
-        .contact-item i {
-            color: var(--accent);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
+        footer {
+            margin-top: 3rem;
             text-align: center;
+            color: #4a5e75;
+            font-size: 0.95rem;
+            border-top: 1px dashed #b3c7de;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray);
-            font-size: 0.9rem;
         }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .categories-container {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-bar .container {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .contact-info {
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .social-icons {
-                margin-right: 0;
-                order: -1;
-                margin-bottom: 1rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo {
-                justify-content: center;
-            }
-            
-            .nav-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-            
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .location-banner .container {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                align-self: flex-end;
-                margin-top: -50px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .categories-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .category-tab {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .pix-banner {
-                font-size: 0.85rem;
-                padding: 0.6rem 1rem;
-                text-align: center;
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-            .location-info {
-                font-size: 1rem;
-            }
+        .price-highlight {
+            background: #f8fbfe;
+            border-radius: 16px;
+            padding: 0.5rem;
         }
     </style>
 </head>
 <body>
-    <!-- Contact Bar with Social Media on Left -->
-    <div class="contact-bar">
-        <div class="container">
-            <div class="contact-info">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/pibbaweb1" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/pibbaweb1/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <span><a href="https://wa.me/5513988089754" style="color: white; text-decoration: none;">WhatsApp: (13) 98808-9754</a></span>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>avenidabrasil284@gmail.com</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <div class="logo-text">
-                        <h1>Pibbaweb Informática</h1>
-                        <p>Impressões e Serviços Digitais</p>
-                    </div>
-                </div>
-                
-                <div class="pix-banner">
-                    <i class="fab fa-pix"></i>
-                    <strong>PIX: 13 98808-9754</strong> (ELIVALDO C. DOS SANTOS)
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <header>
+        <h1>⚡ CÓPIA & GRÁFICA EXPRESS</h1>
+        <p><i class="far fa-calendar-alt"></i> Tabela 2025 · preços atualizados</p>
     </header>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-content">
-                <nav>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#pricing">Preços</a></li>
-                        <li><a href="#contact">Contato</a></li>
+    <!-- GRADE DE CARDS (agrupamento por similaridade) -->
+    <div class="grid">
+
+        <!-- CURRÍCULOS -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-file-alt"></i>
+                <h2>Currículos</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">1º emprego</span> <span class="service-price">R$6,00</span></li>
+                <li class="sub-item"><span class="service-name">Estado de SP</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">s/ foto 1 face</span> <span class="service-price">R$12,00</span></li>
+                <li><span class="service-name">s/ foto 2 faces</span> <span class="service-price">R$14,00</span></li>
+                <li><span class="service-name">s/ foto 3 faces</span> <span class="service-price">R$18,00</span></li>
+                <li><span class="service-name">c/ foto 1 face</span> <span class="service-price">R$10,00</span></li>
+                <li><span class="service-name">c/ foto 2 faces</span> <span class="service-price">R$12,00</span></li>
+                <li><span class="service-name">c/ foto 3 faces</span> <span class="service-price">R$14,00</span></li>
+            </ul>
+        </div>
+
+        <!-- CPF / CARTEIRAS + PLASTIFICAÇÃO -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-id-card"></i>
+                <h2>CPF / Carteiras</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Impressão s/ plast</span> <span class="service-price">R$6,00</span></li>
+                <li><span class="service-name">Impressão c/ plast</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">Mais de 1 (já plastif.)</span> <span class="service-price">R$7,50</span></li>
+            </ul>
+            <div class="badge">PLASTIFICAÇÃO</div>
+            <ul class="price-list">
+                <li><span class="service-name">RG, CPF, títulos (só plast)</span> <span class="service-price">R$4,50</span></li>
+                <li><span class="service-name">Covid / estacionamento idoso</span> <span class="service-price">R$6,00</span></li>
+                <li><span class="service-name">A4 sem impressão</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">A4 com impressão</span> <span class="service-price">R$11,00</span></li>
+            </ul>
+        </div>
+
+        <!-- ENCADERNAÇÃO / ATESTADO / ANTECEDENTES -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-book"></i>
+                <h2>Encadernação</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Até 250 folhas</span> <span class="service-price">R$12,00</span></li>
+                <li><span class="service-name">Mais de 250 folhas</span> <span class="service-price">R$14,00</span></li>
+                <li><span class="service-name">Máximo 350 folhas</span> <span class="service-price">R$20,00</span></li>
+            </ul>
+            <div class="badge" style="margin-top:12px;">Atestados / certidões</div>
+            <ul class="price-list">
+                <li><span class="service-name">Estado de SP</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">Outros estados</span> <span class="service-price">R$10,00</span></li>
+                <li><span class="service-name">Acima de 1 certidão</span> <span class="service-price">R$7,00</span></li>
+            </ul>
+        </div>
+
+        <!-- FOTOS POLAROID + 3x4 / 5x7 / 10x15 -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-camera"></i>
+                <h2>Fotos</h2>
+            </div>
+            <span class="badge">Polaroid</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 foto</span> <span class="service-price">R$3,50</span></li>
+                <li><span class="service-name">2 fotos</span> <span class="service-price">R$6,00</span></li>
+                <li><span class="service-name">3 fotos</span> <span class="service-price">R$8,50</span></li>
+                <li><span class="service-name">6 fotos</span> <span class="service-price">R$12,50</span></li>
+                <li><span class="service-name">9 fotos</span> <span class="service-price">R$17,00</span></li>
+                <li class="sub-item"><span class="service-name">acima de 9, cada</span> <span class="service-price">R$1,70</span></li>
+            </ul>
+            <div class="two-columns" style="margin-top:10px;">
+                <div>
+                    <span class="badge">3x4</span>
+                    <ul class="price-list">
+                        <li><span class="service-name">3 fotos</span> <span class="service-price">R$8,00</span></li>
+                        <li><span class="service-name">6 fotos</span> <span class="service-price">R$14,00</span></li>
+                        <li><span class="service-name">9 fotos</span> <span class="service-price">R$16,00</span></li>
                     </ul>
-                </nav>
-                
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
+                </div>
+                <div>
+                    <span class="badge">5x7</span>
+                    <ul class="price-list">
+                        <li><span class="service-name">1 foto</span> <span class="service-price">R$5,80</span></li>
+                        <li><span class="service-name">2 fotos</span> <span class="service-price">R$10,00</span></li>
+                    </ul>
+                </div>
             </div>
+            <span class="badge">10x15</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 foto</span> <span class="service-price">R$4,80</span></li>
+                <li><span class="service-name">2 fotos</span> <span class="service-price">R$7,00</span></li>
+                <li><span class="service-name">3 fotos</span> <span class="service-price">R$10,00</span></li>
+                <li><span class="service-name">6 fotos</span> <span class="service-price">R$18,00</span></li>
+                <li><span class="service-name">9 fotos</span> <span class="service-price">R$22,00</span></li>
+                <li><span class="service-name">12 fotos</span> <span class="service-price">R$28,00</span></li>
+                <li><span class="service-name">15 fotos</span> <span class="service-price">R$35,00</span></li>
+            </ul>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Tabela de Preços de Serviços 2026</h1>
-                     
-            <div class="cta-buttons">
-                <a href="#services" class="btn btn-primary">
-                    <i class="fas fa-list"></i> Ver Serviços
-                </a>
-                
+        <!-- IMPRESSÕES (PB / COLOR / VIA WHATSAPP / OFFSET) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-print"></i>
+                <h2>Impressões & Cópias</h2>
             </div>
+            <span class="badge">P&B simples</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 a 10 folhas (cada)</span> <span class="service-price">R$0,50</span></li>
+                <li><span class="service-name">10 a 30 folhas</span> <span class="service-price">R$0,55</span></li>
+                <li><span class="service-name">30 a 60 folhas</span> <span class="service-price">R$0,40</span></li>
+                <li><span class="service-name">60+ folhas</span> <span class="service-price">R$0,30</span></li>
+            </ul>
+            <span class="badge">P&B frente/verso</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,60</span></li>
+                <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,55</span></li>
+                <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,50</span></li>
+                <li><span class="service-name">60+</span> <span class="service-price">R$0,45</span></li>
+            </ul>
+            <span class="badge">Colorida simples</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,70</span></li>
+                <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,60</span></li>
+                <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,55</span></li>
+                <li><span class="service-name">60+</span> <span class="service-price">R$0,45</span></li>
+            </ul>
+            <span class="badge">Colorida f/verso</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,80</span></li>
+                <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,70</span></li>
+                <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,60</span></li>
+                <li><span class="service-name">60+</span> <span class="service-price">R$0,50</span></li>
+            </ul>
+            <div class="obs-note"><i class="fas fa-message"></i> Impressão via WhatsApp, email, pen-drive: preços acima (PB/Color) acrescidos? Ver lista específica</div>
         </div>
-    </section>
 
-    <!-- Location Banner with Route Link -->
-    <div class="location-banner">
-        <div class="container">
-            <div class="location-info">
-                <i class="fas fa-map-marker-alt"></i>
-                <span><strong>Endereço:</strong> Av. Brasil, 284 - Jardim Casqueiro, Cubatão - SP</span>
+        <!-- IMPRESSÃO OFFSET / VIA WHATS E LISTAS AVULSAS -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-layer-group"></i>
+                <h2>Offset / digital</h2>
             </div>
-            <a href="https://www.google.com/maps/dir//Av.+Brasil,+284+-+Jardim+Casqueiro,+Cubatão+-+SP" 
-               target="_blank" 
-               class="route-btn">
-                <i class="fas fa-route"></i> Traçar Rota
-            </a>
+            <span class="badge">Offset</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 folha</span> <span class="service-price">R$7,00</span></li>
+                <li><span class="service-name">2 folhas (cada)</span> <span class="service-price">R$6,50</span></li>
+                <li><span class="service-name">3 folhas (cada)</span> <span class="service-price">R$6,00</span></li>
+                <li><span class="service-name">4 a 10 folhas (cada)</span> <span class="service-price">R$5,00</span></li>
+                <li><span class="service-name">10+ folhas (cada)</span> <span class="service-price">R$4,00</span></li>
+            </ul>
+            <span class="badge">Via what/email (pb)</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 folha</span> <span class="service-price">R$0,70?</span></li> <!-- ajuste conforme legenda -->
+                <li class="sub-item"><span class="service-name">Tabela original: pb por página</span> <span class="service-price">consultar</span></li>
+            </ul>
+            <span class="badge">Via what/email (color)</span>
+            <ul class="price-list">
+                <li><span class="service-name">1 folha color</span> <span class="service-price">R$3,00</span></li>
+                <li><span class="service-name">2 folhas</span> <span class="service-price">R$5,25</span></li>
+                <li><span class="service-name">3 folhas</span> <span class="service-price">R$7,50</span></li>
+                <li><span class="service-name">4 folhas</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">5ª a 15ª cada</span> <span class="service-price">R$2,00</span></li>
+                <li><span class="service-name">15ª em diante</span> <span class="service-price">R$1,50</span></li>
+            </ul>
+            <div class="obs-note">⏺ Frente e verso: acréscimo de R$0,70 por folha</div>
+        </div>
+
+        <!-- SERVIÇOS DIGITAIS / CONTAS / DOCUMENTOS -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-laptop"></i>
+                <h2>Serviços online</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Criar conta Gov</span> <span class="service-price">R$8,00</span></li>
+                <li><span class="service-name">Criar e-mail</span> <span class="service-price">R$9,50</span></li>
+                <li><span class="service-name">Recuperação de conta</span> <span class="service-price">R$7,50</span></li>
+                <li><span class="service-name">Emissão NF (pref/gov)</span> <span class="service-price">R$10,00</span></li>
+                <li><span class="service-name">Pesquisa + impressão (1 folha)</span> <span class="service-price">R$6,00</span></li>
+                <li><span class="service-name">Pesquisa + 2 folhas</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">Pesquisa + 3 folhas</span> <span class="service-price">R$11,00</span></li>
+                <li><span class="service-name">Consultas internet s/ impressão</span> <span class="service-price">R$2,50</span></li>
+                <li><span class="service-name">2ª via boleto (acesso)</span> <span class="service-price">R$2,50</span></li>
+            </ul>
+        </div>
+
+        <!-- CNPJ MEI / TÍTULO ELEITOR / CONTRATOS -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-briefcase"></i>
+                <h2>MEI / documentos</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Criar CNPJ MEI (c/ conta gov)</span> <span class="service-price">R$70,00</span></li>
+                <li><span class="service-name">Declaração anual MEI</span> <span class="service-price">R$35,00</span></li>
+                <li><span class="service-name">Título eleitor 1ª via (fazer cadastro)</span> <span class="service-price">R$16,00</span></li>
+                <li><span class="service-name">Título 2ª via (já possui)</span> <span class="service-price">R$9,50</span></li>
+                <li><span class="service-name">Passe escolar estadual</span> <span class="service-price">R$16,00</span></li>
+                <li><span class="service-name">Passe livre autista</span> <span class="service-price">R$22,00</span></li>
+                <li><span class="service-name">Inscrição concurso</span> <span class="service-price">R$15,00</span></li>
+                <li><span class="service-name">Inscrição emprego</span> <span class="service-price">R$12,00</span></li>
+                <li><span class="service-name">Contrato aluguel/venda (1 folha)</span> <span class="service-price">R$40,00</span></li>
+                <li><span class="service-name">2ª a 4ª folha cada</span> <span class="service-price">R$55,00</span></li>
+                <li class="sub-item"><span class="service-name">*Não fazemos na hora</span></li>
+            </ul>
+        </div>
+
+        <!-- DECLARAÇÕES / B.O. / GRAVAÇÃO CD / SERASA -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-file-signature"></i>
+                <h2>Declarações / Mídia</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Declaração trabalho/residência (1 folha)</span> <span class="service-price">R$12,00</span></li>
+                <li><span class="service-name">Boletim ocorrência digitalização 1 folha</span> <span class="service-price">R$3,00</span></li>
+                <li><span class="service-name">2ª folha em diante (cada lado)</span> <span class="service-price">R$0,70</span></li>
+                <li><span class="service-name">Gravação DVD (nosso CD)</span> <span class="service-price">R$13,00</span></li>
+                <li><span class="service-name">Gravação DVD (CD cliente)</span> <span class="service-price">R$8,50</span></li>
+                <li><span class="service-name">2+ nosso CD (cada)</span> <span class="service-price">R$10,00</span></li>
+                <li><span class="service-name">2+ CD cliente (cada)</span> <span class="service-price">R$6,50</span></li>
+                <li class="sub-item">+ de 2 CDs: não faz na hora</li>
+                <li><span class="service-name">Consulta Serasa (já tem cadastro)</span> <span class="service-price">R$7,00</span></li>
+                <li><span class="service-name">Fazer acordo Serasa</span> <span class="service-price">R$12,00</span></li>
+            </ul>
+        </div>
+
+        <!-- EMISSÃO CRV / TRANSF CONTA / REMOÇÃO VÍRUS -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-car"></i>
+                <h2>Veículos & Celular</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Emissão CRV c/ conta gov</span> <span class="service-price">R$7,00</span></li>
+                <li><span class="service-name">CRV p/ criar conta</span> <span class="service-price">R$10,00</span></li>
+                <li><span class="service-name">Transferência com conta</span> <span class="service-price">R$45,00</span></li>
+                <li><span class="service-name">Remoção vírus (somente)</span> <span class="service-price">R$27,00</span></li>
+                <li><span class="service-name">Backup + restauração</span> <span class="service-price">R$60,00</span></li>
+            </ul>
+        </div>
+
+        <!-- PANFLETOS / CARTOES / TOPPER BOLO (materiais gráficos) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-pager"></i>
+                <h2>Materiais gráficos</h2>
+            </div>
+            <span class="badge">Panfletos 14x20</span>
+            <ul class="price-list">
+                <li><span class="service-name">frente 1000</span> <span class="service-price">R$580</span></li>
+                <li><span class="service-name">frente 2500</span> <span class="service-price">R$850</span></li>
+                <li><span class="service-name">frente 5000</span> <span class="service-price">R$1350</span></li>
+                <li><span class="service-name">frente/verso 1000</span> <span class="service-price">R$680</span></li>
+                <li><span class="service-name">frente/verso 2500</span> <span class="service-price">R$1000</span></li>
+                <li><span class="service-name">frente/verso 5000</span> <span class="service-price">R$1600</span></li>
+            </ul>
+            <span class="badge">Panfletos 10x14</span>
+            <ul class="price-list">
+                <li><span class="service-name">frente 1000</span> <span class="service-price">R$316</span></li>
+                <li><span class="service-name">frente 2500</span> <span class="service-price">R$450</span></li>
+                <li><span class="service-name">frente 5000</span> <span class="service-price">R$720</span></li>
+                <li><span class="service-name">frente/verso 1000</span> <span class="service-price">R$345</span></li>
+                <li><span class="service-name">frente/verso 2500</span> <span class="service-price">R$580</span></li>
+                <li><span class="service-name">frente/verso 5000</span> <span class="service-price">R$810</span></li>
+            </ul>
+            <span class="badge">Cartões de visita</span>
+            <ul class="price-list">
+                <li><span class="service-name">com arte</span> <span class="service-price">R$174</span></li>
+                <li><span class="service-name">sem arte</span> <span class="service-price">R$234</span></li>
+                <li><span class="service-name">frente/verso c/ arte</span> <span class="service-price">R$216</span></li>
+                <li><span class="service-name">frente/verso s/ arte</span> <span class="service-price">R$260</span></li>
+            </ul>
+            <span class="badge">Topper de bolo</span>
+            <ul class="price-list">
+                <li><span class="service-name">arte pegar internet</span> <span class="service-price">R$9,00</span></li>
+                <li><span class="service-name">arte nome/data</span> <span class="service-price">R$12,00</span></li>
+                <li><span class="service-name">criar arte completa</span> <span class="service-price">R$20,00</span></li>
+            </ul>
+        </div>
+
+        <!-- EXTRAS: FOTO 3x4 (já incluso) mas vamos reforçar digitalização -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-qrcode"></i>
+                <h2>Outros serviços</h2>
+            </div>
+            <ul class="price-list">
+                <li><span class="service-name">Digitalização de documento (1 folha)</span> <span class="service-price">R$3,00</span></li>
+                <li><span class="service-name"> cada lado adicional</span> <span class="service-price">R$0,70</span></li>
+                <li><span class="service-name">CRV (recorrente)</span> <span class="service-price">R$7,00 / R$10,00</span></li>
+                <li><span class="service-name">Foto 3x4 (3 uni)</span> <span class="service-price">R$8,00</span></li>
+                <li><span class="service-name">Foto 10x15 (1 unid)</span> <span class="service-price">R$4,80</span></li>
+            </ul>
+            <div class="obs-note"><i class="fas fa-clock"></i> Consulte prazos para grandes tiragens e contratos.</div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <main class="container">
-        <section id="pricing">
-            
-            <!-- Categories Navigation -->
-            <div class="categories-nav" id="categoriesNav">
-                <!-- Categories tabs will be generated by JavaScript -->
-            </div>
-
-            <!-- Categories Grid -->
-            <div class="categories-container" id="categoriesContainer">
-                <!-- Categories cards will be generated by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Featured Services -->
-        <section class="featured-services" id="services">
-            <div class="page-title">
-                <h2>Serviços em Destaque</h2>
-                <p>Alguns dos nossos serviços mais solicitados pelos clientes.</p>
-            </div>
-
-            <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="featured-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3>Currículos Profissionais</h3>
-                    <p>Montamos seu currículo com layout profissional, com ou sem foto, para você conquistar a vaga desejada.</p>
-                    <p class="service-price" style="margin-top: 1rem;">A partir de R$ 6,60</p>
-                </div>
-
-                <div class="featured-card">
-                    <div class="featured-icon">
-                        <i class="fas fa-id-card"></i>
-                    </div>
-                    <h3>Documentos Plastificados</h3>
-                    <p>Proteja seus documentos importantes com nossa plastificação de alta qualidade e durabilidade.</p>
-                    <p class="service-price" style="margin-top: 1rem;">A partir de R$ 4,95</p>
-                </div>
-
-                <div class="featured-card">
-                    <div class="featured-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3>Fotos para Documentos</h3>
-                    <p>Fotos 3x4, 5x7 e 10x15 com qualidade profissional para todos os tipos de documentos.</p>
-                    <p class="service-price" style="margin-top: 1rem;">A partir de R$ 3,85</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>Sobre Nós</h4>
-                    <p>Oferecemos serviços de qualidade há mais de 10 anos, com atendimento personalizado e soluções rápidas para suas necessidades documentais e digitais.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/pibbaweb1" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/pibbaweb1/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5513988089754" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#pricing">Tabela de Preços</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Contato</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Av. Brasil, 284 - Jardim Casqueiro, Cubatão - SP</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>(13) 98808-9754</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>avenidabrasil284@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Seg - Sex: 8h às 18h | Sáb: 9h às 13h</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-route"></i>
-                            <a href="https://www.google.com/maps/dir//Av.+Brasil,+284+-+Jardim+Casqueiro,+Cubatão+-+SP" 
-                               target="_blank" 
-                               style="color: var(--gray-light); text-decoration: none;">
-                                <span>Traçar rota no Google Maps</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <p>&copy; 2026 Pibbaweb Informática. Todos os direitos reservados. | Preços sujeitos a alteração sem aviso prévio.</p>
-                <p style="margin-top: 0.5rem;">CNPJ: XX.XXX.XXX/XXXX-XX</p>
-            </div>
-        </div>
+    <footer>
+        ⚡ Tabela 2025 compilada das imagens • Preços sujeitos a alteração • Atendimento sujeito a conferência<br>
+        <i class="far fa-credit-card"></i> valores em Reais (R$) — gráfica rápida
     </footer>
-
-    <script>
-        // Dados completos dos serviços (ATUALIZADO com todas as categorias da tabela fornecida) - VALORES AJUSTADOS EM 10%
-        const servicesData = [
-            {
-                id: 'curriculos',
-                name: 'Currículos',
-                icon: 'fas fa-file-alt',
-                services: [
-                    { name: 'Currículo 1º Emprego', price: 'R$ 6,60' },
-                    { name: 'Currículo sem Foto 1 Frente', price: 'R$ 9,90' },
-                    { name: 'Currículo sem Foto 2 Frentes', price: 'R$ 13,20' },
-                    { name: 'Currículo sem Foto 3 Frentes', price: 'R$ 15,40' },
-                    { name: 'Currículo com Foto 1 Frente', price: 'R$ 11,00' },
-                    { name: 'Currículo com Foto 2 Frentes', price: 'R$ 13,20' },
-                    { name: 'Currículo com Foto 3 Frentes', price: 'R$ 15,40' }
-                ]
-            },
-            {
-                id: 'cpf-carteiras',
-                name: 'CPF e Outras Carteiras',
-                icon: 'fas fa-id-card',
-                services: [
-                    { name: 'Impressão sem Plastificação', price: 'R$ 6,60' },
-                    { name: 'Impressão com Plastificação', price: 'R$ 9,90' },
-                    { name: 'Mais de 1 (já plastificado)', price: 'R$ 8,25' }
-                ]
-            },
-            {
-                id: 'plastificacao',
-                name: 'Plastificação',
-                icon: 'fas fa-id-badge',
-                services: [
-                    { name: 'RG, CPF, Títulos (só plastificação)', price: 'R$ 4,95' },
-                    { name: 'Comprovantes COVID, Estacionamento Idoso', price: 'R$ 6,60' },
-                    { name: 'A4 sem Impressão', price: 'R$ 9,90' },
-                    { name: 'A4 com Impressão', price: 'R$ 12,10' }
-                ]
-            },
-            {
-                id: 'encadernacao',
-                name: 'Encadernação',
-                icon: 'fas fa-book',
-                services: [
-                    { name: 'Até 250 folhas', price: 'R$ 13,20' },
-                    { name: 'Mais de 250 folhas', price: 'R$ 15,40' }
-                ],
-                note: 'Máximo 350 folhas por encadernação'
-            },
-            {
-                id: 'offset',
-                name: 'Impressão Offset',
-                icon: 'fas fa-print',
-                services: [
-                    { name: '1 Folha', price: 'R$ 7,70' },
-                    { name: '2 Folhas (cada)', price: 'R$ 7,15' },
-                    { name: '3 Folhas (cada)', price: 'R$ 6,60' },
-                    { name: '4 a 10 Folhas (cada)', price: 'R$ 5,50' },
-                    { name: '10 em diante (cada)', price: 'R$ 4,40' }
-                ]
-            },
-            {
-                id: 'titulo-eleitor',
-                name: 'Título de Eleitor',
-                icon: 'fas fa-vote-yea',
-                services: [
-                    { name: '1ª Via (com cadastro)', price: 'R$ 17,60' },
-                    { name: '2ª Via (já tem título)', price: 'R$ 10,45' }
-                ]
-            },
-            {
-                id: 'certidoes',
-                name: 'Atestado de Antecedentes e Certidões',
-                icon: 'fas fa-file-contract',
-                services: [
-                    { name: 'Estado de SP', price: 'R$ 9,90' },
-                    { name: 'Outros Estados', price: 'R$ 11,00' },
-                    { name: 'Acima de 1 certidão (cada adicional)', price: 'R$ 7,70' }
-                ]
-            },
-            {
-                id: 'fotos-polaroid',
-                name: 'Fotos Polaroid',
-                icon: 'fas fa-camera-retro',
-                services: [
-                    { name: '1 Foto', price: 'R$ 3,85' },
-                    { name: '2 Fotos', price: 'R$ 6,60' },
-                    { name: '3 Fotos', price: 'R$ 9,35' },
-                    { name: '6 Fotos', price: 'R$ 13,75' },
-                    { name: '9 Fotos', price: 'R$ 18,70' },
-                    { name: 'Acima de 9 fotos (cada)', price: 'R$ 1,87' }
-                ]
-            },
-            {
-                id: 'impressao-pb',
-                name: 'Impressão PB (WhatsApp/Email/etc)',
-                icon: 'fas fa-file-word',
-                services: [
-                    { name: '1 Folha PB', price: 'R$ 2,20' },
-                    { name: '2 Folhas', price: 'R$ 4,40' },
-                    { name: '3 Folhas', price: 'R$ 5,78' },
-                    { name: '4 Folhas', price: 'R$ 7,70' },
-                    { name: '5ª à 15ª folha (cada)', price: 'R$ 1,43' },
-                    { name: '15ª folha em diante (cada)', price: 'R$ 1,10' }
-                ],
-                note: 'Frente e verso: + R$ 0,77 por folha'
-            },
-            {
-                id: 'impressao-color',
-                name: 'Impressão Colorida (WhatsApp/Email/etc)',
-                icon: 'fas fa-file-image',
-                services: [
-                    { name: '1 Folha Color', price: 'R$ 3,30' },
-                    { name: '2 Folhas', price: 'R$ 5,78' },
-                    { name: '3 Folhas', price: 'R$ 8,25' },
-                    { name: '4 Folhas', price: 'R$ 9,90' },
-                    { name: '5ª à 15ª folha (cada)', price: 'R$ 2,20' },
-                    { name: '15ª folha em diante (cada)', price: 'R$ 1,65' }
-                ],
-                note: 'Frente e verso: + R$ 0,77 por folha'
-            },
-            {
-                id: 'criar-contas',
-                name: 'Criar Conta ou E-mails',
-                icon: 'fas fa-user-plus',
-                services: [
-                    { name: 'Gov.br', price: 'R$ 8,80' },
-                    { name: 'E-mails', price: 'R$ 10,45' },
-                    { name: 'Recuperação de conta', price: 'R$ 8,25' }
-                ]
-            },
-            {
-                id: 'pesquisa-impressao',
-                name: 'Pesquisa + Impressões',
-                icon: 'fas fa-search',
-                services: [
-                    { name: '1 Folha', price: 'R$ 6,60' },
-                    { name: '2 Folhas', price: 'R$ 9,90' },
-                    { name: '3 Folhas', price: 'R$ 12,10' }
-                ]
-            },
-            {
-                id: 'copias-pb',
-                name: 'Cópias PB',
-                icon: 'fas fa-copy',
-                services: [
-                    { name: '1 a 10 (cada)', price: 'R$ 0,55' },
-                    { name: '10 a 30 (cada)', price: 'R$ 0,61' },
-                    { name: '30 a 60 (cada)', price: 'R$ 0,44' },
-                    { name: '60 em diante (cada)', price: 'R$ 0,33' }
-                ]
-            },
-            {
-                id: 'copias-pb-fv',
-                name: 'Cópias PB Frente/Verso',
-                icon: 'fas fa-copy',
-                services: [
-                    { name: '1 a 10 (cada)', price: 'R$ 0,66' },
-                    { name: '10 a 30 (cada)', price: 'R$ 0,61' },
-                    { name: '30 a 60 (cada)', price: 'R$ 0,55' },
-                    { name: '60 em diante (cada)', price: 'R$ 0,50' }
-                ]
-            },
-            {
-                id: 'copias-color',
-                name: 'Cópias Coloridas',
-                icon: 'fas fa-copy',
-                services: [
-                    { name: '1 a 10 (cada)', price: 'R$ 0,77' },
-                    { name: '10 a 30 (cada)', price: 'R$ 0,66' },
-                    { name: '30 a 60 (cada)', price: 'R$ 0,61' },
-                    { name: '60 em diante (cada)', price: 'R$ 0,50' }
-                ]
-            },
-            {
-                id: 'copias-color-fv',
-                name: 'Cópias Coloridas Frente/Verso',
-                icon: 'fas fa-copy',
-                services: [
-                    { name: '1 a 10 (cada)', price: 'R$ 0,88' },
-                    { name: '10 a 30 (cada)', price: 'R$ 0,77' },
-                    { name: '30 a 60 (cada)', price: 'R$ 0,66' },
-                    { name: '60 em diante (cada)', price: 'R$ 0,55' }
-                ]
-            },
-            {
-                id: 'gravacao-cd-dvd',
-                name: 'Gravação de DVD ou CD',
-                icon: 'fas fa-compact-disc',
-                services: [
-                    { name: '1 com nosso CD/DVD', price: 'R$ 14,30' },
-                    { name: '1 com CD do cliente', price: 'R$ 9,35' },
-                    { name: '2 ou mais com nosso CD (cada)', price: 'R$ 11,00' },
-                    { name: '2 ou mais com CD do cliente (cada)', price: 'R$ 7,15' }
-                ],
-                note: 'Mais de 2 CDs não são feitos na hora'
-            },
-            {
-                id: 'nota-fiscal',
-                name: 'Emissão Nota Fiscal',
-                icon: 'fas fa-file-invoice',
-                services: [
-                    { name: 'Pela Prefeitura ou Gov', price: 'R$ 11,00' }
-                ]
-            },
-            {
-                id: 'cnpj-mei',
-                name: 'Criar CNPJ MEI',
-                icon: 'fas fa-briefcase',
-                services: [
-                    { name: 'Com conta Gov', price: 'R$ 77,00' },
-                    { name: 'Declaração Anual MEI', price: 'R$ 38,50' }
-                ]
-            },
-            {
-                id: 'passe-escolar',
-                name: 'Passe Escolar / Autista',
-                icon: 'fas fa-bus',
-                services: [
-                    { name: 'Passe Escolar Estadual', price: 'R$ 17,60' },
-                    { name: 'Passe Livre Autista', price: 'R$ 24,20' }
-                ]
-            },
-            {
-                id: 'inscricoes',
-                name: 'Inscrições para Concursos/Emprego',
-                icon: 'fas fa-pen',
-                services: [
-                    { name: 'Concursos', price: 'R$ 16,50' },
-                    { name: 'Inscrições Emprego', price: 'R$ 13,20' }
-                ]
-            },
-            {
-                id: 'boletim-ocorrencia',
-                name: 'Boletim de Ocorrência',
-                icon: 'fas fa-shield-alt',
-                services: [
-                    { name: 'Cada Boletim', price: 'R$ 16,50' }
-                ]
-            },
-            {
-                id: 'digitalizacao',
-                name: 'Digitalização de Documentos',
-                icon: 'fas fa-scanner',
-                services: [
-                    { name: '1 Folha', price: 'R$ 3,30' },
-                    { name: '2ª folha em diante (cada)', price: 'R$ 0,77' }
-                ],
-                note: 'Cada lado escaneado: R$ 0,77'
-            },
-            {
-                id: 'contratos',
-                name: 'Contratos Aluguel/Venda',
-                icon: 'fas fa-file-signature',
-                services: [
-                    { name: '1 Folha', price: 'R$ 44,00' },
-                    { name: '2ª a 4ª folha em diante (cada)', price: 'R$ 60,50' }
-                ],
-                note: 'Não fazemos na hora'
-            },
-            {
-                id: 'declaracoes',
-                name: 'Declarações de Trabalho/Residência',
-                icon: 'fas fa-file-alt',
-                services: [
-                    { name: '1 Folha', price: 'R$ 13,20' }
-                ],
-                note: 'Trazer dados do titular e declarante'
-            },
-            {
-                id: 'serasa',
-                name: 'Consulta Serasa Limpa Nome',
-                icon: 'fas fa-chart-line',
-                services: [
-                    { name: 'Já tem cadastro', price: 'R$ 7,70' },
-                    { name: 'Fazer acordo', price: 'R$ 13,20' }
-                ]
-            },
-            {
-                id: 'emissao-crv',
-                name: 'Emissão CRV',
-                icon: 'fas fa-car',
-                services: [
-                    { name: 'Com conta Gov', price: 'R$ 7,70' },
-                    { name: 'Para criar conta', price: 'R$ 11,00' }
-                ]
-            },
-            {
-                id: 'transf-veiculo',
-                name: 'Transferência de Veículo',
-                icon: 'fas fa-truck',
-                services: [
-                    { name: 'Com conta Gov', price: 'R$ 49,50' }
-                ]
-            },
-            {
-                id: '2via-boletos',
-                name: '2ª Via de Boletos',
-                icon: 'fas fa-barcode',
-                services: [
-                    { name: 'Precisa acessar', price: 'R$ 2,75' }
-                ]
-            },
-            {
-                id: 'consultas-internet',
-                name: 'Consultas na Internet',
-                icon: 'fas fa-globe',
-                services: [
-                    { name: 'Sem impressão', price: 'R$ 2,75' },
-                    { name: 'Com impressão', price: 'R$ 2,75 + impressões' }
-                ]
-            },
-            {
-                id: 'virus-celular',
-                name: 'Remoção de Vírus Celular',
-                icon: 'fas fa-shield-virus',
-                services: [
-                    { name: 'Remoção apenas', price: 'R$ 29,70' },
-                    { name: 'Backup e restauração', price: 'R$ 66,00' },
-                    { name: 'Transferência de arquivos', price: 'R$ 29,70' }
-                ]
-            },
-            {
-                id: 'cartoes-visita',
-                name: 'Cartões de Visita',
-                icon: 'fas fa-address-card',
-                services: [
-                    { name: '500 un. (com arte)', price: 'R$ 191,40' },
-                    { name: '1000 un. (com arte)', price: 'R$ 257,40' },
-                    { name: '500 un. (sem arte)', price: 'R$ 257,40' },
-                    { name: '1000 un. (sem arte)', price: 'R$ 290,40' },
-                    { name: '500 un. fre/verso c/ arte', price: 'R$ 237,60' },
-                    { name: '1000 un. fre/verso c/ arte', price: 'R$ 308,00' },
-                    { name: '500 un. fre/verso s/ arte', price: 'R$ 286,00' },
-                    { name: '1000 un. fre/verso s/ arte', price: 'R$ 374,00' }
-                ]
-            },
-            {
-                id: 'topper-bolo',
-                name: 'Topper de Bolo',
-                icon: 'fas fa-cake-candles',
-                services: [
-                    { name: 'Arte/ pegar internet', price: 'R$ 9,90' },
-                    { name: 'Arte nome/data', price: 'R$ 13,20' },
-                    { name: 'Criar arte', price: 'R$ 22,00' }
-                ]
-            },
-            {
-                id: 'foto-3x4',
-                name: 'Foto 3x4',
-                icon: 'fas fa-camera',
-                services: [
-                    { name: '3 fotos 3x4', price: 'R$ 8,80' },
-                    { name: '6 fotos 3x4', price: 'R$ 15,40' },
-                    { name: '9 fotos 3x4', price: 'R$ 17,60' }
-                ]
-            },
-            {
-                id: 'foto-10x15',
-                name: 'Foto 10x15',
-                icon: 'fas fa-camera',
-                services: [
-                    { name: '1 foto 10x15', price: 'R$ 5,28' },
-                    { name: '2 fotos 10x15', price: 'R$ 7,70' },
-                    { name: '3 fotos 10x15', price: 'R$ 11,00' },
-                    { name: '6 fotos 10x15', price: 'R$ 19,80' },
-                    { name: '9 fotos 10x15', price: 'R$ 24,20' },
-                    { name: '12 fotos 10x15', price: 'R$ 30,80' },
-                    { name: '15 fotos 10x15', price: 'R$ 38,50' }
-                ]
-            },
-            {
-                id: 'foto-5x7',
-                name: 'Foto 5x7',
-                icon: 'fas fa-camera',
-                services: [
-                    { name: '1 foto 5x7', price: 'R$ 6,38' },
-                    { name: '2 fotos 5x7', price: 'R$ 11,00' }
-                ]
-            },
-            {
-                id: 'panfletos-14x20',
-                name: 'Panfletos 14x20',
-                icon: 'fas fa-newspaper',
-                services: [
-                    { name: 'Só frente 1000', price: 'R$ 638,00' },
-                    { name: 'Só frente 2500', price: 'R$ 935,00' },
-                    { name: 'Só frente 5000', price: 'R$ 1.485,00' },
-                    { name: 'Frente/verso 1000', price: 'R$ 748,00' },
-                    { name: 'Frente/verso 2500', price: 'R$ 1.100,00' },
-                    { name: 'Frente/verso 5000', price: 'R$ 1.760,00' }
-                ]
-            },
-            {
-                id: 'panfletos-10x14',
-                name: 'Panfletos 10x14',
-                icon: 'fas fa-newspaper',
-                services: [
-                    { name: 'Só frente 1000', price: 'R$ 347,60' },
-                    { name: 'Só frente 2500', price: 'R$ 495,00' },
-                    { name: 'Só frente 5000', price: 'R$ 792,00' },
-                    { name: 'Frente/verso 1000', price: 'R$ 379,50' },
-                    { name: 'Frente/verso 2500', price: 'R$ 638,00' },
-                    { name: 'Frente/verso 5000', price: 'R$ 891,00' }
-                ]
-            },
-            {
-                id: 'apostilas',
-                name: 'Impressão de Apostilas',
-                icon: 'fas fa-book-open',
-                services: [
-                    { name: 'PB só frente (20-50 pág)', price: 'R$ 0,66' },
-                    { name: 'PB só frente (51+ pág)', price: 'R$ 0,55' },
-                    { name: 'Color só frente (20-50 pág)', price: 'R$ 0,99' },
-                    { name: 'Color só frente (51+ pág)', price: 'R$ 0,79' },
-                    { name: 'PB frente/verso (20-50 pág)', price: 'R$ 0,61' },
-                    { name: 'PB frente/verso (51+ pág)', price: 'R$ 0,50' },
-                    { name: 'Color frente/verso (20-50 pág)', price: 'R$ 0,88' },
-                    { name: 'Color frente/verso (51+ pág)', price: 'R$ 0,66' }
-                ],
-                note: 'Acrescentar R$ 9,90 de encadernação cada apostila'
-            }
-        ];
-
-        // Função para gerar as abas de navegação
-        function generateCategoryTabs() {
-            const categoriesNav = document.getElementById('categoriesNav');
-            
-            // Adiciona uma aba para mostrar todos
-            const allTab = document.createElement('div');
-            allTab.className = 'category-tab active';
-            allTab.dataset.category = 'all';
-            allTab.innerHTML = `<i class="fas fa-th-large"></i> Todos`;
-            
-            allTab.addEventListener('click', () => {
-                document.querySelectorAll('.category-tab').forEach(t => {
-                    t.classList.remove('active');
-                });
-                allTab.classList.add('active');
-                showAllCategories();
-            });
-            
-            categoriesNav.appendChild(allTab);
-            
-            servicesData.forEach((category) => {
-                const tab = document.createElement('div');
-                tab.className = 'category-tab';
-                tab.dataset.category = category.id;
-                tab.innerHTML = `<i class="${category.icon}"></i> ${category.name}`;
-                
-                tab.addEventListener('click', () => {
-                    // Remove a classe active de todas as abas
-                    document.querySelectorAll('.category-tab').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    
-                    // Adiciona a classe active na aba clicada
-                    tab.classList.add('active');
-                    
-                    // Filtra as categorias
-                    filterCategories(category.id);
-                });
-                
-                categoriesNav.appendChild(tab);
-            });
-        }
-
-        // Função para gerar os cards de categoria
-        function generateCategoryCards() {
-            const container = document.getElementById('categoriesContainer');
-            
-            servicesData.forEach(category => {
-                const card = document.createElement('div');
-                card.className = 'category-card';
-                card.id = `card-${category.id}`;
-                
-                let servicesHTML = '';
-                category.services.forEach(service => {
-                    servicesHTML += `
-                        <div class="service-item">
-                            <div class="service-name">${service.name}</div>
-                            <div class="service-price">${service.price}</div>
-                        </div>
-                    `;
-                });
-                
-                card.innerHTML = `
-                    <div class="category-header">
-                        <i class="${category.icon}"></i>
-                        <h3>${category.name}</h3>
-                    </div>
-                    <div class="category-content">
-                        ${servicesHTML}
-                    </div>
-                    ${category.note ? `
-                    <div class="category-footer">
-                        <p class="note">${category.note}</p>
-                    </div>
-                    ` : ''}
-                `;
-                
-                container.appendChild(card);
-            });
-        }
-
-        // Função para filtrar categorias
-        function filterCategories(categoryId) {
-            document.querySelectorAll('.category-card').forEach(card => {
-                if (card.id === `card-${categoryId}`) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // Função para mostrar todas as categorias
-        function showAllCategories() {
-            document.querySelectorAll('.category-card').forEach(card => {
-                card.style.display = 'flex';
-            });
-        }
-
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
-            generateCategoryTabs();
-            generateCategoryCards();
-            
-            // Smooth scrolling para links internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Menu móvel
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.querySelector('.main-nav nav');
-            
-            mobileMenuBtn.addEventListener('click', () => {
-                nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            });
-            
-            // Ajustar navegação para mobile
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) {
-                    nav.style.display = '';
-                }
-            });
-        });
-    </script>
+</div>
 </body>
 </html>
