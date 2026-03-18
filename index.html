@@ -1,359 +1,3 @@
-<?php
-/**
- * ECS Impressões de Apostilas - Tabela de Preços 2025
- * Versão profissional com AdSense e responsividade total.
- */
-
-// Headers de segurança ajustados para permitir AdSense
-header("X-Frame-Options: DENY");
-header("X-Content-Type-Options: nosniff");
-header("X-XSS-Protection: 1; mode=block");
-header("Referrer-Policy: strict-origin-when-cross-origin");
-header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.googleadservices.com https://*.doubleclick.net; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self'; upgrade-insecure-requests;");
-
-// Array com todos os cards (título => conteúdo HTML)
-$cards = [
-    'CPF / Carteiras' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-id-card"></i>
-            <h2>CPF / Carteiras</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Impressão s/ plast</span> <span class="service-price">R$8,00</span></li>
-            <li><span class="service-name">Impressão c/ plast</span> <span class="service-price">R$11,00</span></li>
-            <li><span class="service-name">Mais de 1 (já plastif.)</span> <span class="service-price">R$9,50</span></li>
-        </ul>
-        <div class="badge">PLASTIFICAÇÃO</div>
-        <ul class="price-list">
-            <li><span class="service-name">RG, CPF, títulos (só plast)</span> <span class="service-price">R$6,50</span></li>
-            <li><span class="service-name">Covid / estacionamento idoso</span> <span class="service-price">R$8,00</span></li>
-            <li><span class="service-name">A4 sem impressão</span> <span class="service-price">R$11,00</span></li>
-            <li><span class="service-name">A4 com impressão</span> <span class="service-price">R$13,00</span></li>
-        </ul>
-HTML
-    ,
-    'Currículos' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-file-alt"></i>
-            <h2>Currículos</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">1º emprego</span> <span class="service-price">R$8,00</span></li>
-            <li class="sub-item"><span class="service-name">Estado de SP</span> <span class="service-price">R$11,00</span></li>
-            <li><span class="service-name">s/ foto 1 face</span> <span class="service-price">R$14,00</span></li>
-            <li><span class="service-name">s/ foto 2 faces</span> <span class="service-price">R$16,00</span></li>
-            <li><span class="service-name">s/ foto 3 faces</span> <span class="service-price">R$20,00</span></li>
-            <li><span class="service-name">c/ foto 1 face</span> <span class="service-price">R$12,00</span></li>
-            <li><span class="service-name">c/ foto 2 faces</span> <span class="service-price">R$14,00</span></li>
-            <li><span class="service-name">c/ foto 3 faces</span> <span class="service-price">R$16,00</span></li>
-        </ul>
-HTML
-    ,
-    'Declarações / Mídia' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-file-signature"></i>
-            <h2>Declarações / Mídia</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Declaração trabalho/residência</span> <span class="service-price">R$14,00</span></li>
-            <li><span class="service-name">Boletim ocorrência digitalização 1 folha</span> <span class="service-price">R$5,00</span></li>
-            <li><span class="service-name">2ª folha em diante (cada lado)</span> <span class="service-price">R$2,70</span></li>
-            <li><span class="service-name">Gravação DVD (nosso CD)</span> <span class="service-price">R$15,00</span></li>
-            <li><span class="service-name">Gravação DVD (CD cliente)</span> <span class="service-price">R$10,50</span></li>
-            <li><span class="service-name">Consulta Serasa</span> <span class="service-price">R$9,00</span></li>
-            <li><span class="service-name">Fazer acordo Serasa</span> <span class="service-price">R$14,00</span></li>
-        </ul>
-HTML
-    ,
-    'Encadernação' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-book"></i>
-            <h2>Encadernação</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Até 250 folhas</span> <span class="service-price">R$14,00</span></li>
-            <li><span class="service-name">Mais de 250 folhas</span> <span class="service-price">R$16,00</span></li>
-            <li><span class="service-name">Máximo 350 folhas</span> <span class="service-price">R$22,00</span></li>
-        </ul>
-        <div class="badge" style="margin-top:12px;">Atestados / certidões</div>
-        <ul class="price-list">
-            <li><span class="service-name">Estado de SP</span> <span class="service-price">R$11,00</span></li>
-            <li><span class="service-name">Outros estados</span> <span class="service-price">R$12,00</span></li>
-            <li><span class="service-name">Acima de 1 certidão</span> <span class="service-price">R$9,00</span></li>
-        </ul>
-HTML
-    ,
-    'Fotos' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-camera"></i>
-            <h2>Fotos</h2>
-        </div>
-        <div class="badge">Polaroid</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 foto</span> <span class="service-price">R$5,50</span></li>
-            <li><span class="service-name">2 fotos</span> <span class="service-price">R$8,00</span></li>
-            <li><span class="service-name">3 fotos</span> <span class="service-price">R$10,50</span></li>
-            <li><span class="service-name">6 fotos</span> <span class="service-price">R$14,50</span></li>
-            <li><span class="service-name">9 fotos</span> <span class="service-price">R$19,00</span></li>
-            <li class="sub-item"><span class="service-name">acima de 9, cada</span> <span class="service-price">R$3,70</span></li>
-        </ul>
-        <div class="two-columns" style="margin-top:15px;">
-            <div>
-                <div class="badge">3x4</div>
-                <ul class="price-list">
-                    <li><span class="service-name">3 fotos</span> <span class="service-price">R$10,00</span></li>
-                    <li><span class="service-name">6 fotos</span> <span class="service-price">R$16,00</span></li>
-                    <li><span class="service-name">9 fotos</span> <span class="service-price">R$18,00</span></li>
-                </ul>
-            </div>
-            <div>
-                <div class="badge">5x7</div>
-                <ul class="price-list">
-                    <li><span class="service-name">1 foto</span> <span class="service-price">R$7,80</span></li>
-                    <li><span class="service-name">2 fotos</span> <span class="service-price">R$12,00</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="badge" style="margin-top:15px;">10x15</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 foto</span> <span class="service-price">R$6,80</span></li>
-            <li><span class="service-name">2 fotos</span> <span class="service-price">R$9,00</span></li>
-            <li><span class="service-name">3 fotos</span> <span class="service-price">R$12,00</span></li>
-            <li><span class="service-name">6 fotos</span> <span class="service-price">R$20,00</span></li>
-            <li><span class="service-name">9 fotos</span> <span class="service-price">R$24,00</span></li>
-            <li><span class="service-name">12 fotos</span> <span class="service-price">R$30,00</span></li>
-            <li><span class="service-name">15 fotos</span> <span class="service-price">R$37,00</span></li>
-        </ul>
-HTML
-    ,
-    'Impressões & Cópias' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-print"></i>
-            <h2>Impressões & Cópias</h2>
-        </div>
-        <div class="badge">P&amp;B simples</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 a 10 folhas (cada)</span> <span class="service-price">R$0,70</span></li>
-            <li><span class="service-name">10 a 30 folhas</span> <span class="service-price">R$0,75</span></li>
-            <li><span class="service-name">30 a 60 folhas</span> <span class="service-price">R$0,60</span></li>
-            <li><span class="service-name">60+ folhas</span> <span class="service-price">R$0,50</span></li>
-        </ul>
-        <div class="badge">P&amp;B frente/verso</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,80</span></li>
-            <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,75</span></li>
-            <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,70</span></li>
-            <li><span class="service-name">60+</span> <span class="service-price">R$0,65</span></li>
-        </ul>
-        <div class="badge">Colorida simples</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,90</span></li>
-            <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,80</span></li>
-            <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,75</span></li>
-            <li><span class="service-name">60+</span> <span class="service-price">R$0,65</span></li>
-        </ul>
-        <div class="badge">Colorida f/verso</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$1,00</span></li>
-            <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,90</span></li>
-            <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,80</span></li>
-            <li><span class="service-name">60+</span> <span class="service-price">R$0,70</span></li>
-        </ul>
-        <div class="obs-note"><i class="fas fa-message"></i> Impressão via WhatsApp, email, pen-drive: preços acima acrescidos conforme tabela específica</div>
-HTML
-    ,
-    'Materiais gráficos' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-pager"></i>
-            <h2>Materiais gráficos</h2>
-        </div>
-        <div class="badge">Panfletos 14x20</div>
-        <ul class="price-list">
-            <li><span class="service-name">frente 1000</span> <span class="service-price">R$582</span></li>
-            <li><span class="service-name">frente 2500</span> <span class="service-price">R$852</span></li>
-            <li><span class="service-name">frente 5000</span> <span class="service-price">R$1352</span></li>
-            <li><span class="service-name">frente/verso 1000</span> <span class="service-price">R$682</span></li>
-            <li><span class="service-name">frente/verso 2500</span> <span class="service-price">R$1002</span></li>
-            <li><span class="service-name">frente/verso 5000</span> <span class="service-price">R$1602</span></li>
-        </ul>
-HTML
-    ,
-    'MEI / documentos' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-briefcase"></i>
-            <h2>MEI / documentos</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Criar CNPJ MEI (c/ conta gov)</span> <span class="service-price">R$72,00</span></li>
-            <li><span class="service-name">Declaração anual MEI</span> <span class="service-price">R$37,00</span></li>
-            <li><span class="service-name">Título eleitor 1ª via</span> <span class="service-price">R$18,00</span></li>
-            <li><span class="service-name">Título 2ª via</span> <span class="service-price">R$11,50</span></li>
-            <li><span class="service-name">Passe escolar estadual</span> <span class="service-price">R$18,00</span></li>
-            <li><span class="service-name">Passe livre autista</span> <span class="service-price">R$24,00</span></li>
-            <li><span class="service-name">Inscrição concurso</span> <span class="service-price">R$17,00</span></li>
-            <li><span class="service-name">Inscrição emprego</span> <span class="service-price">R$14,00</span></li>
-            <li><span class="service-name">Contrato aluguel/venda (1 folha)</span> <span class="service-price">R$42,00</span></li>
-            <li><span class="service-name">2ª a 4ª folha cada</span> <span class="service-price">R$57,00</span></li>
-        </ul>
-HTML
-    ,
-    'Offset / digital' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-layer-group"></i>
-            <h2>Offset / digital</h2>
-        </div>
-        <div class="badge">Offset</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 folha</span> <span class="service-price">R$9,00</span></li>
-            <li><span class="service-name">2 folhas (cada)</span> <span class="service-price">R$8,50</span></li>
-            <li><span class="service-name">3 folhas (cada)</span> <span class="service-price">R$8,00</span></li>
-            <li><span class="service-name">4 a 10 folhas (cada)</span> <span class="service-price">R$7,00</span></li>
-            <li><span class="service-name">10+ folhas (cada)</span> <span class="service-price">R$6,00</span></li>
-        </ul>
-        <div class="badge">Via what/email (color)</div>
-        <ul class="price-list">
-            <li><span class="service-name">1 folha color</span> <span class="service-price">R$5,00</span></li>
-            <li><span class="service-name">2 folhas</span> <span class="service-price">R$7,25</span></li>
-            <li><span class="service-name">3 folhas</span> <span class="service-price">R$9,50</span></li>
-            <li><span class="service-name">4 folhas</span> <span class="service-price">R$11,00</span></li>
-            <li><span class="service-name">5ª a 15ª cada</span> <span class="service-price">R$4,00</span></li>
-            <li><span class="service-name">15ª em diante</span> <span class="service-price">R$3,50</span></li>
-        </ul>
-        <div class="obs-note">⏺ Frente e verso: acréscimo de R$0,70 por folha</div>
-HTML
-    ,
-    'Outros serviços' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-qrcode"></i>
-            <h2>Outros serviços</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Digitalização de documento (1 folha)</span> <span class="service-price">R$5,00</span></li>
-            <li><span class="service-name">cada lado adicional</span> <span class="service-price">R$2,70</span></li>
-            <li><span class="service-name">Foto 3x4 (3 uni)</span> <span class="service-price">R$10,00</span></li>
-            <li><span class="service-name">Foto 10x15 (1 unid)</span> <span class="service-price">R$6,80</span></li>
-        </ul>
-HTML
-    ,
-    'Serviços online' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-laptop"></i>
-            <h2>Serviços online</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Criar conta Gov</span> <span class="service-price">R$10,00</span></li>
-            <li><span class="service-name">Criar e-mail</span> <span class="service-price">R$11,50</span></li>
-            <li><span class="service-name">Recuperação de conta</span> <span class="service-price">R$9,50</span></li>
-            <li><span class="service-name">Emissão NF (pref/gov)</span> <span class="service-price">R$12,00</span></li>
-            <li><span class="service-name">Pesquisa + impressão (1 folha)</span> <span class="service-price">R$8,00</span></li>
-            <li><span class="service-name">Pesquisa + 2 folhas</span> <span class="service-price">R$11,00</span></li>
-            <li><span class="service-name">Pesquisa + 3 folhas</span> <span class="service-price">R$13,00</span></li>
-            <li><span class="service-name">Consultas internet s/ impressão</span> <span class="service-price">R$4,50</span></li>
-            <li><span class="service-name">2ª via boleto (acesso)</span> <span class="service-price">R$4,50</span></li>
-        </ul>
-HTML
-    ,
-    'Veículos & Celular' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-car"></i>
-            <h2>Veículos & Celular</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Emissão CRV c/ conta gov</span> <span class="service-price">R$9,00</span></li>
-            <li><span class="service-name">CRV p/ criar conta</span> <span class="service-price">R$12,00</span></li>
-            <li><span class="service-name">Transferência com conta</span> <span class="service-price">R$47,00</span></li>
-            <li><span class="service-name">Remoção vírus (somente)</span> <span class="service-price">R$29,00</span></li>
-            <li><span class="service-name">Backup + restauração</span> <span class="service-price">R$62,00</span></li>
-        </ul>
-HTML
-    ,
-    // 4 novos cards
-    'Cartões de Visita' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-address-card"></i>
-            <h2>Cartões de Visita</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">100 cartões (frente)</span> <span class="service-price">R$45,00</span></li>
-            <li><span class="service-name">100 cartões (frente/verso)</span> <span class="service-price">R$65,00</span></li>
-            <li><span class="service-name">250 cartões (frente)</span> <span class="service-price">R$85,00</span></li>
-            <li><span class="service-name">250 cartões (frente/verso)</span> <span class="service-price">R$115,00</span></li>
-            <li><span class="service-name">500 cartões (frente)</span> <span class="service-price">R$140,00</span></li>
-            <li><span class="service-name">500 cartões (frente/verso)</span> <span class="service-price">R$190,00</span></li>
-        </ul>
-        <div class="obs-note">Papel couché 300g • Prazo: 3 dias úteis</div>
-HTML
-    ,
-    'Carimbos' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-stamp"></i>
-            <h2>Carimbos</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Automático (até 3 linhas)</span> <span class="service-price">R$55,00</span></li>
-            <li><span class="service-name">Automático (4-6 linhas)</span> <span class="service-price">R$68,00</span></li>
-            <li><span class="service-name">Madeira (pequeno)</span> <span class="service-price">R$32,00</span></li>
-            <li><span class="service-name">Madeira (médio)</span> <span class="service-price">R$40,00</span></li>
-            <li><span class="service-name">Data / numerador</span> <span class="service-price">R$89,00</span></li>
-            <li><span class="service-name">Tinta p/ carimbo (10ml)</span> <span class="service-price">R$9,50</span></li>
-        </ul>
-        <div class="badge">confecção em 24h</div>
-HTML
-    ,
-    'Adesivos e Etiquetas' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-tag"></i>
-            <h2>Adesivos e Etiquetas</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Adesivo recortado (10 un)</span> <span class="service-price">R$18,00</span></li>
-            <li><span class="service-name">Adesivo recortado (50 un)</span> <span class="service-price">R$65,00</span></li>
-            <li><span class="service-name">Etiqueta A4 (1 folha)</span> <span class="service-price">R$6,50</span></li>
-            <li><span class="service-name">Etiqueta A4 (10 folhas)</span> <span class="service-price">R$45,00</span></li>
-            <li><span class="service-name">Rolo de etiquetas (500 un)</span> <span class="service-price">R$120,00</span></li>
-        </ul>
-HTML
-    ,
-    'Papel Especial' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-paint-roller"></i>
-            <h2>Papel Especial</h2>
-        </div>
-        <ul class="price-list">
-            <li><span class="service-name">Couchê brilho A4 (cada)</span> <span class="service-price">R$1,20</span></li>
-            <li><span class="service-name">Couchê fosco A4 (cada)</span> <span class="service-price">R$1,30</span></li>
-            <li><span class="service-name">Fotográfico A4 (cada)</span> <span class="service-price">R$2,50</span></li>
-            <li><span class="service-name">Color Plus A4 (cada)</span> <span class="service-price">R$1,80</span></li>
-            <li><span class="service-name">Vergê A4 (cada)</span> <span class="service-price">R$2,20</span></li>
-        </ul>
-        <div class="badge">impressão colorida + 80%</div>
-HTML
-    ,
-    // Card de publicidade AdSense
-    'Publicidade' => <<<HTML
-        <div class="card-header">
-            <i class="fas fa-ad"></i>
-            <h2>Anúncio</h2>
-        </div>
-        <div style="text-align:center; padding: 1rem 0;">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-6101697624775208"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <p style="font-size:0.85rem; color:#777; margin-top:0.8rem;">Publicidade</p>
-        </div>
-HTML
-    ,
-];
-
-// Ordenar cards alfabeticamente por título
-ksort($cards, SORT_STRING | SORT_FLAG_CASE);
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -797,11 +441,356 @@ ksort($cards, SORT_STRING | SORT_FLAG_CASE);
         </header>
 
         <div class="grid">
-            <?php foreach ($cards as $titulo => $htmlCard): ?>
+            <!-- Adesivos e Etiquetas -->
             <div class="card">
-                <?php echo $htmlCard; ?>
+                <div class="card-header">
+                    <i class="fas fa-tag"></i>
+                    <h2>Adesivos e Etiquetas</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Adesivo recortado (10 un)</span> <span class="service-price">R$18,00</span></li>
+                    <li><span class="service-name">Adesivo recortado (50 un)</span> <span class="service-price">R$65,00</span></li>
+                    <li><span class="service-name">Etiqueta A4 (1 folha)</span> <span class="service-price">R$6,50</span></li>
+                    <li><span class="service-name">Etiqueta A4 (10 folhas)</span> <span class="service-price">R$45,00</span></li>
+                    <li><span class="service-name">Rolo de etiquetas (500 un)</span> <span class="service-price">R$120,00</span></li>
+                </ul>
             </div>
-            <?php endforeach; ?>
+
+            <!-- CPF / Carteiras -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-id-card"></i>
+                    <h2>CPF / Carteiras</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Impressão s/ plast</span> <span class="service-price">R$8,00</span></li>
+                    <li><span class="service-name">Impressão c/ plast</span> <span class="service-price">R$11,00</span></li>
+                    <li><span class="service-name">Mais de 1 (já plastif.)</span> <span class="service-price">R$9,50</span></li>
+                </ul>
+                <div class="badge">PLASTIFICAÇÃO</div>
+                <ul class="price-list">
+                    <li><span class="service-name">RG, CPF, títulos (só plast)</span> <span class="service-price">R$6,50</span></li>
+                    <li><span class="service-name">Covid / estacionamento idoso</span> <span class="service-price">R$8,00</span></li>
+                    <li><span class="service-name">A4 sem impressão</span> <span class="service-price">R$11,00</span></li>
+                    <li><span class="service-name">A4 com impressão</span> <span class="service-price">R$13,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Cartões de Visita -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-address-card"></i>
+                    <h2>Cartões de Visita</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">100 cartões (frente)</span> <span class="service-price">R$45,00</span></li>
+                    <li><span class="service-name">100 cartões (frente/verso)</span> <span class="service-price">R$65,00</span></li>
+                    <li><span class="service-name">250 cartões (frente)</span> <span class="service-price">R$85,00</span></li>
+                    <li><span class="service-name">250 cartões (frente/verso)</span> <span class="service-price">R$115,00</span></li>
+                    <li><span class="service-name">500 cartões (frente)</span> <span class="service-price">R$140,00</span></li>
+                    <li><span class="service-name">500 cartões (frente/verso)</span> <span class="service-price">R$190,00</span></li>
+                </ul>
+                <div class="obs-note">Papel couché 300g • Prazo: 3 dias úteis</div>
+            </div>
+
+            <!-- Carimbos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-stamp"></i>
+                    <h2>Carimbos</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Automático (até 3 linhas)</span> <span class="service-price">R$55,00</span></li>
+                    <li><span class="service-name">Automático (4-6 linhas)</span> <span class="service-price">R$68,00</span></li>
+                    <li><span class="service-name">Madeira (pequeno)</span> <span class="service-price">R$32,00</span></li>
+                    <li><span class="service-name">Madeira (médio)</span> <span class="service-price">R$40,00</span></li>
+                    <li><span class="service-name">Data / numerador</span> <span class="service-price">R$89,00</span></li>
+                    <li><span class="service-name">Tinta p/ carimbo (10ml)</span> <span class="service-price">R$9,50</span></li>
+                </ul>
+                <div class="badge">confecção em 24h</div>
+            </div>
+
+            <!-- Currículos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h2>Currículos</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">1º emprego</span> <span class="service-price">R$8,00</span></li>
+                    <li class="sub-item"><span class="service-name">Estado de SP</span> <span class="service-price">R$11,00</span></li>
+                    <li><span class="service-name">s/ foto 1 face</span> <span class="service-price">R$14,00</span></li>
+                    <li><span class="service-name">s/ foto 2 faces</span> <span class="service-price">R$16,00</span></li>
+                    <li><span class="service-name">s/ foto 3 faces</span> <span class="service-price">R$20,00</span></li>
+                    <li><span class="service-name">c/ foto 1 face</span> <span class="service-price">R$12,00</span></li>
+                    <li><span class="service-name">c/ foto 2 faces</span> <span class="service-price">R$14,00</span></li>
+                    <li><span class="service-name">c/ foto 3 faces</span> <span class="service-price">R$16,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Declarações / Mídia -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-file-signature"></i>
+                    <h2>Declarações / Mídia</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Declaração trabalho/residência</span> <span class="service-price">R$14,00</span></li>
+                    <li><span class="service-name">Boletim ocorrência digitalização 1 folha</span> <span class="service-price">R$5,00</span></li>
+                    <li><span class="service-name">2ª folha em diante (cada lado)</span> <span class="service-price">R$2,70</span></li>
+                    <li><span class="service-name">Gravação DVD (nosso CD)</span> <span class="service-price">R$15,00</span></li>
+                    <li><span class="service-name">Gravação DVD (CD cliente)</span> <span class="service-price">R$10,50</span></li>
+                    <li><span class="service-name">Consulta Serasa</span> <span class="service-price">R$9,00</span></li>
+                    <li><span class="service-name">Fazer acordo Serasa</span> <span class="service-price">R$14,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Encadernação -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-book"></i>
+                    <h2>Encadernação</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Até 250 folhas</span> <span class="service-price">R$14,00</span></li>
+                    <li><span class="service-name">Mais de 250 folhas</span> <span class="service-price">R$16,00</span></li>
+                    <li><span class="service-name">Máximo 350 folhas</span> <span class="service-price">R$22,00</span></li>
+                </ul>
+                <div class="badge" style="margin-top:12px;">Atestados / certidões</div>
+                <ul class="price-list">
+                    <li><span class="service-name">Estado de SP</span> <span class="service-price">R$11,00</span></li>
+                    <li><span class="service-name">Outros estados</span> <span class="service-price">R$12,00</span></li>
+                    <li><span class="service-name">Acima de 1 certidão</span> <span class="service-price">R$9,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Fotos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-camera"></i>
+                    <h2>Fotos</h2>
+                </div>
+                <div class="badge">Polaroid</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 foto</span> <span class="service-price">R$5,50</span></li>
+                    <li><span class="service-name">2 fotos</span> <span class="service-price">R$8,00</span></li>
+                    <li><span class="service-name">3 fotos</span> <span class="service-price">R$10,50</span></li>
+                    <li><span class="service-name">6 fotos</span> <span class="service-price">R$14,50</span></li>
+                    <li><span class="service-name">9 fotos</span> <span class="service-price">R$19,00</span></li>
+                    <li class="sub-item"><span class="service-name">acima de 9, cada</span> <span class="service-price">R$3,70</span></li>
+                </ul>
+                <div class="two-columns" style="margin-top:15px;">
+                    <div>
+                        <div class="badge">3x4</div>
+                        <ul class="price-list">
+                            <li><span class="service-name">3 fotos</span> <span class="service-price">R$10,00</span></li>
+                            <li><span class="service-name">6 fotos</span> <span class="service-price">R$16,00</span></li>
+                            <li><span class="service-name">9 fotos</span> <span class="service-price">R$18,00</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="badge">5x7</div>
+                        <ul class="price-list">
+                            <li><span class="service-name">1 foto</span> <span class="service-price">R$7,80</span></li>
+                            <li><span class="service-name">2 fotos</span> <span class="service-price">R$12,00</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="badge" style="margin-top:15px;">10x15</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 foto</span> <span class="service-price">R$6,80</span></li>
+                    <li><span class="service-name">2 fotos</span> <span class="service-price">R$9,00</span></li>
+                    <li><span class="service-name">3 fotos</span> <span class="service-price">R$12,00</span></li>
+                    <li><span class="service-name">6 fotos</span> <span class="service-price">R$20,00</span></li>
+                    <li><span class="service-name">9 fotos</span> <span class="service-price">R$24,00</span></li>
+                    <li><span class="service-name">12 fotos</span> <span class="service-price">R$30,00</span></li>
+                    <li><span class="service-name">15 fotos</span> <span class="service-price">R$37,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Impressões & Cópias -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-print"></i>
+                    <h2>Impressões & Cópias</h2>
+                </div>
+                <div class="badge">P&B simples</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 a 10 folhas (cada)</span> <span class="service-price">R$0,70</span></li>
+                    <li><span class="service-name">10 a 30 folhas</span> <span class="service-price">R$0,75</span></li>
+                    <li><span class="service-name">30 a 60 folhas</span> <span class="service-price">R$0,60</span></li>
+                    <li><span class="service-name">60+ folhas</span> <span class="service-price">R$0,50</span></li>
+                </ul>
+                <div class="badge">P&B frente/verso</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,80</span></li>
+                    <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,75</span></li>
+                    <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,70</span></li>
+                    <li><span class="service-name">60+</span> <span class="service-price">R$0,65</span></li>
+                </ul>
+                <div class="badge">Colorida simples</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$0,90</span></li>
+                    <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,80</span></li>
+                    <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,75</span></li>
+                    <li><span class="service-name">60+</span> <span class="service-price">R$0,65</span></li>
+                </ul>
+                <div class="badge">Colorida f/verso</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 a 10 (cada)</span> <span class="service-price">R$1,00</span></li>
+                    <li><span class="service-name">10 a 30</span> <span class="service-price">R$0,90</span></li>
+                    <li><span class="service-name">30 a 60</span> <span class="service-price">R$0,80</span></li>
+                    <li><span class="service-name">60+</span> <span class="service-price">R$0,70</span></li>
+                </ul>
+                <div class="obs-note"><i class="fas fa-message"></i> Impressão via WhatsApp, email, pen-drive: preços acima acrescidos conforme tabela específica</div>
+            </div>
+
+            <!-- MEI / documentos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-briefcase"></i>
+                    <h2>MEI / documentos</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Criar CNPJ MEI (c/ conta gov)</span> <span class="service-price">R$72,00</span></li>
+                    <li><span class="service-name">Declaração anual MEI</span> <span class="service-price">R$37,00</span></li>
+                    <li><span class="service-name">Título eleitor 1ª via</span> <span class="service-price">R$18,00</span></li>
+                    <li><span class="service-name">Título 2ª via</span> <span class="service-price">R$11,50</span></li>
+                    <li><span class="service-name">Passe escolar estadual</span> <span class="service-price">R$18,00</span></li>
+                    <li><span class="service-name">Passe livre autista</span> <span class="service-price">R$24,00</span></li>
+                    <li><span class="service-name">Inscrição concurso</span> <span class="service-price">R$17,00</span></li>
+                    <li><span class="service-name">Inscrição emprego</span> <span class="service-price">R$14,00</span></li>
+                    <li><span class="service-name">Contrato aluguel/venda (1 folha)</span> <span class="service-price">R$42,00</span></li>
+                    <li><span class="service-name">2ª a 4ª folha cada</span> <span class="service-price">R$57,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Materiais gráficos -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-pager"></i>
+                    <h2>Materiais gráficos</h2>
+                </div>
+                <div class="badge">Panfletos 14x20</div>
+                <ul class="price-list">
+                    <li><span class="service-name">frente 1000</span> <span class="service-price">R$582</span></li>
+                    <li><span class="service-name">frente 2500</span> <span class="service-price">R$852</span></li>
+                    <li><span class="service-name">frente 5000</span> <span class="service-price">R$1352</span></li>
+                    <li><span class="service-name">frente/verso 1000</span> <span class="service-price">R$682</span></li>
+                    <li><span class="service-name">frente/verso 2500</span> <span class="service-price">R$1002</span></li>
+                    <li><span class="service-name">frente/verso 5000</span> <span class="service-price">R$1602</span></li>
+                </ul>
+            </div>
+
+            <!-- Offset / digital -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-layer-group"></i>
+                    <h2>Offset / digital</h2>
+                </div>
+                <div class="badge">Offset</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 folha</span> <span class="service-price">R$9,00</span></li>
+                    <li><span class="service-name">2 folhas (cada)</span> <span class="service-price">R$8,50</span></li>
+                    <li><span class="service-name">3 folhas (cada)</span> <span class="service-price">R$8,00</span></li>
+                    <li><span class="service-name">4 a 10 folhas (cada)</span> <span class="service-price">R$7,00</span></li>
+                    <li><span class="service-name">10+ folhas (cada)</span> <span class="service-price">R$6,00</span></li>
+                </ul>
+                <div class="badge">Via what/email (color)</div>
+                <ul class="price-list">
+                    <li><span class="service-name">1 folha color</span> <span class="service-price">R$5,00</span></li>
+                    <li><span class="service-name">2 folhas</span> <span class="service-price">R$7,25</span></li>
+                    <li><span class="service-name">3 folhas</span> <span class="service-price">R$9,50</span></li>
+                    <li><span class="service-name">4 folhas</span> <span class="service-price">R$11,00</span></li>
+                    <li><span class="service-name">5ª a 15ª cada</span> <span class="service-price">R$4,00</span></li>
+                    <li><span class="service-name">15ª em diante</span> <span class="service-price">R$3,50</span></li>
+                </ul>
+                <div class="obs-note">⏺ Frente e verso: acréscimo de R$0,70 por folha</div>
+            </div>
+
+            <!-- Outros serviços -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-qrcode"></i>
+                    <h2>Outros serviços</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Digitalização de documento (1 folha)</span> <span class="service-price">R$5,00</span></li>
+                    <li><span class="service-name">cada lado adicional</span> <span class="service-price">R$2,70</span></li>
+                    <li><span class="service-name">Foto 3x4 (3 uni)</span> <span class="service-price">R$10,00</span></li>
+                    <li><span class="service-name">Foto 10x15 (1 unid)</span> <span class="service-price">R$6,80</span></li>
+                </ul>
+            </div>
+
+            <!-- Papel Especial -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-paint-roller"></i>
+                    <h2>Papel Especial</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Couchê brilho A4 (cada)</span> <span class="service-price">R$1,20</span></li>
+                    <li><span class="service-name">Couchê fosco A4 (cada)</span> <span class="service-price">R$1,30</span></li>
+                    <li><span class="service-name">Fotográfico A4 (cada)</span> <span class="service-price">R$2,50</span></li>
+                    <li><span class="service-name">Color Plus A4 (cada)</span> <span class="service-price">R$1,80</span></li>
+                    <li><span class="service-name">Vergê A4 (cada)</span> <span class="service-price">R$2,20</span></li>
+                </ul>
+                <div class="badge">impressão colorida + 80%</div>
+            </div>
+
+            <!-- Publicidade (AdSense) -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-ad"></i>
+                    <h2>Anúncio</h2>
+                </div>
+                <div style="text-align:center; padding: 1rem 0;">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6101697624775208"
+                         data-ad-slot="1234567890"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <p style="font-size:0.85rem; color:#777; margin-top:0.8rem;">Publicidade</p>
+                </div>
+            </div>
+
+            <!-- Serviços online -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-laptop"></i>
+                    <h2>Serviços online</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Criar conta Gov</span> <span class="service-price">R$10,00</span></li>
+                    <li><span class="service-name">Criar e-mail</span> <span class="service-price">R$11,50</span></li>
+                    <li><span class="service-name">Recuperação de conta</span> <span class="service-price">R$9,50</span></li>
+                    <li><span class="service-name">Emissão NF (pref/gov)</span> <span class="service-price">R$12,00</span></li>
+                    <li><span class="service-name">Pesquisa + impressão (1 folha)</span> <span class="service-price">R$8,00</span></li>
+                    <li><span class="service-name">Pesquisa + 2 folhas</span> <span class="service-price">R$11,00</span></li>
+                    <li><span class="service-name">Pesquisa + 3 folhas</span> <span class="service-price">R$13,00</span></li>
+                    <li><span class="service-name">Consultas internet s/ impressão</span> <span class="service-price">R$4,50</span></li>
+                    <li><span class="service-name">2ª via boleto (acesso)</span> <span class="service-price">R$4,50</span></li>
+                </ul>
+            </div>
+
+            <!-- Veículos & Celular -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-car"></i>
+                    <h2>Veículos & Celular</h2>
+                </div>
+                <ul class="price-list">
+                    <li><span class="service-name">Emissão CRV c/ conta gov</span> <span class="service-price">R$9,00</span></li>
+                    <li><span class="service-name">CRV p/ criar conta</span> <span class="service-price">R$12,00</span></li>
+                    <li><span class="service-name">Transferência com conta</span> <span class="service-price">R$47,00</span></li>
+                    <li><span class="service-name">Remoção vírus (somente)</span> <span class="service-price">R$29,00</span></li>
+                    <li><span class="service-name">Backup + restauração</span> <span class="service-price">R$62,00</span></li>
+                </ul>
+            </div>
         </div>
 
         <footer>
