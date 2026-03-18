@@ -1,15 +1,15 @@
 <?php
 /**
  * ECS Impressões de Apostilas - Tabela de Preços 2025
- * Versão profissional com CSS aprimorado e responsividade total.
+ * Versão profissional com AdSense e responsividade total.
  */
 
-// Headers de segurança
+// Headers de segurança ajustados para permitir AdSense
 header("X-Frame-Options: DENY");
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
 header("Referrer-Policy: strict-origin-when-cross-origin");
-header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://pagead2.googlesyndication.com; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; upgrade-insecure-requests;");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.googleadservices.com https://*.doubleclick.net; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self'; upgrade-insecure-requests;");
 
 // Array com todos os cards (título => conteúdo HTML)
 $cards = [
