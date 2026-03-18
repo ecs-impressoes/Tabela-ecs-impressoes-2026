@@ -2,15 +2,15 @@
 /**
  * ECS Impressões de Apostilas - Tabela de Preços 2025
  * 
- * PHP com headers de segurança básicos e organização alfabética dos cards.
+ * PHP com headers de segurança, AdSense e 4 novos cards de serviços.
  */
 
-// Headers de segurança (enviados antes de qualquer saída)
+// Headers de segurança
 header("X-Frame-Options: DENY");
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
 header("Referrer-Policy: strict-origin-when-cross-origin");
-header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; upgrade-insecure-requests;");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://pagead2.googlesyndication.com; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; upgrade-insecure-requests;");
 
 // Array com todos os cards (título => conteúdo HTML)
 $cards = [
@@ -268,9 +268,91 @@ HTML
         </ul>
 HTML
     ,
+    // 4 novos cards
+    'Cartões de Visita' => <<<HTML
+        <div class="card-header">
+            <i class="fas fa-address-card"></i>
+            <h2>Cartões de Visita</h2>
+        </div>
+        <ul class="price-list">
+            <li><span class="service-name">100 cartões (frente)</span> <span class="service-price">R$45,00</span></li>
+            <li><span class="service-name">100 cartões (frente/verso)</span> <span class="service-price">R$65,00</span></li>
+            <li><span class="service-name">250 cartões (frente)</span> <span class="service-price">R$85,00</span></li>
+            <li><span class="service-name">250 cartões (frente/verso)</span> <span class="service-price">R$115,00</span></li>
+            <li><span class="service-name">500 cartões (frente)</span> <span class="service-price">R$140,00</span></li>
+            <li><span class="service-name">500 cartões (frente/verso)</span> <span class="service-price">R$190,00</span></li>
+        </ul>
+        <div class="obs-note">Papel couché 300g • Prazo: 3 dias úteis</div>
+HTML
+    ,
+    'Carimbos' => <<<HTML
+        <div class="card-header">
+            <i class="fas fa-stamp"></i>
+            <h2>Carimbos</h2>
+        </div>
+        <ul class="price-list">
+            <li><span class="service-name">Automático (até 3 linhas)</span> <span class="service-price">R$55,00</span></li>
+            <li><span class="service-name">Automático (4-6 linhas)</span> <span class="service-price">R$68,00</span></li>
+            <li><span class="service-name">Madeira (pequeno)</span> <span class="service-price">R$32,00</span></li>
+            <li><span class="service-name">Madeira (médio)</span> <span class="service-price">R$40,00</span></li>
+            <li><span class="service-name">Data / numerador</span> <span class="service-price">R$89,00</span></li>
+            <li><span class="service-name">Tinta p/ carimbo (10ml)</span> <span class="service-price">R$9,50</span></li>
+        </ul>
+        <div class="badge">confecção em 24h</div>
+HTML
+    ,
+    'Adesivos e Etiquetas' => <<<HTML
+        <div class="card-header">
+            <i class="fas fa-tag"></i>
+            <h2>Adesivos e Etiquetas</h2>
+        </div>
+        <ul class="price-list">
+            <li><span class="service-name">Adesivo recortado (10 un)</span> <span class="service-price">R$18,00</span></li>
+            <li><span class="service-name">Adesivo recortado (50 un)</span> <span class="service-price">R$65,00</span></li>
+            <li><span class="service-name">Etiqueta A4 (1 folha)</span> <span class="service-price">R$6,50</span></li>
+            <li><span class="service-name">Etiqueta A4 (10 folhas)</span> <span class="service-price">R$45,00</span></li>
+            <li><span class="service-name">Rolo de etiquetas (500 un)</span> <span class="service-price">R$120,00</span></li>
+        </ul>
+HTML
+    ,
+    'Papel Especial' => <<<HTML
+        <div class="card-header">
+            <i class="fas fa-paint-roller"></i>
+            <h2>Papel Especial</h2>
+        </div>
+        <ul class="price-list">
+            <li><span class="service-name">Couchê brilho A4 (cada)</span> <span class="service-price">R$1,20</span></li>
+            <li><span class="service-name">Couchê fosco A4 (cada)</span> <span class="service-price">R$1,30</span></li>
+            <li><span class="service-name">Fotográfico A4 (cada)</span> <span class="service-price">R$2,50</span></li>
+            <li><span class="service-name">Color Plus A4 (cada)</span> <span class="service-price">R$1,80</span></li>
+            <li><span class="service-name">Vergê A4 (cada)</span> <span class="service-price">R$2,20</span></li>
+        </ul>
+        <div class="badge">impressão colorida + 80%</div>
+HTML
+    ,
+    // Card de publicidade AdSense
+    'Publicidade' => <<<HTML
+        <div class="card-header">
+            <i class="fas fa-ad"></i>
+            <h2>Anúncio</h2>
+        </div>
+        <div style="text-align:center; padding: 1rem 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6101697624775208"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p style="font-size:0.85rem; color:#777; margin-top:0.8rem;">Publicidade</p>
+        </div>
+HTML
+    ,
 ];
 
-// Ordenar cards alfabeticamente por título (mantém associação)
+// Ordenar cards alfabeticamente por título (ksort mantém associação)
 ksort($cards, SORT_STRING | SORT_FLAG_CASE);
 ?>
 <!DOCTYPE html>
@@ -280,6 +362,8 @@ ksort($cards, SORT_STRING | SORT_FLAG_CASE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECS Impressões de Apostilas - Tabela de Preços 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6101697624775208" crossorigin="anonymous"></script>
     <style>
         :root {
             --primary: #0d47a1;
@@ -539,7 +623,7 @@ ksort($cards, SORT_STRING | SORT_FLAG_CASE);
     </style>
 </head>
 <body>
-    X    <div class="container">
+    <div class="container">
         <header>
             <img src="https://i.imgur.com/logo-1Photoroom.png" alt="ECS Impressões de Apostilas" class="header-logo"
                  onerror="this.src='https://via.placeholder.com/180x80/0d47a1/ffffff?text=ECS+Impressões';">
