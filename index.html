@@ -1,9 +1,11 @@
+Aqui está o site completamente reorganizado com uma nova estrutura por categorias de serviços, facilitando a navegação e a consulta dos preços. As informações foram mantidas, mas agora estão agrupadas em seções lógicas (Documentos, Impressão, Fotografia, Serviços Digitais, etc.) e os cards foram refinados para melhor legibilidade.
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela de Preços 2026 – Ordem Alfabética</title>
+    <title>Tabela de Preços 2026 – por Categorias</title>
     <style>
         * {
             margin: 0;
@@ -44,6 +46,20 @@
             font-size: 1.1rem;
         }
 
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #cbd5e1;
+            color: #0f2b4b;
+            letter-spacing: -0.01em;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.5rem;
+        }
+
         .price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -82,6 +98,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .card-header h2 span {
@@ -198,18 +215,21 @@
             body { padding: 1.5rem 1rem; }
             .price-grid { grid-template-columns: 1fr; }
             .card { padding: 1.2rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 <div class="container">
     <header>
-        <h1>💰 Tabela de Preços 2026 • Ordem Alfabética</h1>
-        <p>Serviços digitais, gráficos e documentação • valores atualizados</p>
+        <h1>💰 Tabela de Preços 2026 • Organização por Categorias</h1>
+        <p>Serviços digitais, gráficos e documentação • valores atualizados • consulta facilitada</p>
     </header>
 
+    <!-- ========== SEÇÃO 1: DOCUMENTOS OFICIAIS E CERTIDÕES ========= -->
+    <div class="section-title">📁 Documentos oficiais e certidões</div>
     <div class="price-grid">
-        <!-- ATESTADOS / CERTIDÕES -->
+        <!-- Atestados / Certidões -->
         <div class="card">
             <div class="card-header"><h2>📜 Atestados / Certidões</h2></div>
             <ul class="price-list">
@@ -218,49 +238,14 @@
                 <li class="price-item"><span class="item-name">Acima de 1 certidão (cada)</span><span class="item-price">R$ 8,00</span></li>
             </ul>
         </div>
-
-        <!-- BOLETIM DE OCORRÊNCIA -->
+        <!-- Boletim de Ocorrência -->
         <div class="card">
             <div class="card-header"><h2>🚨 Boletim de Ocorrência</h2></div>
             <ul class="price-list">
                 <li class="price-item"><span class="item-name">Cada BO</span><span class="item-price">R$ 15,00</span></li>
             </ul>
         </div>
-
-        <!-- CARTÕES DE VISITA -->
-        <div class="card">
-            <div class="card-header"><h2>💳 Cartões de visita</h2></div>
-            <div class="two-col-table">
-                <div class="two-col-item"><span class="label">500 un. c/ arte</span><span class="value">R$ 174,00</span></div>
-                <div class="two-col-item"><span class="label">1000 un. c/ arte</span><span class="value">R$ 234,00</span></div>
-                <div class="two-col-item"><span class="label">500 un. s/ arte</span><span class="value">R$ 234,00</span></div>
-                <div class="two-col-item"><span class="label">1000 un. s/ arte</span><span class="value">R$ 264,00</span></div>
-                <div class="two-col-item"><span class="label">500 f/v c/ arte</span><span class="value">R$ 216,00</span></div>
-                <div class="two-col-item"><span class="label">1000 f/v c/ arte</span><span class="value">R$ 280,00</span></div>
-                <div class="two-col-item"><span class="label">500 f/v s/ arte</span><span class="value">R$ 260,00</span></div>
-                <div class="two-col-item"><span class="label">1000 f/v s/ arte</span><span class="value">R$ 340,00</span></div>
-            </div>
-        </div>
-
-        <!-- CONSULTA INTERNET -->
-        <div class="card">
-            <div class="card-header"><h2>🌐 Consulta internet</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Sem impressão</span><span class="item-price">R$ 2,50</span></li>
-                <li class="price-item"><span class="item-name">Com impressão</span><span class="item-price">R$ 2,50 + impressão</span></li>
-            </ul>
-        </div>
-
-        <!-- CONSULTA SERASA -->
-        <div class="card">
-            <div class="card-header"><h2>📊 Consulta Serasa</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Já tem cadastro</span><span class="item-price">R$ 10,00</span></li>
-                <li class="price-item"><span class="item-name">Fazer acordo</span><span class="item-price">R$ 15,00</span></li>
-            </ul>
-        </div>
-
-        <!-- CONTRATOS ALUGUEL/VENDA -->
+        <!-- Contratos aluguel/venda -->
         <div class="card">
             <div class="card-header"><h2>📑 Contratos aluguel/venda</h2></div>
             <ul class="price-list">
@@ -268,8 +253,77 @@
                 <li class="price-item"><span class="item-name">3ª à 4ª folha (cada)</span><span class="item-price">R$ 15,00</span></li>
             </ul>
         </div>
+        <!-- CPF / Carteirinhas -->
+        <div class="card">
+            <div class="card-header"><h2>🪪 CPF / Carteirinhas</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">Impressão s/ plast</span><span class="item-price">R$ 8,00</span></li>
+                <li class="price-item"><span class="item-name">Impressão c/ plast</span><span class="item-price">R$ 9,00</span></li>
+                <li class="price-item"><span class="item-name">Mais de 1 (já plastif.)</span><span class="item-price">R$ 7,00</span></li>
+            </ul>
+        </div>
+        <!-- CRV / Veículos -->
+        <div class="card">
+            <div class="card-header"><h2>🚗 CRV / Veículos</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">Emissão CRV (c/ conta gov)</span><span class="item-price">R$ 7,00</span></li>
+                <li class="price-item"><span class="item-name">Emissão CRV (precisa criar conta)</span><span class="item-price">R$ 10,00</span></li>
+                <li class="price-item"><span class="item-name">Transferência veículo (c/ conta)</span><span class="item-price">R$ 45,00</span></li>
+                <li class="price-item"><span class="item-name">2ª via de boleto (acesso)</span><span class="item-price">R$ 2,50</span></li>
+            </ul>
+        </div>
+        <!-- Currículos -->
+        <div class="card">
+            <div class="card-header"><h2>📄 Currículos</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">1º emprego</span><span class="item-price">R$ 8,00</span></li>
+                <li class="price-item"><span class="item-name">Sem foto 1f</span><span class="item-price">R$ 11,00</span></li>
+                <li class="price-item"><span class="item-name">Sem foto 2f</span><span class="item-price">R$ 14,00</span></li>
+                <li class="price-item"><span class="item-name">Sem foto 3f</span><span class="item-price">R$ 16,00</span></li>
+                <li class="price-item"><span class="item-name">Com foto 1f</span><span class="item-price">R$ 13,00</span></li>
+                <li class="price-item"><span class="item-name">Com foto 2f</span><span class="item-price">R$ 15,00</span></li>
+                <li class="price-item"><span class="item-name">Com foto 3f</span><span class="item-price">R$ 17,00</span></li>
+            </ul>
+        </div>
+        <!-- Declarações -->
+        <div class="card">
+            <div class="card-header"><h2>📄 Declarações</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">Trabalho / residência (1 folha)</span><span class="item-price">R$ 12,00</span></li>
+            </ul>
+            <div class="note">📌 Trazer dados do titular e declarante</div>
+        </div>
+        <!-- Passe escolar / Autista -->
+        <div class="card">
+            <div class="card-header"><h2>🚌 Passe escolar / Autista</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">Passe escolar estadual</span><span class="item-price">R$ 16,00</span></li>
+                <li class="price-item"><span class="item-name">Passe livre autista</span><span class="item-price">R$ 22,00</span></li>
+            </ul>
+        </div>
+        <!-- Serviços fiscais -->
+        <div class="card">
+            <div class="card-header"><h2>🧾 Serviços fiscais</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">Emissão nota fiscal (pref/gov)</span><span class="item-price">R$ 10,00</span></li>
+                <li class="price-item"><span class="item-name">Criar CNPJ MEI (conta gov)</span><span class="item-price">R$ 70,00</span></li>
+                <li class="price-item"><span class="item-name">Declaração anual MEI</span><span class="item-price">R$ 35,00</span></li>
+            </ul>
+        </div>
+        <!-- Título de Eleitor -->
+        <div class="card">
+            <div class="card-header"><h2>🗳️ Título de Eleitor</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">1ª via (fazer CD/TR)</span><span class="item-price">R$ 16,00</span></li>
+                <li class="price-item"><span class="item-name">2ª via (já tem título)</span><span class="item-price">R$ 10,00</span></li>
+            </ul>
+        </div>
+    </div> <!-- fim grid documentos -->
 
-        <!-- CÓPIAS (AVULSAS) -->
+    <!-- ========== SEÇÃO 2: IMPRESSÃO E CÓPIAS ========= -->
+    <div class="section-title">🖨️ Impressão, cópias e digitalização</div>
+    <div class="price-grid">
+        <!-- Cópias avulsas -->
         <div class="card">
             <div class="card-header"><h2>📋 Cópias (avulsas)</h2></div>
             <div class="subcategory">P/B econômico</div>
@@ -301,62 +355,34 @@
                 <div class="two-col-item"><span class="label">60+</span><span class="value">R$ 0,60</span></div>
             </div>
         </div>
-
-        <!-- CPF / CARTEIRINHAS -->
+        <!-- Impressão Colorida -->
         <div class="card">
-            <div class="card-header"><h2>🪪 CPF / Carteirinhas</h2></div>
+            <div class="card-header"><h2>🌈 Impressão Colorida</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">Impressão s/ plast</span><span class="item-price">R$ 8,00</span></li>
-                <li class="price-item"><span class="item-name">Impressão c/ plast</span><span class="item-price">R$ 9,00</span></li>
-                <li class="price-item"><span class="item-name">Mais de 1 (já plastif.)</span><span class="item-price">R$ 7,00</span></li>
+                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 3,00</span></li>
+                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 5,50</span></li>
+                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 7,50</span></li>
+                <li class="price-item"><span class="item-name">4 folhas</span><span class="item-price">R$ 9,00</span></li>
+                <li class="price-item"><span class="item-name">5ª à 15ª (cada)</span><span class="item-price">R$ 2,50</span></li>
+                <li class="price-item"><span class="item-name">15ª em diante (cada)</span><span class="item-price">R$ 1,90</span></li>
             </ul>
+            <div class="note">➕ Frente e verso: +R$ 0,70 por folha</div>
         </div>
-
-        <!-- CRIAÇÃO DE CONTAS -->
+        <!-- Impressão Preto/Branco -->
         <div class="card">
-            <div class="card-header"><h2>📧 Criação de contas</h2></div>
+            <div class="card-header"><h2>⚫ Impressão Preto/Branco</h2></div>
+            <div class="subcategory">Documentos enviados (whats, email, pendrive)</div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">Gov.br</span><span class="item-price">R$ 8,00</span></li>
-                <li class="price-item"><span class="item-name">E-mail</span><span class="item-price">R$ 9,50</span></li>
-                <li class="price-item"><span class="item-name">Recuperação de conta</span><span class="item-price">R$ 7,50</span></li>
+                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 2,00</span></li>
+                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 4,00</span></li>
+                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 5,50</span></li>
+                <li class="price-item"><span class="item-name">4 folhas</span><span class="item-price">R$ 7,00</span></li>
+                <li class="price-item"><span class="item-name">5ª à 15ª (cada)</span><span class="item-price">R$ 1,40</span></li>
+                <li class="price-item"><span class="item-name">15ª em diante (cada)</span><span class="item-price">R$ 1,10</span></li>
             </ul>
+            <div class="note">➕ Frente e verso: +R$ 0,50 por folha</div>
         </div>
-
-        <!-- CRV / VEÍCULOS -->
-        <div class="card">
-            <div class="card-header"><h2>🚗 CRV / Veículos</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Emissão CRV (c/ conta gov)</span><span class="item-price">R$ 7,00</span></li>
-                <li class="price-item"><span class="item-name">Emissão CRV (precisa criar conta)</span><span class="item-price">R$ 10,00</span></li>
-                <li class="price-item"><span class="item-name">Transferência veículo (c/ conta)</span><span class="item-price">R$ 45,00</span></li>
-                <li class="price-item"><span class="item-name">2ª via de boleto (acesso)</span><span class="item-price">R$ 2,50</span></li>
-            </ul>
-        </div>
-
-        <!-- CURRÍCULOS -->
-        <div class="card">
-            <div class="card-header"><h2>📄 Currículos</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">1º emprego</span><span class="item-price">R$ 8,00</span></li>
-                <li class="price-item"><span class="item-name">Sem foto 1f</span><span class="item-price">R$ 11,00</span></li>
-                <li class="price-item"><span class="item-name">Sem foto 2f</span><span class="item-price">R$ 14,00</span></li>
-                <li class="price-item"><span class="item-name">Sem foto 3f</span><span class="item-price">R$ 16,00</span></li>
-                <li class="price-item"><span class="item-name">Com foto 1f</span><span class="item-price">R$ 13,00</span></li>
-                <li class="price-item"><span class="item-name">Com foto 2f</span><span class="item-price">R$ 15,00</span></li>
-                <li class="price-item"><span class="item-name">Com foto 3f</span><span class="item-price">R$ 17,00</span></li>
-            </ul>
-        </div>
-
-        <!-- DECLARAÇÕES -->
-        <div class="card">
-            <div class="card-header"><h2>📄 Declarações</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Trabalho / residência (1 folha)</span><span class="item-price">R$ 12,00</span></li>
-            </ul>
-            <div class="note">📌 Trazer dados do titular e declarante</div>
-        </div>
-
-        <!-- DIGITALIZAÇÃO -->
+        <!-- Digitalização -->
         <div class="card">
             <div class="card-header"><h2>🖼️ Digitalização</h2></div>
             <ul class="price-list">
@@ -364,8 +390,32 @@
                 <li class="price-item"><span class="item-name">2ª folha em diante (cada)</span><span class="item-price">R$ 0,70</span></li>
             </ul>
         </div>
+        <!-- Offset -->
+        <div class="card">
+            <div class="card-header"><h2>🖨️ Offset</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 7,00</span></li>
+                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 13,00</span></li>
+                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 18,00</span></li>
+                <li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 5,00</span></li>
+                <li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 4,50</span></li>
+            </ul>
+        </div>
+        <!-- Pesquisa + impressão -->
+        <div class="card">
+            <div class="card-header"><h2>🔍 Pesquisa + impressão</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 6,00</span></li>
+                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 9,00</span></li>
+                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 11,00</span></li>
+            </ul>
+        </div>
+    </div> <!-- fim grid impressão/cópias -->
 
-        <!-- ENCADERNAÇÃO -->
+    <!-- ========== SEÇÃO 3: ACABAMENTO (PLASTIFICAÇÃO, ENCADERNAÇÃO) ========= -->
+    <div class="section-title">📦 Acabamento e proteção</div>
+    <div class="price-grid">
+        <!-- Encadernação -->
         <div class="card">
             <div class="card-header"><h2>📚 Encadernação</h2></div>
             <ul class="price-list">
@@ -374,8 +424,22 @@
             </ul>
             <div class="note">📌 máximo 350 folhas</div>
         </div>
+        <!-- Plastificação -->
+        <div class="card">
+            <div class="card-header"><h2>📛 Plastificação</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">RG, CPF, títulos (só plast.)</span><span class="item-price">R$ 6,00</span></li>
+                <li class="price-item"><span class="item-name">Carteira COVID / est.</span><span class="item-price">R$ 7,00</span></li>
+                <li class="price-item"><span class="item-name">A4 s/ impressão</span><span class="item-price">R$ 10,00</span></li>
+                <li class="price-item"><span class="item-name">A4 c/ impressão</span><span class="item-price">R$ 13,00</span></li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- FOTOS (3x4, 10x15, 5x7) -->
+    <!-- ========== SEÇÃO 4: FOTOGRAFIA E PAPÉIS ESPECIAIS ========= -->
+    <div class="section-title">📸 Fotografia e papéis especiais</div>
+    <div class="price-grid">
+        <!-- Fotos 3x4, 10x15, 5x7 -->
         <div class="card">
             <div class="card-header"><h2>🖼️ Fotos</h2></div>
             <div class="subcategory">3x4</div>
@@ -400,58 +464,19 @@
                 <div class="two-col-item"><span class="label">2</span><span class="value">R$ 10,00</span></div>
             </div>
         </div>
-
-        <!-- GRAVAÇÃO CD / DVD -->
+        <!-- Polaroid -->
         <div class="card">
-            <div class="card-header"><h2>💿 Gravação CD/DVD</h2></div>
+            <div class="card-header"><h2>📸 Polaroid</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">1 (nosso CD)</span><span class="item-price">R$ 13,00</span></li>
-                <li class="price-item"><span class="item-name">1 (CD do cliente)</span><span class="item-price">R$ 8,50</span></li>
-                <li class="price-item"><span class="item-name">2+ (nosso CD, cada)</span><span class="item-price">R$ 10,00</span></li>
-                <li class="price-item"><span class="item-name">2+ (CD cliente, cada)</span><span class="item-price">R$ 6,50</span></li>
-            </ul>
-            <div class="note">⏱️ Mais de 2 CDs podem não ser feitos na hora</div>
-        </div>
-
-        <!-- IMPRESSÃO COLORIDA -->
-        <div class="card">
-            <div class="card-header"><h2>🌈 Impressão Colorida</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 3,00</span></li>
-                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 5,50</span></li>
-                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 7,50</span></li>
-                <li class="price-item"><span class="item-name">4 folhas</span><span class="item-price">R$ 9,00</span></li>
-                <li class="price-item"><span class="item-name">5ª à 15ª (cada)</span><span class="item-price">R$ 2,50</span></li>
-                <li class="price-item"><span class="item-name">15ª em diante (cada)</span><span class="item-price">R$ 1,90</span></li>
-            </ul>
-            <div class="note">➕ Frente e verso: +R$ 0,70 por folha</div>
-        </div>
-
-        <!-- IMPRESSÃO PRETO/BRANCO -->
-        <div class="card">
-            <div class="card-header"><h2>⚫ Impressão Preto/Branco</h2></div>
-            <div class="subcategory">Documentos enviados (whats, email, pendrive)</div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 2,00</span></li>
-                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 4,00</span></li>
-                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 5,50</span></li>
-                <li class="price-item"><span class="item-name">4 folhas</span><span class="item-price">R$ 7,00</span></li>
-                <li class="price-item"><span class="item-name">5ª à 15ª (cada)</span><span class="item-price">R$ 1,40</span></li>
-                <li class="price-item"><span class="item-name">15ª em diante (cada)</span><span class="item-price">R$ 1,10</span></li>
-            </ul>
-            <div class="note">➕ Frente e verso: +R$ 0,50 por folha</div>
-        </div>
-
-        <!-- INSCRIÇÕES -->
-        <div class="card">
-            <div class="card-header"><h2>📝 Inscrições</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Concursos</span><span class="item-price">R$ 15,00</span></li>
-                <li class="price-item"><span class="item-name">Emprego</span><span class="item-price">R$ 12,00</span></li>
+                <li class="price-item"><span class="item-name">1 foto</span><span class="item-price">R$ 5,50</span></li>
+                <li class="price-item"><span class="item-name">2 fotos</span><span class="item-price">R$ 9,00</span></li>
+                <li class="price-item"><span class="item-name">3 fotos</span><span class="item-price">R$ 11,50</span></li>
+                <li class="price-item"><span class="item-name">6 fotos</span><span class="item-price">R$ 14,50</span></li>
+                <li class="price-item"><span class="item-name">9 fotos</span><span class="item-price">R$ 17,00</span></li>
+                <li class="price-item"><span class="item-name">Acima de 9 (cada)</span><span class="item-price">R$ 1,90</span></li>
             </ul>
         </div>
-
-        <!--PAPEL FOTOGRÁFICO -->
+        <!-- Papel fotográfico A4 só frente -->
         <div class="card">
             <div class="card-header"><h2>🖨️ Papel fotográfico A4 só frente</h2></div>
             <ul class="price-list">
@@ -462,9 +487,9 @@
                 <li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 5,50</span></li>
             </ul>
         </div>
-         <!--PAPEL FOTOGRÁFICO A4 -->
+        <!-- Papel fotográfico A4 dupla face -->
         <div class="card">
-            <div class="card-header"><h2>🖨️ Papel fotográfico A4 <b><DUPLA FACE</b></h2></div>
+            <div class="card-header"><h2>🖨️ Papel fotográfico A4 (dupla face)</h2></div>
             <ul class="price-list">
                 <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 15,00</span></li>
                 <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 25,00</span></li>
@@ -473,9 +498,9 @@
                 <li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 7,50</span></li>
             </ul>
         </div>
-                 <!--PAPEL FOTOGRÁFICO A3 -->
+        <!-- Papel fotográfico A3 -->
         <div class="card">
-            <div class="card-header"><h2>🖨️ Papel fotográfico A3 </h2></div>
+            <div class="card-header"><h2>🖨️ Papel fotográfico A3</h2></div>
             <ul class="price-list">
                 <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 18,00</span></li>
                 <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 32,00</span></li>
@@ -484,19 +509,35 @@
                 <li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 10,50</span></li>
             </ul>
         </div>
-        <!-- OFFSET -->
+        <!-- Topper de bolo (também pode ficar aqui) -->
         <div class="card">
-            <div class="card-header"><h2>🖨️ Offset</h2></div>
+            <div class="card-header"><h2>🎂 Topper de bolo</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 7,00</span></li>
-                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 13,00</span></li>
-                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 18,00</span></li>
-                <li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 5,00</span></li>
-                <li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 4,50</span></li>
+                <li class="price-item"><span class="item-name">Arte pronta (pegar intern)</span><span class="item-price">R$ 10,00</span></li>
+                <li class="price-item"><span class="item-name">Arte nome/data</span><span class="item-price">R$ 13,00</span></li>
+                <li class="price-item"><span class="item-name">Criar arte</span><span class="item-price">R$ 22,00</span></li>
             </ul>
         </div>
+    </div>
 
-        <!-- PANFLETOS -->
+    <!-- ========== SEÇÃO 5: PRODUTOS GRÁFICOS (CARTÕES, PANFLETOS) ========= -->
+    <div class="section-title">📰 Materiais gráficos</div>
+    <div class="price-grid">
+        <!-- Cartões de visita -->
+        <div class="card">
+            <div class="card-header"><h2>💳 Cartões de visita</h2></div>
+            <div class="two-col-table">
+                <div class="two-col-item"><span class="label">500 un. c/ arte</span><span class="value">R$ 174,00</span></div>
+                <div class="two-col-item"><span class="label">1000 un. c/ arte</span><span class="value">R$ 234,00</span></div>
+                <div class="two-col-item"><span class="label">500 un. s/ arte</span><span class="value">R$ 234,00</span></div>
+                <div class="two-col-item"><span class="label">1000 un. s/ arte</span><span class="value">R$ 264,00</span></div>
+                <div class="two-col-item"><span class="label">500 f/v c/ arte</span><span class="value">R$ 216,00</span></div>
+                <div class="two-col-item"><span class="label">1000 f/v c/ arte</span><span class="value">R$ 280,00</span></div>
+                <div class="two-col-item"><span class="label">500 f/v s/ arte</span><span class="value">R$ 260,00</span></div>
+                <div class="two-col-item"><span class="label">1000 f/v s/ arte</span><span class="value">R$ 340,00</span></div>
+            </div>
+        </div>
+        <!-- Panfletos -->
         <div class="card">
             <div class="card-header"><h2>📰 Panfletos</h2></div>
             <div class="subcategory">14x20 só frente</div>
@@ -525,51 +566,56 @@
                 <div class="two-col-item"><span class="label">5000</span><span class="value">R$ 810</span></div>
             </div>
         </div>
+    </div>
 
-        <!-- PASSE ESCOLAR / AUTISTA -->
+    <!-- ========== SEÇÃO 6: SERVIÇOS DIGITAIS E INTERNET ========= -->
+    <div class="section-title">💻 Serviços digitais e internet</div>
+    <div class="price-grid">
+        <!-- Consulta internet -->
         <div class="card">
-            <div class="card-header"><h2>🚌 Passe escolar / Autista</h2></div>
+            <div class="card-header"><h2>🌐 Consulta internet</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">Passe escolar estadual</span><span class="item-price">R$ 16,00</span></li>
-                <li class="price-item"><span class="item-name">Passe livre autista</span><span class="item-price">R$ 22,00</span></li>
+                <li class="price-item"><span class="item-name">Sem impressão</span><span class="item-price">R$ 2,50</span></li>
+                <li class="price-item"><span class="item-name">Com impressão</span><span class="item-price">R$ 2,50 + impressão</span></li>
             </ul>
         </div>
-
-        <!-- PESQUISA + IMPRESSÃO -->
+        <!-- Consulta Serasa -->
         <div class="card">
-            <div class="card-header"><h2>🔍 Pesquisa + impressão</h2></div>
+            <div class="card-header"><h2>📊 Consulta Serasa</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 6,00</span></li>
-                <li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 9,00</span></li>
-                <li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 11,00</span></li>
+                <li class="price-item"><span class="item-name">Já tem cadastro</span><span class="item-price">R$ 10,00</span></li>
+                <li class="price-item"><span class="item-name">Fazer acordo</span><span class="item-price">R$ 15,00</span></li>
             </ul>
         </div>
-
-        <!-- PLASTIFICAÇÃO -->
+        <!-- Criação de contas -->
         <div class="card">
-            <div class="card-header"><h2>📛 Plastificação</h2></div>
+            <div class="card-header"><h2>📧 Criação de contas</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">RG, CPF, títulos (só plast.)</span><span class="item-price">R$ 6,00</span></li>
-                <li class="price-item"><span class="item-name">Carteira COVID / est.</span><span class="item-price">R$ 7,00</span></li>
-                <li class="price-item"><span class="item-name">A4 s/ impressão</span><span class="item-price">R$ 10,00</span></li>
-                <li class="price-item"><span class="item-name">A4 c/ impressão</span><span class="item-price">R$ 13,00</span></li>
+                <li class="price-item"><span class="item-name">Gov.br</span><span class="item-price">R$ 8,00</span></li>
+                <li class="price-item"><span class="item-name">E-mail</span><span class="item-price">R$ 9,50</span></li>
+                <li class="price-item"><span class="item-name">Recuperação de conta</span><span class="item-price">R$ 7,50</span></li>
             </ul>
         </div>
-
-        <!-- POLAROID -->
+        <!-- Inscrições -->
         <div class="card">
-            <div class="card-header"><h2>📸 Polaroid</h2></div>
+            <div class="card-header"><h2>📝 Inscrições</h2></div>
             <ul class="price-list">
-                <li class="price-item"><span class="item-name">1 foto</span><span class="item-price">R$ 5,50</span></li>
-                <li class="price-item"><span class="item-name">2 fotos</span><span class="item-price">R$ 9,00</span></li>
-                <li class="price-item"><span class="item-name">3 fotos</span><span class="item-price">R$ 11,50</span></li>
-                <li class="price-item"><span class="item-name">6 fotos</span><span class="item-price">R$ 14,50</span></li>
-                <li class="price-item"><span class="item-name">9 fotos</span><span class="item-price">R$ 17,00</span></li>
-                <li class="price-item"><span class="item-name">Acima de 9 (cada)</span><span class="item-price">R$ 1,90</span></li>
+                <li class="price-item"><span class="item-name">Concursos</span><span class="item-price">R$ 15,00</span></li>
+                <li class="price-item"><span class="item-name">Emprego</span><span class="item-price">R$ 12,00</span></li>
             </ul>
         </div>
-
-        <!-- REPARO CELULAR -->
+        <!-- Gravação CD/DVD -->
+        <div class="card">
+            <div class="card-header"><h2>💿 Gravação CD/DVD</h2></div>
+            <ul class="price-list">
+                <li class="price-item"><span class="item-name">1 (nosso CD)</span><span class="item-price">R$ 13,00</span></li>
+                <li class="price-item"><span class="item-name">1 (CD do cliente)</span><span class="item-price">R$ 8,50</span></li>
+                <li class="price-item"><span class="item-name">2+ (nosso CD, cada)</span><span class="item-price">R$ 10,00</span></li>
+                <li class="price-item"><span class="item-name">2+ (CD cliente, cada)</span><span class="item-price">R$ 6,50</span></li>
+            </ul>
+            <div class="note">⏱️ Mais de 2 CDs podem não ser feitos na hora</div>
+        </div>
+        <!-- Reparo celular -->
         <div class="card">
             <div class="card-header"><h2>📱 Reparo celular</h2></div>
             <ul class="price-list">
@@ -578,40 +624,12 @@
                 <li class="price-item"><span class="item-name">Transferência de arquivos</span><span class="item-price">R$ 40,00</span></li>
             </ul>
         </div>
-
-        <!-- SERVIÇOS FISCAIS -->
-        <div class="card">
-            <div class="card-header"><h2>🧾 Serviços fiscais</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Emissão nota fiscal (pref/gov)</span><span class="item-price">R$ 10,00</span></li>
-                <li class="price-item"><span class="item-name">Criar CNPJ MEI (conta gov)</span><span class="item-price">R$ 70,00</span></li>
-                <li class="price-item"><span class="item-name">Declaração anual MEI</span><span class="item-price">R$ 35,00</span></li>
-            </ul>
-        </div>
-
-        <!-- TÍTULO DE ELEITOR -->
-        <div class="card">
-            <div class="card-header"><h2>🗳️ Título de Eleitor</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">1ª via (fazer CD/TR)</span><span class="item-price">R$ 16,00</span></li>
-                <li class="price-item"><span class="item-name">2ª via (já tem título)</span><span class="item-price">R$ 10,00</span></li>
-            </ul>
-        </div>
-
-        <!-- TOPPER DE BOLO -->
-        <div class="card">
-            <div class="card-header"><h2>🎂 Topper de bolo</h2></div>
-            <ul class="price-list">
-                <li class="price-item"><span class="item-name">Arte pronta (pegar intern)</span><span class="item-price">R$ 10,00</span></li>
-                <li class="price-item"><span class="item-name">Arte nome/data</span><span class="item-price">R$ 13,00</span></li>
-                <li class="price-item"><span class="item-name">Criar arte</span><span class="item-price">R$ 22,00</span></li>
-            </ul>
-        </div>
     </div>
 
     <footer style="margin-top: 3rem; text-align: center; color: #64748b; font-size: 0.9rem; border-top: 1px dashed #cbd5e1; padding-top: 2rem;">
-         Tabela válida para 2026 • Preços sujeitos a alteração • Atendimento presencial • Organização alfabética
+        Tabela válida para 2026 • Preços sujeitos a alteração • Atendimento presencial • Organização por categorias
     </footer>
 </div>
 </body>
 </html>
+```
