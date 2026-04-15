@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tabela de Preços 2026 – ECS Impressões</title>
+    <!-- Google Fonts e estilos base -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- RESET & GLOBAL ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1e293b;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 0 0 2rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* cabeçalho principal com logo */
+        .main-header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid #e2edf7;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-area {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-area img {
+            height: 60px;
+            width: auto;
+            display: block;
+            transition: transform 0.2s;
+        }
+
+        .logo-area a:hover img {
+            transform: scale(1.01);
+        }
+
+        /* título central */
+        .title-block {
+            text-align: center;
+            margin: 1rem 0 0.5rem;
+        }
+        .title-block h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #0f2b4b, #2c5282);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        .title-block p {
+            color: #2c5a7a;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* anúncios */
+        .ad-container {
+            background: white;
+            border-radius: 20px;
+            padding: 0.75rem;
+            margin: 1.5rem auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: center;
+            border: 1px solid #e0edf5;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #cbdde9;
+            color: #0f2b4b;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.3rem 1.2rem;
+            box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+            border: 1px solid #e2edf4;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #bdd4e8;
+            box-shadow: 0 20px 28px -12px rgba(20, 80, 120, 0.12);
+        }
+        .card-header h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1a466b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 0.8rem;
+        }
+        .price-list {
+            list-style: none;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #e2eef9;
+            font-size: 0.94rem;
+            gap: 0.5rem;
+        }
+        .item-name {
+            font-weight: 500;
+            color: #1f3a4b;
+        }
+        .item-price {
+            font-weight: 600;
+            background: #ecf7ff;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #15607a;
+            white-space: nowrap;
+            border: 1px solid #cde3f0;
+        }
+        .subcategory {
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: #eef3fc;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            margin: 0.7rem 0 0.5rem;
+            color: #20507a;
+        }
+        .two-col-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 0.8rem;
+            margin: 0.5rem 0;
+        }
+        .two-col-item {
+            display: flex;
+            justify-content: space-between;
+            background: #fafeff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            border: 1px solid #deecf5;
+            font-size: 0.85rem;
+        }
+        .two-col-item .value {
+            font-weight: 700;
+            color: #155e7b;
+        }
+        .note {
+            background: #f8fafc;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #4b6a85;
+            margin-top: 0.8rem;
+            border-left: 3px solid #7f9eb5;
+        }
+        hr {
+            margin: 0.7rem 0;
+            border-color: #d9e6f2;
+        }
+
+        /* rodapé com links (github) */
+        .footer-links {
+            margin-top: 3rem;
+            border-top: 2px solid #cbdde9;
+            padding: 2rem 1rem 1.5rem;
+            background: #ffffffd9;
+            border-radius: 32px 32px 0 0;
+            text-align: center;
+        }
+        .footer-title {
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+        }
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .links-grid a {
+            background: #ecf5fb;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1f5e8c;
+            transition: all 0.2s;
+            border: 1px solid #cde0ed;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .links-grid a:hover {
+            background: #1f5e8c;
+            color: white;
+            border-color: #1f5e8c;
+            transform: translateY(-2px);
+        }
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: #6f8eaa;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 1rem; }
+            .price-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.5rem; }
+            .links-grid a { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+            .logo-area img { height: 48px; }
+        }
+    </style>
+    <!-- Google Analytics (gtag) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- AdSense Async -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6101697624775208" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Cabeçalho com logo real -->
+<header class="main-header">
+    <div class="logo-area">
+        <a href="index.html">
+            <img src="logo-1Photoroom.png" alt="ECS Impressões Logo">
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="title-block">
+        <h1>📋 Tabela de Preços 2026 • ECS Impressões</h1>
+        <p>Serviços digitais, gráficos e documentação • valores organizados por categoria</p>
+    </div>
+
+    <!-- ADSENSE TOPO -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6101697624775208"
+             data-ad-slot="7644820389"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- ========== 1. DOCUMENTOS OFICIAIS ========= -->
+    <div class="section-title">📁 Documentos oficiais e certidões</div>
+    <div class="price-grid">
+        <div class="card"><div class="card-header"><h2>📜 Atestados / Certidões</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Estado de SP</span><span class="item-price">R$ 10,00</span></li><li class="price-item"><span class="item-name">Outros estados</span><span class="item-price">R$ 12,00</span></li><li class="price-item"><span class="item-name">Acima de 1 certidão (cada)</span><span class="item-price">R$ 8,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🚨 Boletim de Ocorrência</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Cada BO</span><span class="item-price">R$ 15,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>📑 Contratos aluguel/venda</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 ou 2 folhas</span><span class="item-price">R$ 40,00</span></li><li class="price-item"><span class="item-name">3ª à 4ª folha (cada)</span><span class="item-price">R$ 15,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🪪 CPF / Carteirinhas</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Impressão s/ plast</span><span class="item-price">R$ 8,00</span></li><li class="price-item"><span class="item-name">Impressão c/ plast</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">Mais de 1 (já plastif.)</span><span class="item-price">R$ 7,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🚗 CRV / Veículos</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Emissão CRV (c/ conta gov)</span><span class="item-price">R$ 7,00</span></li><li class="price-item"><span class="item-name">Emissão CRV (precisa criar conta)</span><span class="item-price">R$ 10,00</span></li><li class="price-item"><span class="item-name">Transferência veículo (c/ conta)</span><span class="item-price">R$ 45,00</span></li><li class="price-item"><span class="item-name">2ª via de boleto (acesso)</span><span class="item-price">R$ 2,50</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>📄 Currículos</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1º emprego</span><span class="item-price">R$ 8,00</span></li><li class="price-item"><span class="item-name">Sem foto 1f</span><span class="item-price">R$ 11,00</span></li><li class="price-item"><span class="item-name">Sem foto 2f</span><span class="item-price">R$ 14,00</span></li><li class="price-item"><span class="item-name">Sem foto 3f</span><span class="item-price">R$ 16,00</span></li><li class="price-item"><span class="item-name">Com foto 1f</span><span class="item-price">R$ 13,00</span></li><li class="price-item"><span class="item-name">Com foto 2f</span><span class="item-price">R$ 15,00</span></li><li class="price-item"><span class="item-name">Com foto 3f</span><span class="item-price">R$ 17,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>📄 Declarações</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Trabalho / residência (1 folha)</span><span class="item-price">R$ 12,00</span></li></ul><div class="note">📌 Trazer dados do titular e declarante</div></div>
+        <div class="card"><div class="card-header"><h2>🚌 Passe escolar / Autista</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Passe escolar estadual</span><span class="item-price">R$ 16,00</span></li><li class="price-item"><span class="item-name">Passe livre autista</span><span class="item-price">R$ 22,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🧾 Serviços fiscais</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Emissão nota fiscal (pref/gov)</span><span class="item-price">R$ 10,00</span></li><li class="price-item"><span class="item-name">Criar CNPJ MEI (conta gov)</span><span class="item-price">R$ 70,00</span></li><li class="price-item"><span class="item-name">Declaração anual MEI</span><span class="item-price">R$ 35,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🗳️ Título de Eleitor</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1ª via (fazer CD/TR)</span><span class="item-price">R$ 16,00</span></li><li class="price-item"><span class="item-name">2ª via (já tem título)</span><span class="item-price">R$ 10,00</span></li></ul></div>
+    </div>
+
+    <!-- ========== 2. IMPRESSÃO E CÓPIAS ========= -->
+    <div class="section-title">🖨️ Impressão, cópias e digitalização</div>
+    <div class="price-grid">
+        <div class="card"><div class="card-header"><h2>📋 Cópias (avulsas)</h2></div><div class="subcategory">P/B econômico</div><div class="two-col-table"><div class="two-col-item"><span>1-10</span><span class="value">R$ 0,50</span></div><div class="two-col-item"><span>10-30</span><span class="value">R$ 0,40</span></div><div class="two-col-item"><span>30-60</span><span class="value">R$ 0,35</span></div><div class="two-col-item"><span>60+</span><span class="value">R$ 0,30</span></div></div><div class="subcategory">P/B padrão</div><div class="two-col-table"><div class="two-col-item"><span>1-10</span><span class="value">R$ 0,70</span></div><div class="two-col-item"><span>10-30</span><span class="value">R$ 0,60</span></div><div class="two-col-item"><span>30-60</span><span class="value">R$ 0,50</span></div><div class="two-col-item"><span>60+</span><span class="value">R$ 0,45</span></div></div><div class="subcategory">Color econômico</div><div class="two-col-table"><div class="two-col-item"><span>1-10</span><span class="value">R$ 0,80</span></div><div class="two-col-item"><span>10-30</span><span class="value">R$ 0,60</span></div><div class="two-col-item"><span>30-60</span><span class="value">R$ 0,50</span></div><div class="two-col-item"><span>60+</span><span class="value">R$ 0,45</span></div></div><div class="subcategory">Color padrão</div><div class="two-col-table"><div class="two-col-item"><span>1-10</span><span class="value">R$ 0,90</span></div><div class="two-col-item"><span>10-30</span><span class="value">R$ 0,80</span></div><div class="two-col-item"><span>30-60</span><span class="value">R$ 0,70</span></div><div class="two-col-item"><span>60+</span><span class="value">R$ 0,60</span></div></div></div>
+        <div class="card"><div class="card-header"><h2>🌈 Impressão Colorida</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 3,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 5,50</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 7,50</span></li><li class="price-item"><span class="item-name">4 folhas</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">5ª à 15ª (cada)</span><span class="item-price">R$ 2,50</span></li><li class="price-item"><span class="item-name">15ª em diante (cada)</span><span class="item-price">R$ 1,90</span></li></ul><div class="note">➕ Frente e verso: +R$ 0,70 por folha</div></div>
+        <div class="card"><div class="card-header"><h2>⚫ Impressão Preto/Branco</h2></div><div class="subcategory">Documentos enviados (whats, email, pendrive)</div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 2,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 4,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 5,50</span></li><li class="price-item"><span class="item-name">4 folhas</span><span class="item-price">R$ 7,00</span></li><li class="price-item"><span class="item-name">5ª à 15ª (cada)</span><span class="item-price">R$ 1,40</span></li><li class="price-item"><span class="item-name">15ª em diante (cada)</span><span class="item-price">R$ 1,10</span></li></ul><div class="note">➕ Frente e verso: +R$ 0,50 por folha</div></div>
+        <div class="card"><div class="card-header"><h2>🖼️ Digitalização</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 3,00</span></li><li class="price-item"><span class="item-name">2ª folha em diante (cada)</span><span class="item-price">R$ 0,80</span></li><li class="price-item"><span class="item-name">Obs: cada lado = uma digitalização</span><span class="item-price"></span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🖨️ Offset</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 7,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 13,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 18,00</span></li><li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 5,00</span></li><li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 4,50</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🖨️ Sulfite A3 COLORIDO</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 6,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 12,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 17,00</span></li><li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 5,00</span></li><li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 4,60</span></li></ul><div class="note">Obs.: Todas impressões, mesmo que iguais, serão cobradas como impressão e não como cópias.</div></div>
+        <div class="card"><div class="card-header"><h2>🖨️ Sulfite A3 PRETA & BRANCA</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 4,50</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 14,00</span></li><li class="price-item"><span class="item-name">4 à 10 folhas (cada)</span><span class="item-price">R$ 4,00</span></li><li class="price-item"><span class="item-name">10 à 50 cada</span><span class="item-price">R$ 3,50</span></li><li class="price-item"><span class="item-name">50 em diante cada</span><span class="item-price">R$ 1,30</span></li></ul><div class="note">Obs.: Todas impressões, mesmo que iguais, cobradas como impressão.</div></div>
+        <div class="card"><div class="card-header"><h2>🔍 Pesquisa + impressão</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 6,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 11,00</span></li></ul></div>
+    </div>
+
+    <!-- ========== 3. ACABAMENTO ========= -->
+    <div class="section-title">📦 Acabamento e proteção</div>
+    <div class="price-grid">
+        <div class="card"><div class="card-header"><h2>📚 Encadernação</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Até 250 folhas</span><span class="item-price">R$ 14,00</span></li><li class="price-item"><span class="item-name">Mais de 250 folhas</span><span class="item-price">R$ 15,00</span></li></ul><div class="note">📌 máximo 350 folhas</div></div>
+        <div class="card"><div class="card-header"><h2>📛 Plastificação</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">RG, CPF, títulos (só plast.)</span><span class="item-price">R$ 6,00</span></li><li class="price-item"><span class="item-name">Carteira COVID / est.</span><span class="item-price">R$ 7,00</span></li><li class="price-item"><span class="item-name">A4 s/ impressão</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">A4 c/ impressão</span><span class="item-price">R$ 10,00</span></li></ul></div>
+    </div>
+
+    <!-- ========== 4. FOTOGRAFIA ========= -->
+    <div class="section-title">📸 Fotografia e papéis especiais</div>
+    <div class="price-grid">
+        <div class="card"><div class="card-header"><h2>🖼️ Fotos</h2></div><div class="subcategory">3x4</div><div class="two-col-table"><div class="two-col-item"><span>3 fotos</span><span class="value">R$ 9,00</span></div><div class="two-col-item"><span>6 fotos</span><span class="value">R$ 15,00</span></div><div class="two-col-item"><span>9 fotos</span><span class="value">R$ 18,00</span></div></div><div class="subcategory">10x15</div><div class="two-col-table"><div class="two-col-item"><span>1</span><span class="value">R$ 5,00</span></div><div class="two-col-item"><span>2</span><span class="value">R$ 8,00</span></div><div class="two-col-item"><span>3</span><span class="value">R$ 12,00</span></div><div class="two-col-item"><span>6</span><span class="value">R$ 19,00</span></div><div class="two-col-item"><span>9</span><span class="value">R$ 24,00</span></div><div class="two-col-item"><span>12</span><span class="value">R$ 30,00</span></div><div class="two-col-item"><span>15</span><span class="value">R$ 36,00</span></div></div><div class="subcategory">5x7</div><div class="two-col-table"><div class="two-col-item"><span>1</span><span class="value">R$ 5,80</span></div><div class="two-col-item"><span>2</span><span class="value">R$ 10,00</span></div></div></div>
+        <div class="card"><div class="card-header"><h2>📸 Polaroid</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 foto</span><span class="item-price">R$ 5,50</span></li><li class="price-item"><span class="item-name">2 fotos</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">3 fotos</span><span class="item-price">R$ 11,50</span></li><li class="price-item"><span class="item-name">6 fotos</span><span class="item-price">R$ 14,50</span></li><li class="price-item"><span class="item-name">9 fotos</span><span class="item-price">R$ 17,00</span></li><li class="price-item"><span class="item-name">Acima de 9 (cada)</span><span class="item-price">R$ 1,90</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🖨️ Papel fotográfico A4 só frente</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 12,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 21,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 27,00</span></li><li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 7,00</span></li><li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 5,50</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🖨️ Papel fotográfico A4 dupla face</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 15,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 25,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 30,00</span></li><li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 9,00</span></li><li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 7,50</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🖨️ Papel fotográfico A3</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 folha</span><span class="item-price">R$ 18,00</span></li><li class="price-item"><span class="item-name">2 folhas</span><span class="item-price">R$ 32,00</span></li><li class="price-item"><span class="item-name">3 folhas</span><span class="item-price">R$ 45,00</span></li><li class="price-item"><span class="item-name">4 a 10 folhas (cada)</span><span class="item-price">R$ 12,00</span></li><li class="price-item"><span class="item-name">10 em diante (cada)</span><span class="item-price">R$ 10,50</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>🎂 Topper de bolo</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Arte pronta (pegar intern)</span><span class="item-price">R$ 10,00</span></li><li class="price-item"><span class="item-name">Arte nome/data</span><span class="item-price">R$ 13,00</span></li><li class="price-item"><span class="item-name">Criar arte</span><span class="item-price">R$ 22,00</span></li></ul></div>
+    </div>
+
+    <!-- ========== 5. MATERIAIS GRÁFICOS ========= -->
+    <div class="section-title">📰 Materiais gráficos</div>
+    <div class="price-grid">
+        <div class="card"><div class="card-header"><h2>💳 Cartões de visita</h2></div><div class="two-col-table"><div class="two-col-item"><span>500 un. c/ arte</span><span class="value">R$ 174,00</span></div><div class="two-col-item"><span>1000 un. c/ arte</span><span class="value">R$ 234,00</span></div><div class="two-col-item"><span>500 un. s/ arte</span><span class="value">R$ 234,00</span></div><div class="two-col-item"><span>1000 un. s/ arte</span><span class="value">R$ 264,00</span></div><div class="two-col-item"><span>500 f/v c/ arte</span><span class="value">R$ 216,00</span></div><div class="two-col-item"><span>1000 f/v c/ arte</span><span class="value">R$ 280,00</span></div><div class="two-col-item"><span>500 f/v s/ arte</span><span class="value">R$ 260,00</span></div><div class="two-col-item"><span>1000 f/v s/ arte</span><span class="value">R$ 340,00</span></div></div></div>
+        <div class="card"><div class="card-header"><h2>📰 Panfletos</h2></div><div class="subcategory">14x20 só frente</div><div class="two-col-table"><div class="two-col-item"><span>1000</span><span class="value">R$ 590</span></div><div class="two-col-item"><span>2500</span><span class="value">R$ 870</span></div><div class="two-col-item"><span>5000</span><span class="value">R$ 1370</span></div></div><div class="subcategory">14x20 frente/verso</div><div class="two-col-table"><div class="two-col-item"><span>1000</span><span class="value">R$ 690</span></div><div class="two-col-item"><span>2500</span><span class="value">R$ 1010</span></div><div class="two-col-item"><span>5000</span><span class="value">R$ 1600</span></div></div><hr><div class="subcategory">10x14 só frente</div><div class="two-col-table"><div class="two-col-item"><span>1000</span><span class="value">R$ 316</span></div><div class="two-col-item"><span>2500</span><span class="value">R$ 450</span></div><div class="two-col-item"><span>5000</span><span class="value">R$ 720</span></div></div><div class="subcategory">10x14 frente/verso</div><div class="two-col-table"><div class="two-col-item"><span>1000</span><span class="value">R$ 345</span></div><div class="two-col-item"><span>2500</span><span class="value">R$ 580</span></div><div class="two-col-item"><span>5000</span><span class="value">R$ 810</span></div></div></div>
+    </div>
+
+    <!-- ========== 6. SERVIÇOS DIGITAIS ========= -->
+    <div class="section-title">💻 Serviços digitais e internet</div>
+    <div class="price-grid">
+        <div class="card"><div class="card-header"><h2>🌐 Consulta internet</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Sem impressão</span><span class="item-price">R$ 2,50</span></li><li class="price-item"><span class="item-name">Com impressão</span><span class="item-price">R$ 2,50 + impressão</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>📊 Consulta Serasa</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Já tem cadastro</span><span class="item-price">R$ 10,00</span></li><li class="price-item"><span class="item-name">Fazer acordo</span><span class="item-price">R$ 15,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>📧 Criação de contas</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Gov.br</span><span class="item-price">R$ 8,00</span></li><li class="price-item"><span class="item-name">E-mail</span><span class="item-price">R$ 9,50</span></li><li class="price-item"><span class="item-name">Recuperação de conta</span><span class="item-price">R$ 7,50</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>📝 Inscrições</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Concursos</span><span class="item-price">R$ 15,00</span></li><li class="price-item"><span class="item-name">Emprego</span><span class="item-price">R$ 12,00</span></li></ul></div>
+        <div class="card"><div class="card-header"><h2>💿 Gravação CD/DVD</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">1 (nosso CD)</span><span class="item-price">R$ 13,00</span></li><li class="price-item"><span class="item-name">1 (CD do cliente)</span><span class="item-price">R$ 8,50</span></li><li class="price-item"><span class="item-name">2+ (nosso CD, cada)</span><span class="item-price">R$ 10,00</span></li><li class="price-item"><span class="item-name">2+ (CD cliente, cada)</span><span class="item-price">R$ 6,50</span></li></ul><div class="note">⏱️ Mais de 2 CDs podem não ser feitos na hora</div></div>
+        <div class="card"><div class="card-header"><h2>📱 Reparo celular</h2></div><ul class="price-list"><li class="price-item"><span class="item-name">Remoção de vírus</span><span class="item-price">R$ 30,00</span></li><li class="price-item"><span class="item-name">Backup e restauração</span><span class="item-price">R$ 60,00</span></li><li class="price-item"><span class="item-name">Transferência de arquivos</span><span class="item-price">R$ 40,00</span></li></ul></div>
+    </div>
+
+    <!-- ADSENSE MEIO / RODAPÉ -->
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6101697624775208"
+             data-ad-slot="7644820389"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- RODAPÉ COM LINKS DO GITHUB (conforme solicitado) -->
+    <div class="footer-links">
+        <div class="footer-title">🔗 Nossos repositórios e ferramentas online</div>
+        <div class="links-grid">
+            <a href="https://github.com/ecs-impressoes/convertepdf" target="_blank" rel="noopener">📄 convertepdf</a>
+            <a href="https://github.com/ecs-impressoes/apostilasrapidas" target="_blank" rel="noopener">📚 apostilasrápidas</a>
+            <a href="https://github.com/ecs-impressoes/Tabela-ecs-impressoes-2026" target="_blank" rel="noopener">📊 Tabela-ECS-2026</a>
+            <a href="https://github.com/ecs-impressoes/etiquetas-personalizada" target="_blank" rel="noopener">🏷️ etiquetas-personalizada</a>
+            <a href="https://github.com/ecs-impressoes/ecs-impressoes" target="_blank" rel="noopener">🖨️ ecs-impressões</a>
+            <a href="https://github.com/ecs-impressoes/-Gerador-de-Etiquetas-2026" target="_blank" rel="noopener">✨ Gerador-Etiquetas-2026</a>
+            <a href="https://github.com/ecs-impressoes/servios_online" target="_blank" rel="noopener">🌐 serviços_online</a>
+            <a href="https://github.com/ecs-impressoes/polaroid" target="_blank" rel="noopener">📸 polaroid</a>
+            <a href="https://github.com/ecs-impressoes/frente" target="_blank" rel="noopener">📁 frente</a>
+        </div>
+        <div class="copyright">
+            Tabela válida para 2026 • Preços sujeitos a alteração • Atendimento presencial • ECS Impressões
+        </div>
+    </div>
+</div>
+
+<!-- script adicional para eventuais refresh ads (segurança) -->
+<script>
+    // Força push caso algum anúncio não carregue dinamicamente (não obrigatório)
+    if(typeof adsbygoogle !== 'undefined') {
+        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    }
+</script>
+</body>
+</html>
